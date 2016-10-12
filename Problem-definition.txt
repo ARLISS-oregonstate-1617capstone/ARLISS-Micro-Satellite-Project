@@ -1,1 +1,9 @@
 Problem definition
+
+Project abstract, with a concise introduction to the problem you are trying to solve and your proposed solution.
+
+Problem definition, with a description of the problem you are trying to solve.
+
+Proposed solution: What is your solution going to be able to do? How does this meet the needs of the problem? What do you think you will show at Expo? Exact details not necessary, but you should have a high level view of what will be presented.
+
+Performance metrics: How will you measure whether or not your solution meets your defined needs and functions well?
