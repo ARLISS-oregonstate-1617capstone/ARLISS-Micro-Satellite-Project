@@ -5,7 +5,7 @@ Problem definition
 
 Project abstract, with a concise introduction to the problem you are trying to solve and your proposed solution.
 
-Problem definition, with a description of the problem you are trying to solve.
+Problem definition: The problem we are tasked with completing is once the satellite has been deployed from the rocket and landed safely back on the ground, we must deploy software that will allow the satellite to autonomously travel to a nearby GPS beacon. Challenges we face include not knowing what hardware we will actually be working with until it has been developed by the mechanical and electrical engineers that we are working with.
 
 Proposed solution: What is your solution going to be able to do? How does this meet the needs of the problem? What do you think you will show at Expo? Exact details not necessary, but you should have a high level view of what will be presented.
 
