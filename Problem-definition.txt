@@ -1,1 +1,1 @@
-Problem definition
+The problem we are tasked with completing is once the satellite has been deployed from the rocket and landed safely back on the ground, we must deploy software that will allow the satellite to autonomously travel to a nearby GPS beacon. Challenges we face include not knowing what hardware we will actually be working with until it has been developed by the mechanical and electrical engineers that we are working with.
