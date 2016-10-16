@@ -1,0 +1,56 @@
+\documentclass[10pt,onecolumn,draftclsnofoot,journal]{IEEEtran}
+
+\usepackage[letterpaper, margin=.75in]{geometry}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{1.0}
+
+\title{The ARLISS Project \\
+	\large CS Senior Capstone}
+\author{Steven Silvers, Zhaolong Wu, Paul Minner, Zachary DeVita}
+\date{\today}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	 Title Page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{gobble} 
+
+\markboth{Oregon State University \textbf{ Fall Term } October 12, 2016}%
+{Shell \MakeLowercase{\textit{et al.}}}
+
+\maketitle
+
+\begin{abstract}
+\noindent Oregon State University’s contribution to the ARLISS Project was a collective effort of several engineering disciplines to safely land a soda-can sized “satellite”, which had been ejected from a rocket at an altitude of 12,000’ AGL, and then have it autonomously navigate to a specified set of coordinates. One of the primary objectives of this project was for the satellite to gather data during its expedition, and then, of course, return safely to its destination. This type of technology could potentially be utilized as a means for data collection and exploration of alternate planets. The autonomous driving was accomplished using GPS, and a system of radar and cameras to detect dynamic conditions and avoid obstacles in the satellite’s path.
+\end{abstract}
+
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	 Main Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+
+\section*{\textbf{Problem Definition}}
+\noindent The problem we are tasked with completing is to get this satellite returned safely to a specific set of coordinates after it has left the rocket. Software must be developed which will allow the satellite to separate from its parachute after it reaches the ground. The software then must autonomously navigate the satellite to a nearby GPS beacon. Challenges we face include not knowing what hardware we will actually be working with until it has been developed by the mechanical and electrical engineers that we are working with. Another challenge will be weather. With the satellite being the size of a soda can, a strong wind could easily add 5 to 10 miles to the satellite’s trek.
+
+\section*{\textbf{Proposed Solution}}
+\noindent This software will utilize a combination of GPS coordinates and an obstacle avoidance system. Sensors will be attached to the satellite, which the software will then use to analyze its surroundings in a dynamically changing environment. The software will include algorithms for operating the various sensors on the satellite in order to get an effective analysis for the topography of the ground in its path.
+\par\vspace{3mm} 
+\noindent The satellite will be navigating across a dry lake bed, so obstacles will consist primarily of cracks in the ground, and tire tracks. Both of these obstacles pose a significant threat to the success of the expedition, and could lead to the satellite getting stuck. Avoiding these obstacles by finding alternate routes around them is the most crucial aspect of the software. A GPS will be used to determine a general direction to travel, but the obstacle avoidance system will determine detour routes around potential obstacles. Additionally, if the obstacle avoidance system fails and the rover does get stuck, the software should attempt to free the rover from whatever is impeding its progress. 
+\par\vspace{3mm}
+\noindent As for the secondary objective, the satellite will be gathering atmospheric data during its descent to Earth’s surface. To do this, we will write software which takes periodic measurements from various sensors, such as a temperature and barometric data, which the satellite will then transmit to the team in real-time. This data will be collected and displayed to the team it in real time via a graph or some similar graphical user interface. 
+\par\vspace{3mm}
+\noindent At Expo we will demonstrate our rover's path finding abilities by creating an obstacle course for it to navigate. We will also include a simulation of the data that might have been collected while airborne, and then use this data to show graphical user interface while it is running in real-time.
+
+\section*{\textbf{Performance Metrics}}
+\noindent
+
+
+
+\end{document}
