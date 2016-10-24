@@ -1,9 +1,0 @@
-Performance metrics: How will you measure whether or not your solution meets your defined needs and functions well?
-
-A project without performance metrics is easier to go off its trajectory, being able to setup the performance metrics upfront is one of the key points of a successful project. In this ARLISS Micro Satellites project, there are a couple hard requirements that dictates how this project is going to be delivered, which essentially challenges all of us, the Mechanical, Electrical and Computer Science teams have to work together to conquer those problems.
-The 350 grams, soda can sized rover will likely yield the selection of its electronic devices. Because of these constrains, the team will need to design an operating system for the rover that performs the following requirements:
-A desired data transmission protocol(s) that reliable enough to handle large amount of data throughout the entire process, from the deployment (12000’ AGL) until its arrival at the target. The team will evaluate this from the data transmission rate, processing rate, data integrity, anti-jamming, etc.
-An efficient autonomous navigation system that leads the rover to the GPS beacon, including the unexpected event(s) handling ability. The team will evaluate this from its trajectory during the test.
-Cost-efficiency, an optimized operating system that consume less energy in order to last longer and perform better. The team will evaluate this by using some existing tools such as System Power Optimization Tool(SPOT).
-Last but not least, every project has its chance of end up being a failure. The ARLISS Oregon State Computer Science Team is responsible on assessing the performance metrics with the requirements, if possible, do the comparisons with the successful ARLISS projects from previous years. The team will do the best to make the rover more tolerated and meet the client’s expectation. 
-
