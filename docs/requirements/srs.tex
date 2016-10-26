@@ -1,0 +1,191 @@
+%\documentclass[10pt,onecolumn,draftclsnofoot,journal]{IEEEtran}
+%\usepackage[letterpaper, margin=.75in]{geometry}
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%\renewcommand{\familydefault}{\sfdefault}
+%\linespread{1.0}
+
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Jean-Philippe Eisenbarth},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+\def\myversion{1.0 }
+\date{}
+%\title{%
+
+%}
+\usepackage{hyperref}
+\begin{document}
+\pagenumbering{gobble} 
+
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
+        \vspace{1.9cm}
+        for\\
+        \vspace{1.9cm}
+        The ARLISS Project\\
+        \vspace{1.5cm}
+        \LARGE{Version \myversion}\\
+        \vspace{1.9cm}
+        	Steven Silvers\\
+	Paul Minner\\
+        	Zhaolong Wu\\
+	Zachary DeVita\\
+        \vspace{1.9cm}
+        Oregon State University\\
+        
+        \today\\
+	\vspace{1.9cm}
+    \end{bfseries}
+\end{flushright}
+
+\tableofcontents
+\pagenumbering{arabic}
+
+\chapter*{Revision History}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+	    Name & Date & Reason For Changes & Version\\
+        \hline
+	    21 & 22 & 23 & 24\\
+        \hline
+	    31 & 32 & 33 & 34\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\chapter{Introduction}
+
+\section{Purpose}
+The purpose of this document is to provide a thorough and verbose description of our teams software which we will be developing for use in the ARLISS International Competition; the acronym ARLISS referring to ‘A Rocket Launch for International Student Satellites’. The document will explain the purpose and features of the system, as well as, objective of the system, and the constraints under which it must operate. This document is intended for any stakeholders in the project, i.e. clients, instructors, and engineering collaborators, as well as, for the software developers who will be creating the system.
+
+\section{Document Conventions}
+This document follows IEEE Format. Bold-faced text has been used to emphasize section and sub-section headings. Highlighting is to point out words in the glossary and italicized text is used to label and recognize diagrams. Requirements will be prioritized into two categories; High-level requirements will be denoted with a heading of ‘Obligatory Requirements’, while stretch-goals will be denoted with a heading of ‘Secondary Requirements’.
+
+\section{Intended Audience and Reading Suggestions}
+This document is to be read by the software development team, the extended team of engineers who will be collaborating on this project, course instructors, and the client for the project. The document will be publicly accessible as well, and may be read by anyone viewing our exhibit. The document can, and will, be read by our peers in software development, as well as, engineers of all disciplines. 
+
+Overall Description – The general public, as well as, the media may find the overall description to be most pertinent, and to give an adequate and effective overview of the ARLISS Project.
+
+System Features – Developers, as well as, the extended team of engineers who are collaborating on this project will require a comprehensive understanding of the system features in order to integrate their design, and, additionally, for testing purposes.
+
+Nonfunctional/Functional Requirements – The computer scientists developing the software, and the electrical and mechanical engineers developing the hardware will need to utilize, and adhere to, the requirements.
+
+\section{Project Scope}
+Our team of computer scientists will be developing software to operate an autonomously navigated satellite to a specified set of coordinates during the international competition. Our team’s satellite will be ejected from a rocket at approximately 12,000’ AGL, and fall safely to the surface of Earth with the aid of a parachute. During the estimated 15 minute “hang time” that the rocket spends in the air, there will be barometric reading taken every 1000ft by the satellite. Once the satellite reaches the ground it must detach from the parachute and circumvent any potential restraint created by the canopy or suspension lines of the parachute. Once moving, the autonomous satellite must utilize its system of cameras and radar to detect obstacles so that it may navigate around them. GPS will be necessary for the satellite to find the coordinates.
+
+The most imperative objective of the software is to safely guide the satellite to its intended destination. This is a requisite, but the secondary objective of taking barometric readings is an additional goal which our group is confident in completing.
+
+
+\section{References}
+
+
+
+\chapter{Overall Description}
+
+\section{Product Perspective}
+
+
+\section{Product Functions}
+
+
+\section{User Classes and Characteristics}
+
+
+\section{Operating Environment}
+
+
+\section{Design and Implementation Constraints}
+
+
+\section{User Documentation}
+
+
+\section{Assumptions and Dependencies}
+
+
+
+
+\chapter{External Interface Requirements}
+
+\section{User Interfaces}
+
+
+\section{Hardware Interfaces}
+
+
+\section{Software Interfaces}
+
+
+\section{Communications Interfaces}
+
+
+
+\chapter{System Features}
+
+
+\section{System Feature 1}
+
+
+\subsection{Description and Priority}
+
+
+\subsection{Stimulus/Response Sequences}
+
+
+\subsection{Functional Requirements}
+
+
+
+\section{System Feature 2 (and so on)}
+
+
+\chapter{Other Nonfunctional Requirements}
+
+\section{Performance Requirements}
+
+
+\section{Safety Requirements}
+
+
+\section{Security Requirements}
+
+
+\section{Software Quality Attributes}
+
+
+\section{Business Rules}
+
+
+
+\chapter{Other Requirements}
+
+
+\section{Appendix A: Glossary}
+
+
+\section{Appendix B: Analysis Models}
+
+
+\section{Appendix C: To Be Determined List}
+
+
+\end{document}
