@@ -142,10 +142,11 @@ The most imperative objective of the software is to safely guide the satellite t
 \chapter{System Features}
 
 
-\section{System Feature 1}
+\section{Parachute Deployment}
 
 
 \subsection{Description and Priority}
+This system will need to detect when the satellite has been deployed from the rocket and activate the parachute module to carry the CanSat safely to the ground.
 
 
 \subsection{Stimulus/Response Sequences}
@@ -155,7 +156,49 @@ The most imperative objective of the software is to safely guide the satellite t
 
 
 
-\section{System Feature 2 (and so on)}
+\section{Change to Drive Mode}
+
+\subsection{Description and Priority}
+This system will need to get the rover ready to drive once it has landed on the ground. This could involve activating various servos within the CanSat to expand the rover from the payload container.
+
+
+\subsection{Stimulus/Response Sequences}
+
+
+\subsection{Functional Requirements}
+
+\section{Sensor and Motor Array Initialization}
+
+\subsection{Description and Priority}
+	The driving sensors and motors made need first time initialization before it can begin driving. This would include locking on to the target GPS coordinates, and preparing any sensors needed for the obstacle avoidance system.
+
+
+\subsection{Stimulus/Response Sequences}
+
+
+\subsection{Functional Requirements}
+
+\section{Obstacle Avoidance System}
+
+\subsection{Description and Priority}
+	Once the rover is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the rover lands and the target location such as rocks that will need to be avoided by our rover. This system will take input from the rover's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
+
+
+\subsection{Stimulus/Response Sequences}
+
+
+\subsection{Functional Requirements}
+
+\section{System Feature 5 (and so on)}
+
+\subsection{Description and Priority}
+
+
+
+\subsection{Stimulus/Response Sequences}
+
+
+\subsection{Functional Requirements}
 
 
 \chapter{Other Nonfunctional Requirements}
