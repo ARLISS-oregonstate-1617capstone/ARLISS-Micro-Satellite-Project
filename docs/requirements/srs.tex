@@ -148,49 +148,51 @@ Since the satellite is being designed at the same time as the software which run
 
 
 \subsection{Description and Priority}
-This system will need to detect when the satellite has been deployed from the rocket and activate the parachute module to carry the CanSat safely to the ground.
+This system will detect when the satellite has been deployed from the rocket and activate the parachute module to carry the CanSat safely to the ground.
 
 
 \subsection{Stimulus/Response Sequences}
 This  subsystem will respond to being released from the rocket, after-which it will deploy the parachute module.
 
 \subsection{Functional Requirements}
-Activate the on-board parachute.
+This system just needs to activate the on-board parachute.
 
 
 \section{Change to Drive Mode}
 
 \subsection{Description and Priority}
-This system will need to get the rover ready to drive once it has landed on the ground. This could involve activating various servos within the CanSat to expand the rover from the payload container.
+This system will need to get the rover ready to drive once it has landed on the ground. This involves activating various servos within the CanSat to expand the rover from the payload container. In addition, the can shaped fairing will be shed from the rover. 
 
 
 \subsection{Stimulus/Response Sequences}
-Once the CanSat has determined that it has landed on the ground, it will then activate this function.
+Once the CanSat's sensors have determined that it has landed on the ground, the software will then activate this module.
 
 \subsection{Functional Requirements}
-Get the rover out of the soda can container.
+This system needs to get the rover out of the soda can container and expand the rover's treads to the ground so that it is ready to start moving.
+
 \section{Sensor and Motor Array Initialization}
 
 \subsection{Description and Priority}
-	The driving sensors and motors made need first time initialization before it can begin driving. This would include locking on to the target GPS coordinates, and preparing any sensors needed for the obstacle avoidance system.
+The driving sensors and motors need first time initialization before it can begin driving. This would include locking on to the target GPS coordinates, and preparing the sensors needed for the obstacle avoidance system.
 
 
 \subsection{Stimulus/Response Sequences}
-Once the rover is free from the delivery container this process will begin.
+This process will begin the moment that the previous drive mode system completes its task. 
 
 \subsection{Functional Requirements}
-Get the rover ready for its mission.
+The GPS location needs to be determined, and the sensors which will be used for the obstacle avoidance system need to be initialized. 
+
 \section{Obstacle Avoidance System}
 
 \subsection{Description and Priority}
-	Once the rover is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the rover lands and the target location such as rocks that will need to be avoided by our rover. This system will take input from the rover's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
+Once the rover is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the rover lands and the target location such as rocks and tire tracks that will need to be avoided by our rover. This system will take input from the rover's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
 
 
 \subsection{Stimulus/Response Sequences}
-When all on-board systems for the rover are ready, this system will begin running.
+As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the rover towards the target GPS location, unless it it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
 
 \subsection{Functional Requirements}
-Drive the rover to the target GPS coordinates while avoiding any obstacles that may appear.
+Drive the rover to the target GPS coordinates while avoiding any obstacles that impede the rover's progress.
 \section{System Feature 5 (and so on)}
 
 \subsection{Description and Priority}
