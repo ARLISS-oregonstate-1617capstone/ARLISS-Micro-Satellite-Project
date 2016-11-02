@@ -206,19 +206,19 @@ Drive the rover to the target GPS coordinates while avoiding any obstacles that 
 \chapter{Other Nonfunctional Requirements}
 
 \section{Performance Requirements}
-
+The speed at which this software reacts is of crucial importance for the obstacle avoidance system. If the software doesn't react to it's surroundings fast enough, the rover will hit obstacles before it has a chance to avoid them. Therefore, the software must be able to react to obstacles faster than the rover can move. 
 
 \section{Safety Requirements}
-
+This software is entirely safe. The rover is unable to do any kind of damage to any person or object in it's vicinity.
 
 \section{Security Requirements}
-
+Security is not a concern for this software. The rover on which this software is running will only be deployed once, and the software itself is very specific for a single task. 
 
 \section{Software Quality Attributes}
-
+This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual rover in environments like where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the rover tests will ensure the software can detect real obstacles using the provided sensors on the rover. x 
 
 \section{Business Rules}
-
+Each system in the software acts independently from the other systems. The parachute deployment system must activate first, followed by the drive mode, sensor and motor array initialization, and obstacle avoidance system. Each system has a specific task to perform, then it ends and a new system begins.
 
 
 \chapter{Other Requirements}
