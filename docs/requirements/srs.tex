@@ -1,187 +1,134 @@
-\documentclass[10pt,onecolumn,draftclsnofoot,document]{IEEEtran}
-
-\usepackage[letterpaper, margin=.75in]{geometry}
+%\documentclass[10pt,onecolumn,draftclsnofoot,journal]{IEEEtran}
+%\usepackage[letterpaper, margin=.75in]{geometry}
+\documentclass{scrreprt}
 \usepackage{listings}
 \usepackage{underscore}
-\usepackage[bookmarks=true,hidelinks]{hyperref}
-\newcommand{\subparagraph}{}
-\usepackage[explicit]{titlesec}
+\usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{pgfgantt}
+\usepackage{geometry} % to change margins
+\usepackage{pdflscape} % provides the landscape environment
+\usepackage{ragged2e} % provides \RaggedLeft
 
-\addto\captionsenglish{
-  	\renewcommand{\contentsname}{Table of Contents}
-	\renewcommand\thesection{\arabic{section}}
-	\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-	\renewcommand\thesubsubsection{\alph{subsubsection}.}
-}
-
-\titleformat{\section}
- 	{\normalsize\bfseries}{\arabic{section}.}{1em}{\MakeUppercase {#1}}
-\titleformat{\subsection}
-	{\normalsize\bfseries}{\thesection.\arabic{subsection}}{1em}{#1}
-\titleformat{\subsubsection}
-	{\normalsize\bfseries\itshape}{\alph{subsubsection}.}{1em}{#1}
+%\renewcommand{\familydefault}{\sfdefault}
+%\linespread{1.0}
 
 \hypersetup{
-	bookmarks=true,    
-   	pdftitle={Software Requirement Specification},    
-    	pdfsubject={The ARLISS Project requirement specifications},                        
-    	pdfkeywords={features, description, introduction, interfaces, hardware, purpose, scope, conventions, documentation, 			feature, requirements, safety, software, appendix, glossary, models, analysis, environment, references, audience, 				constraints, communication}, 
-    	colorlinks=false          
-}
-\setlength\parindent{0pt}
-\renewcommand{\familydefault}{\sfdefault}
-\linespread{1.0}
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Software Requirement Specification},    % title
+    pdfauthor={Jean-Philippe Eisenbarth},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX, graphics, images}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}%
+\def\myversion{1.0 }
+\date{}
+%\title{%
 
-\newenvironment{hangingpar}[1]
-{\begin{list}
-          {}{
-		\setlength{\itemindent}{-#1}
-           	\setlength{\leftmargin}{#1}
-           	\setlength{\itemsep}{0pt}
-           	\setlength{\parsep}{\parskip}
-           	\setlength{\topsep}{\parskip}
-           }
-    	\setlength{\parindent}{-#1}%%
-    	\item[]
-}
-{\end{list}}
-
-\newcommand{\namesigdate}[2][8cm]{
-  	\begin{tabular}{@{}p{#1}@{}}
-    		#2 \\[3\normalbaselineskip] \hrule \\[0pt]
-    		{\small \textit{Signature}} 
-		\\[2\normalbaselineskip] \hrule \\[0pt]
-    		{\small \textit{Date}}
-  	\end{tabular}
-}
-
-
+%}
+\usepackage{hyperref}
 \begin{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	 Title Page
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagenumbering{gobble} 
 
-
-\def\myversion{1.0 }
-
 \begin{flushright}
-    	\rule{16cm}{5pt}\vskip1cm
-    	\begin{bfseries}
-        		\Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
-        		\vspace{1.9cm}
-        			for\\
-        		\vspace{1.9cm}
-        			The ARLISS Project\\
-        		\vspace{1.9cm}
-        		\LARGE{Version \myversion}\\
-        		\vspace{1.9cm}
-        			Steven Silvers\\
-			Paul Minner\\
-        			Zhaolong Wu\\
-			Zachary DeVita\\
-        		\vspace{2.5cm}
-        			Oregon State University\\
-        			November 2, 2016\\
-		\vspace{1.9cm}
-    	\end{bfseries}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
+        \vspace{1.9cm}
+        for\\
+        \vspace{1.9cm}
+        The ARLISS Project\\
+        \vspace{1.5cm}
+        \LARGE{Capstone Group 27}\\
+        
+        \LARGE{Version \myversion}\\
+        \vspace{1.7cm}
+        	Steven Silvers\\
+	Paul Minner\\
+        	Zhaolong Wu\\
+	Zachary DeVita\\
+        \vspace{1.5cm}
+        Oregon State University\\
+        
+        \today\\
+	\vspace{1.9cm}
+    \end{bfseries}
 \end{flushright}
-\clearpage
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	 Table of Contents
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{tocdepth}{3}
-
 
 \tableofcontents
-
-
-
-
-
-\clearpage
-
 \pagenumbering{arabic}
 
-\section*{\hfill Revision History\hfill}
+\chapter*{Revision History}
+
 \begin{center}
-    	\begin{tabular}{|c|c|c|c|}
-        		\hline
-	    		Name & Date & Reason For Changes & Version\\
-        		\hline
-	    		Zachary DeVita & November 4, 2016 & Initial Version & 1.0\\
-        		\hline
-	    	%	Zachary DeVita & 32 & 33 & 34\\
-        		%\hline
-    	\end{tabular}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+	    Name & Date & Reason For Changes & Version\\
+        \hline
+	    21 & 22 & 23 & 24\\
+        \hline
+	    31 & 32 & 33 & 34\\
+        \hline
+    \end{tabular}
 \end{center}
 
-%\begin{abstract}
-% Oregon State University's contribution to the ARLISS Project is a collective effort of several engineering disciplines to %safely land a soda-can sized satellite, which had been ejected from a rocket at an altitude of 12,000 feet above ground level, and %then have it autonomously navigate to a specified set of coordinates. One of the primary objectives of this project is for the %satellite to gather data during its expedition, and then, of course, return safely to its destination. This type of technology could %potentially be utilized as a means for data collection and exploration of alternate planets. The autonomous driving is accomplished %using GPS, and a system of radar and cameras to detect dynamic conditions and avoid obstacles in the satellite's path.
-%\end{abstract}
+\chapter{Introduction}
 
-
-\clearpage
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%	 Main Document
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagenumbering{arabic}
-\section{Introduction}
-
-\subsection{Purpose}
+\section{Purpose}
 The purpose of this document is to provide a thorough and verbose description of our teams software which we will be developing for use in the ARLISS International Competition; the acronym ARLISS referring to ‘A Rocket Launch for International Student Satellites’. The document will explain the purpose and features of the system, as well as, objective of the system, and the constraints under which it must operate. This document is intended for any stakeholders in the project, i.e. clients, instructors, and engineering collaborators, as well as, for the software developers who will be creating the system.
 
-\subsection{Document Conventions}
-This document follows IEEE Format. Bold-faced text has been used to emphasize section and sub-section headings. Italicized text is used to label and recognize diagrams. Requirements will be prioritized into two categories; High-level requirements are those which are mandatory and will be specified throughout the document, while "stretch-goals" will be denoted with a heading of ‘Secondary Requirements’.
+\section{Document Conventions}
+This document follows IEEE Format. Bold-faced text has been used to emphasize section and sub-section headings. Highlighting is to point out words in the glossary and italicized text is used to label and recognize diagrams. Requirements will be prioritized into two categories; High-level requirements will be denoted with a heading of ‘Obligatory Requirements’, while stretch-goals will be denoted with a heading of ‘Secondary Requirements’.
 
-\subsection{Intended Audience \& Reading Suggestions}
-This document is to be read by the software development team, the extended team of engineers who will be collaborating on this project, course instructors, and the client for the project. The document will be publicly accessible as well, and may be read by anyone viewing our exhibit. The document can, and will, be read by our peers in software development, as well as, engineers of all disciplines.\\ 
-\begin{hangingpar}{3em}{}
- Overall Description – The general public, as well as, the media may find the overall description to be most pertinent, and to give an adequate and effective overview of the ARLISS Project.\\
-\par
- System Features – Developers, as well as, the extended team of engineers who are collaborating on this project will require a comprehensive understanding of the system features in order to integrate their design, and, additionally, for testing purposes.\\
-\par
- Nonfunctional/Functional Requirements – The computer scientists developing the software, and the electrical and mechanical engineers developing the hardware will need to utilize, and adhere to, the requirements.
-\end{hangingpar}
-\subsection{Project Scope}
+\section{Intended Audience and Reading Suggestions}
+This document is to be read by the software development team, the extended team of engineers who will be collaborating on this project, course instructors, and the client for the project. The document will be publicly accessible as well, and may be read by anyone viewing our exhibit. The document can, and will, be read by our peers in software development, as well as, engineers of all disciplines. 
+
+Overall Description – The general public, as well as, the media may find the overall description to be most pertinent, and to give an adequate and effective overview of the ARLISS Project.
+
+System Features – Developers, as well as, the extended team of engineers who are collaborating on this project will require a comprehensive understanding of the system features in order to integrate their design, and, additionally, for testing purposes.
+
+Nonfunctional/Functional Requirements – The computer scientists developing the software, and the electrical and mechanical engineers developing the hardware will need to utilize, and adhere to, the requirements.
+
+\section{Project Scope}
 Our team of computer scientists will be developing software to operate an autonomously navigated satellite to a specified set of coordinates during the international competition. Our team’s satellite will be ejected from a rocket at approximately 12,000’ AGL, and fall safely to the surface of Earth with the aid of a parachute. During the estimated 15 minute “hang time” that the rocket spends in the air, there will be barometric reading taken every 1000ft by the satellite. Once the satellite reaches the ground it must detach from the parachute and circumvent any potential restraint created by the canopy or suspension lines of the parachute. Once moving, the autonomous satellite must utilize its system of cameras and radar to detect obstacles so that it may navigate around them. GPS will be necessary for the satellite to find the coordinates.
-\\
+
 The most imperative objective of the software is to safely guide the satellite to its intended destination. This is a requisite, but the secondary objective of taking barometric readings is an additional goal which our group is confident in completing.
 
-%\subsection{References}
+
+\section{References}
 
 
 
-\section{Overall Description}
+\chapter{Overall Description}
 
-\subsection{Product Perspective}
+\section{Product Perspective}
 This is a new and entirely self contained product. The software is composed of multiple independent systems which will be used at different steps in the satellite's mission. For example, once the satellite has been deployed from the rocket, the parachute deployment system will be used. These systems will be deployed in a specific order, and the timing of the deployment will be based on various sensor readings determining if the time is right to deploy the next system. The only user interface would be the graphing software used to display barometric readings obtained by the satellite during it's descent. The software would interface with many hardware components, including cameras, thermometers, servos, and various sensors. These components will serve as the software's eyes and ears. Memory and power will be constrained, so the software must be as memory and power efficient as possible.
 
-\subsection{Product Functions}
-The software has four main functions, which it performs at each stage of the mission. Each function is described in greater detail in section 3. Parachute deployment, change to drive mode, sensor and motor array initialization, and obstacle avoidance.
+\section{Product Functions}
+The software has four main functions, which it performs at each stage of the mission. Each function is described in greater detail in section 3. Parachute deployment, change to drive mode, sensor and motor array initialization, and obstacle avoidance. 
 
-\subsection{User Classes \& Characteristics}
+\section{User Classes and Characteristics}
 The software as a whole is only useful in completing the specific challenges our specific satellite has to complete, although the individual parts of the software may be useful for other applications. Autonomous driving in particular is an upcoming field, so users who wish to create autonomous vehicles may find use from our obstacle avoidance system. Unfortunately, our obstacle avoidance system is designed specifically for navigating dry lake beds, so it's general use is limited. 
 
-\subsection{Operating Environment}
-Since the mission is being performed only once in a specific location, the software will be optimized to work best in those conditions. The mission takes place in Black Rock Nevada, in a dry lake bed. This means the navigation software needs to deal with rocks, cracks, and tire tracks, but not much elevation change. Therefore, the navigation software will only work properly in locations similar to Black Rock Nevada. The rest of the software functions could work correctly in other conditions, nonetheless.  
+\section{Operating Environment}
+Since the mission is being performed only once in a specific location, the software will be optimized to work best in those conditions. The mission takes place in Black Rock Nevada, in a dry lake bed. This means the navigation software needs to deal with rocks, cracks, and tire tracks, but not much elevation change. Therefore, the navigation software will only work properly in locations similar to Black Rock Nevada. The rest of the software functions could work correctly in other conditions, however. 
 
-\subsection{Design \& Implementation Constraints}
+\section{Design and Implementation Constraints}
 Space is a precious commodity on this satellite, therefore, the least amount of hardware possible will be fitted to it. This limits resources such as power, computation speed, and memory. This means the software will need to be implemented as simply and efficiently as possible while still being adequate to complete it's task. In addition, the autonomous navigation software must act quickly. If not, the satellite will get stuck, or hit an obstacle before the software can correct course to avoid it.
 
-\subsection{User Documentation}
+\section{User Documentation}
 There will be a manual included with the satellite in PDF format, which details what each function of the software does, as well as it's limitations. For example, in the Obstacle Avoidance section, the manual will list the types of obstacles the software recognizes and avoids. In addition, the code itself will be well commented, so that future developers can understand what it is doing.
 
-\subsection{Assumptions \& Dependencies}
-Since the satellite is being designed at the same time as the software which runs it, hardware specifics aren't known. We have a general idea of what the satellite should be when it's finished, but specifics such as the placement of sensors, or even which sensors will be included, isn't currently known. As the project progresses, more details will be revealed to us, and we should be able to adjust the software accordingly.
+\section{Assumptions and Dependencies}
+Since the satellite is being designed at the same time as the software which runs it, hardware specifics aren't known. We have a general idea of what the rover should be when it's finished, but specifics such as the placement of sensors, or even which sensors will be included, isn't currently known. As the project progresses, more details will be revealed to us, and we should be able to adjust the software accordingly.
 
-\section{External Interface Requirements}
+\chapter{External Interface Requirements}
 
 \section{User Interfaces}
 Because of the CanSat operates autonomously in such extreme condition(s), the team have made the decision on that the CanSat will not have a user interface at this time being, but it is possible to make a user interface in the future for the testing stage and during final competition. The team evaluated all possible solutions based on the project goals, such as being cost-effective, efficient and weight/space constraints to make the decision.\\
@@ -195,108 +142,153 @@ Due to the mechanical and electrical team are still under their early modeling a
 This CanSat will be implemented with object-oriented language(s). The team may have to design a special operating system for the CanSat, after that the team will create different classes to program the CanSat finds and goes to its target.
 
 \section{Communications Interfaces}
-A circuit board will perform most of the communications interfaces tasks in the CanSat. Communications interfaces will carry high level of intelligence and pre defined protocols in order to achieve the hardware and software parallelism. 
+A circuit board will perform most of the communications interfaces tasks in the CanSat. Communications interfaces will carry high level of intelligence and pre-defined protocols to achieve the hardware and software parallelism, to provide a secured platform for the CanSat to ensure its functionalities. 
 
-\section{System Features}
-\subsection{Parachute Deployment}
-\subsubsection{Description \& Priority}
+\chapter{System Features}
+
+
+\section{Parachute Deployment}
+
+
+\subsection{Description and Priority}
 This system will detect when the satellite has been deployed from the rocket and activate the parachute module to carry the CanSat safely to the ground.
 
-\subsubsection{Stimulus/Response Sequences}
+
+\subsection{Stimulus/Response Sequences}
 This  subsystem will respond to being released from the rocket, after-which it will deploy the parachute module.
 
-\subsubsection{Functional Requirements}
+\subsection{Functional Requirements}
 This system just needs to activate the on-board parachute.
 
-\subsection{Transfer Control to Drive Mode}
-\subsubsection{Description \& Priority}
-This system will need to get the satellite ready to drive once it has landed on the ground. This involves activating various servos within the CanSat to expand the satellite from the payload container. In addition, the can shaped fairing will be shed from the satellite.
 
-\subsubsection{Stimulus/Response Sequences}
+\section{Change to Drive Mode}
+
+\subsection{Description and Priority}
+This system will need to get the rover ready to drive once it has landed on the ground. This involves activating various servos within the CanSat to expand the rover from the payload container. In addition, the can shaped fairing will be shed from the rover. 
+
+
+\subsection{Stimulus/Response Sequences}
 Once the CanSat's sensors have determined that it has landed on the ground, the software will then activate this module.
 
-\subsubsection{Functional Requirements}
-This system needs to get the satellite out of the soda can container and expand the satellite's treads to the ground so that it is ready to start moving.
+\subsection{Functional Requirements}
+This system needs to get the rover out of the soda can container and expand the rover's treads to the ground so that it is ready to start moving.
 
-\subsection{Sensor \& Motor Array Initialization}
+\section{Sensor and Motor Array Initialization}
 
-\subsubsection{Description \& Priority}
+\subsection{Description and Priority}
 The driving sensors and motors need first time initialization before it can begin driving. This would include locking on to the target GPS coordinates, and preparing the sensors needed for the obstacle avoidance system.
 
-\subsubsection{Stimulus/Response Sequences}
+
+\subsection{Stimulus/Response Sequences}
 This process will begin the moment that the previous drive mode system completes its task. 
 
-\subsubsection{Functional Requirements}
+\subsection{Functional Requirements}
 The GPS location needs to be determined, and the sensors which will be used for the obstacle avoidance system need to be initialized. 
 
-\subsection{Obstacle Avoidance System}
+\section{Obstacle Avoidance System}
 
-\subsubsection{Description \& Priority}
-Once the satellite is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the satellite lands and the target location such as rocks and tire tracks that will need to be avoided by our satellite. This system will take input from the satellite's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
+\subsection{Description and Priority}
+Once the rover is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the rover lands and the target location such as rocks and tire tracks that will need to be avoided by our rover. This system will take input from the rover's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
 
-\subsubsection{Stimulus/Response Sequences}
-As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the satellite towards the target GPS location, unless it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
+
+\subsection{Stimulus/Response Sequences}
+As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the rover towards the target GPS location, unless it it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
 
 \subsection{Functional Requirements}
-Drive the satellite to the target GPS coordinates while avoiding any obstacles that impede the satellite's progress.
+Drive the rover to the target GPS coordinates while avoiding any obstacles that impede the rover's progress.
+\section{System Feature 5 (and so on)}
 
-\subsection{Performance Requirements}
-The speed at which this software reacts is of crucial importance for the obstacle avoidance system. If the software doesn't react to it's surroundings fast enough, the satellite will hit obstacles before it has a chance to avoid them. Therefore, the software must be able to react to obstacles faster than the satellite can move.
+\subsection{Description and Priority}
 
-\subsection{Safety Requirements}
-This software is entirely safe. The satellite is unable to do any kind of damage to any person or object in it's vicinity.
 
-\subsection{Security Requirements}
-Security is not a concern for this software. The satellite on which this software is running will only be deployed once, and the software itself is very specific for a single task.
 
-\subsection{Software Quality Attributes}
-This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual satellite in environments like where it will be deployed. The simulations will be used to ensure the software behaves as intended when faced with obstacles such as rocks and tire tracks, while the satellite tests will ensure the software can detect real obstacles using the provided sensors on the satellite.
+\subsection{Stimulus/Response Sequences}
 
-\subsection{Business Rules}
+
+\subsection{Functional Requirements}
+
+
+\chapter{Other Nonfunctional Requirements}
+
+\section{Performance Requirements}
+The speed at which this software reacts is of crucial importance for the obstacle avoidance system. If the software doesn't react to it's surroundings fast enough, the rover will hit obstacles before it has a chance to avoid them. Therefore, the software must be able to react to obstacles faster than the rover can move. 
+
+\section{Safety Requirements}
+This software is entirely safe. The rover is unable to do any kind of damage to any person or object in it's vicinity.
+
+\section{Security Requirements}
+Security is not a concern for this software. The rover on which this software is running will only be deployed once, and the software itself is very specific for a single task. 
+
+\section{Software Quality Attributes}
+This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual rover in environments like where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the rover tests will ensure the software can detect real obstacles using the provided sensors on the rover. x 
+
+\section{Business Rules}
 Each system in the software acts independently from the other systems. The parachute deployment system must activate first, followed by the drive mode, sensor and motor array initialization, and obstacle avoidance system. Each system has a specific task to perform, then it ends and a new system begins.
 
-\section{Secondary Requirements}
+
+\chapter{Other Requirements}
+\section{Stretch Goals}
 \subsection{Data Visualization}
 A stretch goal for this project would be to develop a system to visualize data sent back from the satellite to a remote control station. This would include data from the satellite's flight, as well as its trip across the desert.
 
+\section{Appendix A: Glossary}
+
+\subsection{AGL}
+Stands for "above ground level"
+
+\subsection{ARLISS}
+A collaborative effort between multiple institutions to build, launch, test and recover
+prototype satellites miniaturized to fit inside a soft drink can.
+
+\subsection{CanSat}
+Name given to the prototype satellites used in the ARLISS competition.
 
 
-\subsection{Appendix A: Glossary}
 
-\begin{hangingpar}{3em}{}
-\vspace{.7cm}
-AGL: \\ Stands for "above ground level."\\
-\par
-ARLISS:\\ A collaborative effort between multiple institutions to build, launch, test and recover prototype satellites miniaturized to fit inside a soft drink can.\\
-\par
-CanSat:\\ Name given to the prototype satellites used in the ARLISS competition.\\
+\section{Appendix B: Analysis Models}
 
 
-\end{hangingpar}
-\clearpage
+\section{Appendix C: To Be Determined List}
 
-%\subsection{Appendix B: Analysis Models}
-
-
-%\clearpage
-
-%\subsection{Appendix C: To Be Determined List}
-
-
-%\clearpage
-\pagenumbering{gobble}
-\vspace{1in}
-\noindent \namesigdate{\textbf{Steven Silvers}}
-\hfill
-\vspace{1in}
-\noindent \namesigdate{\textbf{Zhaolong Wu}}
-\\
-\vspace{1in}
-\noindent \namesigdate{\textbf{Paul Minner}}
-\hfill
-\vspace{1in}
-\noindent \namesigdate{\textbf{Zachary DeVita}}
-\\
-\noindent \namesigdate{\textbf{Nancy Squires}}
+\newgeometry{vmargin=1cm}
+\begin{landscape}
+	\thispagestyle{empty}\centering
+	\begin{ganttchart}[vgrid={draw=none,draw=none},%
+		y unit title=0.75cm,
+		y unit chart=0.6cm,
+		bar/.style={fill=black!50},
+		incomplete/.style={fill=white},
+		progress label text=  {\quad\pgfmathprintnumber[precision=0,verbatim]{#1}\%}%
+		]{1}{30}
+		\gantttitle{Week}{30}\\
+		\gantttitle{Fall 2016}{10}
+		\gantttitle{Winter2017}{10}
+		\gantttitle{Spring2017}{10}\\
+		\gantttitlelist{1,...,30}{1}\\
+		\ganttgroup{Total Duration}{1}{30} \\
+		%%%%%%%%%%%%%%%%%Fall2016
+		\ganttgroup{Fall 2016}{1}{10} \\
+		\ganttbar{Project Preference \& Client intereaction}{1}{2} \\
+		\ganttbar{Problem statement}{3}{4} \ganttnewline
+		\ganttbar{Requirement Document \& Modeling}{5}{6} \ganttnewline
+		\ganttbar{Research}{6}{10} \ganttnewline
+		\ganttbar{xx}{10}{12} \ganttnewline
+		%%%%%%%%%%%%%%%%%Winter2017
+		\ganttgroup{Winter 2017}{11}{20} \\
+		\ganttbar{xx}{10}{15} \\
+		\ganttbar{xx}{15}{16} \ganttnewline
+		\ganttbar{xx}{16}{18} \ganttnewline
+		\ganttbar{xx}{18}{20} \ganttnewline
+		\ganttbar{xx}{20}{21} \ganttnewline
+		\ganttbar{xx}{21}{24} \ganttnewline
+		%%%%%%%%%%%%%%%%%Spring2017
+		\ganttgroup{Spring 2017}{21}{30} \\
+		\ganttbar{xx}{24}{27} \\
+		\ganttbar{xx}{27}{30} \ganttnewline
+		\ganttbar{xx}{25}{30} \ganttnewline
+		\ganttbar{Engineering Expo!}{30}{30} \ganttnewline
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\end{ganttchart}
+\end{landscape}
 
 \end{document}
