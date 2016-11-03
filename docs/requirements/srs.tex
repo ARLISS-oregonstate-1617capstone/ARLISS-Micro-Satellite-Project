@@ -235,7 +235,7 @@ The GPS location needs to be determined, and the sensors which will be used for 
 Once the satellite is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the satellite lands and the target location such as rocks and tire tracks that will need to be avoided by our satellite. This system will take input from the satellite's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
 
 \subsubsection{Stimulus/Response Sequences}
-As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the satellite towards the target GPS location, unless it it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
+As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the satellite towards the target GPS location, unless it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
 
 \subsection{Functional Requirements}
 Drive the satellite to the target GPS coordinates while avoiding any obstacles that impede the satellite's progress.
@@ -250,7 +250,7 @@ This software is entirely safe. The satellite is unable to do any kind of damage
 Security is not a concern for this software. The satellite on which this software is running will only be deployed once, and the software itself is very specific for a single task.
 
 \subsection{Software Quality Attributes}
-This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual satellite in environments like where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the satellite tests will ensure the software can detect real obstacles using the provided sensors on the satellite.
+This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual satellite in environments like where it will be deployed. The simulations will be used to ensure the software behaves as intended when faced with obstacles such as rocks and tire tracks, while the satellite tests will ensure the software can detect real obstacles using the provided sensors on the satellite.
 
 \subsection{Business Rules}
 Each system in the software acts independently from the other systems. The parachute deployment system must activate first, followed by the drive mode, sensor and motor array initialization, and obstacle avoidance system. Each system has a specific task to perform, then it ends and a new system begins.
@@ -265,11 +265,11 @@ A stretch goal for this project would be to develop a system to visualize data s
 
 \begin{hangingpar}{3em}{}
 \vspace{.7cm}
-AGL:  Stands for "above ground level"\\
+AGL: \\ Stands for "above ground level."\\
 \par
-ARLISS: A collaborative effort between multiple institutions to build, launch, test and recover prototype satellites miniaturized to fit inside a soft drink can.\\
+ARLISS:\\ A collaborative effort between multiple institutions to build, launch, test and recover prototype satellites miniaturized to fit inside a soft drink can.\\
 \par
-CanSat: Name given to the prototype satellites used in the ARLISS competition.\\
+CanSat:\\ Name given to the prototype satellites used in the ARLISS competition.\\
 
 
 \end{hangingpar}
