@@ -121,7 +121,7 @@
 \end{center}
 
 %\begin{abstract}
-
+% Oregon State University's contribution to the ARLISS Project is a collective effort of several engineering disciplines to %safely land a soda-can sized satellite, which had been ejected from a rocket at an altitude of 12,000 feet above ground level, and %then have it autonomously navigate to a specified set of coordinates. One of the primary objectives of this project is for the %satellite to gather data during its expedition, and then, of course, return safely to its destination. This type of technology could %potentially be utilized as a means for data collection and exploration of alternate planets. The autonomous driving is accomplished %using GPS, and a system of radar and cameras to detect dynamic conditions and avoid obstacles in the satellite's path.
 %\end{abstract}
 
 
@@ -138,7 +138,7 @@
 The purpose of this document is to provide a thorough and verbose description of our teams software which we will be developing for use in the ARLISS International Competition; the acronym ARLISS referring to ‘A Rocket Launch for International Student Satellites’. The document will explain the purpose and features of the system, as well as, objective of the system, and the constraints under which it must operate. This document is intended for any stakeholders in the project, i.e. clients, instructors, and engineering collaborators, as well as, for the software developers who will be creating the system.
 
 \subsection{Document Conventions}
-This document follows IEEE Format. Bold-faced text has been used to emphasize section and sub-section headings. Highlighting is to point out words in the glossary and italicized text is used to label and recognize diagrams. Requirements will be prioritized into two categories; High-level requirements will be denoted with a heading of ‘Obligatory Requirements’, while stretch-goals will be denoted with a heading of ‘Secondary Requirements’.
+This document follows IEEE Format. Bold-faced text has been used to emphasize section and sub-section headings. Italicized text is used to label and recognize diagrams. Requirements will be prioritized into two categories; High-level requirements are those which are mandatory and will be specified throughout the document, while "stretch-goals" will be denoted with a heading of ‘Secondary Requirements’.
 
 \subsection{Intended Audience \& Reading Suggestions}
 This document is to be read by the software development team, the extended team of engineers who will be collaborating on this project, course instructors, and the client for the project. The document will be publicly accessible as well, and may be read by anyone viewing our exhibit. The document can, and will, be read by our peers in software development, as well as, engineers of all disciplines.\\ 
@@ -255,9 +255,8 @@ This software must be thoroughly tested to ensure it will be able to complete it
 \subsection{Business Rules}
 Each system in the software acts independently from the other systems. The parachute deployment system must activate first, followed by the drive mode, sensor and motor array initialization, and obstacle avoidance system. Each system has a specific task to perform, then it ends and a new system begins.
 
-\section{Other Requirements}
-\subsection{Stretch Goals}
-\subsubsection{Data Visualization}
+\section{Secondary Requirements}
+\subsection{Data Visualization}
 A stretch goal for this project would be to develop a system to visualize data sent back from the satellite to a remote control station. This would include data from the satellite's flight, as well as its trip across the desert.
 
 
