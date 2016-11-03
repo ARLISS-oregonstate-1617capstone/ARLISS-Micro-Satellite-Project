@@ -7,7 +7,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{pgfgantt}
-\usepackage{geometry} % to change margins
+\usepackage[margin=.75in]{geometry} % to change margins
 \usepackage{pdflscape} % provides the landscape environment
 \usepackage{ragged2e} % provides \RaggedLeft
 
@@ -71,10 +71,6 @@
         \hline
 	    Name & Date & Reason For Changes & Version\\
         \hline
-	    21 & 22 & 23 & 24\\
-        \hline
-	    31 & 32 & 33 & 34\\
-        \hline
     \end{tabular}
 \end{center}
 
@@ -99,11 +95,6 @@ Nonfunctional/Functional Requirements – The computer scientists developing the
 Our team of computer scientists will be developing software to operate an autonomously navigated satellite to a specified set of coordinates during the international competition. Our team’s satellite will be ejected from a rocket at approximately 12,000’ AGL, and fall safely to the surface of Earth with the aid of a parachute. During the estimated 15 minute “hang time” that the rocket spends in the air, there will be barometric reading taken every 1000ft by the satellite. Once the satellite reaches the ground it must detach from the parachute and circumvent any potential restraint created by the canopy or suspension lines of the parachute. Once moving, the autonomous satellite must utilize its system of cameras and radar to detect obstacles so that it may navigate around them. GPS will be necessary for the satellite to find the coordinates.
 
 The most imperative objective of the software is to safely guide the satellite to its intended destination. This is a requisite, but the secondary objective of taking barometric readings is an additional goal which our group is confident in completing.
-
-
-\section{References}
-
-
 
 \chapter{Overall Description}
 
@@ -131,18 +122,18 @@ Since the satellite is being designed at the same time as the software which run
 \chapter{External Interface Requirements}
 
 \section{User Interfaces}
-Because of the CanSat operates autonomously in such extreme condition(s), the team have made the decision on that the CanSat will not have a user interface at this time being, but it is possible to make a user interface in the future for the testing stage and during final competition. The team evaluated all possible solutions based on the project goals, such as being cost-effective, efficient and weight/space constraints to make the decision.\\
-A user-interface would be useful during the testing stage, a user interface displays the comprehensive live data that allows engineers to do quick analyze and have the full control of the CanSat. \\
-A user-interface would be a plus if we can have live data display during the final competition, although per the CanSat operates autonomously, it is unnecessary to have a user-interface and will add on another communication layer, due to the weight/space constraints, the team will evaluate the possibility of having a user-interface upon the completion date of the project.
+Because of the CanSat operates autonomously, the team has made the decision to not include a user-interface for the CanSat for the time being, but it is possible a user interface will be created in order to more easily test the rover. The team evaluated all possible solutions based on the project goals, such as being cost-effective, efficient and weight/space constraints to decide a user-interface wasn't necessary.\\
+A user-interface would, however, be useful during the testing stage. It could display the comprehensive live data that allows engineers to do quick analyze and have the full control of the CanSat. \\
+A user-interface would also be a plus if we can display live data from various sensors during the final competition. Although since the CanSat operates autonomously, it is unnecessary to have a user-interface and will add on another communication layer. Due to the weight/space constraints, the team will evaluate the possibility of having a user-interface upon the completion date of the project.
 
 \section{Hardware Interfaces}
-Due to the mechanical and electrical team are still under their early modeling and developing stages, we have not yet gotten any hardware specs, it is fairly straightforward to the team that there will be microprocessor(s), memory, buses, micro-controller(s), sensor(s), I/O device(s) and motor(s) involved. The hardware interfaces runs parallel with several electrical connections carrying parts of the data simultaneously.
+Due to the fact that the mechanical and electrical teams are still under their early modeling and developing stages, we have not yet gotten any hardware specs. It is fairly straightforward to the team that there will be microprocessor(s), memory, buses, micro-controller(s), sensor(s), I/O device(s) and motor(s) involved, we just don't know the specifics. The hardware interfaces run in parallel with several electrical connections carrying parts of the data simultaneously.
 
 \section{Software Interfaces}
-This CanSat will be implemented with object-oriented language(s). The team may have to design a special operating system for the CanSat, after that the team will create different classes to program the CanSat finds and goes to its target.
+This CanSat will be implemented in an object-oriented language. The team may have to design a custom operating system for the CanSat. Different classes will be created for each system of the software.
 
 \section{Communications Interfaces}
-A circuit board will perform most of the communications interfaces tasks in the CanSat. Communications interfaces will carry high level of intelligence and pre-defined protocols to achieve the hardware and software parallelism, to provide a secured platform for the CanSat to ensure its functionalities. 
+A circuit board will perform most of the communication between the software and hardware. Communications interfaces will carry high level of intelligence and pre-defined protocols to achieve the hardware and software parallelism, to provide a secured platform for the CanSat to ensure its functionalities. 
 
 \chapter{System Features}
 
@@ -196,17 +187,6 @@ As soon as the sensor and motor array initialization completes, this system will
 
 \subsection{Functional Requirements}
 Drive the rover to the target GPS coordinates while avoiding any obstacles that impede the rover's progress.
-\section{System Feature 5 (and so on)}
-
-\subsection{Description and Priority}
-
-
-
-\subsection{Stimulus/Response Sequences}
-
-
-\subsection{Functional Requirements}
-
 
 \chapter{Other Nonfunctional Requirements}
 
@@ -220,35 +200,46 @@ This software is entirely safe. The rover is unable to do any kind of damage to 
 Security is not a concern for this software. The rover on which this software is running will only be deployed once, and the software itself is very specific for a single task. 
 
 \section{Software Quality Attributes}
-This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual rover in environments like where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the rover tests will ensure the software can detect real obstacles using the provided sensors on the rover. x 
+This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual rover in environments similar to where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the rover tests will ensure the software can detect real obstacles using the provided sensors on the rover.
 
 \section{Business Rules}
 Each system in the software acts independently from the other systems. The parachute deployment system must activate first, followed by the drive mode, sensor and motor array initialization, and obstacle avoidance system. Each system has a specific task to perform, then it ends and a new system begins.
 
 
 \chapter{Other Requirements}
+
 \section{Stretch Goals}
+
 \subsection{Data Visualization}
 A stretch goal for this project would be to develop a system to visualize data sent back from the satellite to a remote control station. This would include data from the satellite's flight, as well as its trip across the desert.
 
 \section{Appendix A: Glossary}
 
 \subsection{AGL}
-Stands for "above ground level"
+Stands for "above ground level".
 
 \subsection{ARLISS}
-A collaborative effort between multiple institutions to build, launch, test and recover
-prototype satellites miniaturized to fit inside a soft drink can.
+A collaborative effort between multiple institutions to build, launch, test and recover prototype satellites miniaturized to fit inside a soft drink can.
+
+\subsection{Autonomous}
+Used to refer to the self-driving rover. The rover must navigate to a GPS destination without any human intervention.
 
 \subsection{CanSat}
-Name given to the prototype satellites used in the ARLISS competition.
+Name given to the prototype satellites used in the ARLISS competition. The words ``satelite'' and ``rover'' also are used to refer to the same object.
+
+\subsection{Destination}
+The location specified by the event organizers which the rover must navigate to after being launched from the rocket.
+
+\subsection{Obstacle}
+Any object which may impede the rover's progress to it's destination. This includes rocks, tire tracks, plants, and uneven terrain.
+
+\subsection{Rover}
+Referred to also as ``CanSat'' and ``Satellite''. This term is used when the object is on the ground.
+
+\subsection{Satellite}
+Refered to also as ``CanSat'' and ``Rover''. This term is used when the object is in the air.
 
 
-
-\section{Appendix B: Analysis Models}
-
-
-\section{Appendix C: To Be Determined List}
 
 \newgeometry{vmargin=1cm}
 \begin{landscape}
