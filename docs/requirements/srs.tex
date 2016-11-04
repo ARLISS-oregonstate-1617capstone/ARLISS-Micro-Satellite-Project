@@ -16,7 +16,7 @@
   	\renewcommand{\contentsname}{Table of Contents}
 	\renewcommand\thesection{\arabic{section}}
 	\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-	\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+	\renewcommand\thesubsubsection{\Alph{subsubsection}.}
 }
 
 \titleformat{\section}
@@ -24,7 +24,7 @@
 \titleformat{\subsection}
 	{\normalsize\bfseries}{\thesection.\arabic{subsection}}{1em}{#1}
 \titleformat{\subsubsection}
-	{\normalsize\bfseries\itshape}{\arabic{subsubsection}.}{1em}{#1}
+	{\normalsize\bfseries\itshape}{\Alph{subsubsection}.}{1em}{#1}
 
 \hypersetup{
 	bookmarks=true,    
