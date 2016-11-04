@@ -11,6 +11,14 @@
 \usepackage{pdflscape} % provides the landscape environment
 \usepackage{ragged2e} % provides \RaggedLeft
 
+\newcommand{\namesigdate}[2][6cm]{%
+	\begin{tabular}{@{}p{#1}@{}}
+		#2 \\[3\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Signature}} 
+		\\[2\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Date}}
+	\end{tabular}
+}
 %\renewcommand{\familydefault}{\sfdefault}
 %\linespread{1.0}
 
@@ -117,12 +125,12 @@ Space is a precious commodity on this satellite, therefore, the least amount of 
 There will be a manual included with the satellite in PDF format, which details what each function of the software does, as well as it's limitations. For example, in the Obstacle Avoidance section, the manual will list the types of obstacles the software recognizes and avoids. In addition, the code itself will be well commented, so that future developers can understand what it is doing.
 
 \section{Assumptions and Dependencies}
-Since the satellite is being designed at the same time as the software which runs it, hardware specifics aren't known. We have a general idea of what the rover should be when it's finished, but specifics such as the placement of sensors, or even which sensors will be included, isn't currently known. As the project progresses, more details will be revealed to us, and we should be able to adjust the software accordingly.
+Since the satellite is being designed at the same time as the software which runs it, hardware specifics aren't known. We have a general idea of what the satellite should be when it's finished, but specifics such as the placement of sensors, or even which sensors will be included, isn't currently known. As the project progresses, more details will be revealed to us, and we should be able to adjust the software accordingly.
 
 \chapter{External Interface Requirements}
 
 \section{User Interfaces}
-Because of the CanSat operates autonomously, the team has made the decision to not include a user-interface for the CanSat for the time being, but it is possible a user interface will be created in order to more easily test the rover. The team evaluated all possible solutions based on the project goals, such as being cost-effective, efficient and weight/space constraints to decide a user-interface wasn't necessary.\\
+Because of the CanSat operates autonomously, the team has made the decision to not include a user-interface for the CanSat for the time being, but it is possible a user interface will be created in order to more easily test the satellite. The team evaluated all possible solutions based on the project goals, such as being cost-effective, efficient and weight/space constraints to decide a user-interface wasn't necessary.\\
 A user-interface would, however, be useful during the testing stage. It could display the comprehensive live data that allows engineers to do quick analyze and have the full control of the CanSat. \\
 A user-interface would also be a plus if we can display live data from various sensors during the final competition. Although since the CanSat operates autonomously, it is unnecessary to have a user-interface and will add on another communication layer. Due to the weight/space constraints, the team will evaluate the possibility of having a user-interface upon the completion date of the project.
 
@@ -155,14 +163,14 @@ This system just needs to activate the on-board parachute.
 \section{Change to Drive Mode}
 
 \subsection{Description and Priority}
-This system will need to get the rover ready to drive once it has landed on the ground. This involves activating various servos within the CanSat to expand the rover from the payload container. In addition, the can shaped fairing will be shed from the rover. 
+This system will need to get the satellite ready to drive once it has landed on the ground. This involves activating various servos within the CanSat to expand the satellite from the payload container. In addition, the can shaped fairing will be shed from the satellite. 
 
 
 \subsection{Stimulus/Response Sequences}
 Once the CanSat's sensors have determined that it has landed on the ground, the software will then activate this module.
 
 \subsection{Functional Requirements}
-This system needs to get the rover out of the soda can container and expand the rover's treads to the ground so that it is ready to start moving.
+This system needs to get the satellite out of the soda can container and expand the satellite's treads to the ground so that it is ready to start moving.
 
 \section{Sensor and Motor Array Initialization}
 
@@ -179,28 +187,28 @@ The GPS location needs to be determined, and the sensors which will be used for 
 \section{Obstacle Avoidance System}
 
 \subsection{Description and Priority}
-Once the rover is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the rover lands and the target location such as rocks and tire tracks that will need to be avoided by our rover. This system will take input from the rover's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
+Once the satellite is locked on to the target GPS location, it will need to autonomously drive to the target location. This could be anywhere from less than a kilometer to fourteen kilometers depending on how the parachute is carried. There will be obstacles between where the satellite lands and the target location such as rocks and tire tracks that will need to be avoided by our satellite. This system will take input from the satellite's on-board sensors and use that data to control motor function so that the obstacles will be avoided.
 
 
 \subsection{Stimulus/Response Sequences}
-As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the rover towards the target GPS location, unless it it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
+As soon as the sensor and motor array initialization completes, this system will begin. The system will be driving the satellite towards the target GPS location, unless it it is responding to a sensor detecting an obstacle. These obstacles include rocks, tire tracks, and other impassable terrain. The software will respond to the obstacle by finding an alternate route avoiding that obstacle. 
 
 \subsection{Functional Requirements}
-Drive the rover to the target GPS coordinates while avoiding any obstacles that impede the rover's progress.
+Drive the satellite to the target GPS coordinates while avoiding any obstacles that impede the satellite's progress.
 
 \chapter{Other Nonfunctional Requirements}
 
 \section{Performance Requirements}
-The speed at which this software reacts is of crucial importance for the obstacle avoidance system. If the software doesn't react to it's surroundings fast enough, the rover will hit obstacles before it has a chance to avoid them. Therefore, the software must be able to react to obstacles faster than the rover can move. 
+The speed at which this software reacts is of crucial importance for the obstacle avoidance system. If the software doesn't react to it's surroundings fast enough, the satellite will hit obstacles before it has a chance to avoid them. Therefore, the software must be able to react to obstacles faster than the satellite can move. 
 
 \section{Safety Requirements}
-This software is entirely safe. The rover is unable to do any kind of damage to any person or object in it's vicinity.
+This software is entirely safe. The satellite is unable to do any kind of damage to any person or object in it's vicinity.
 
 \section{Security Requirements}
-Security is not a concern for this software. The rover on which this software is running will only be deployed once, and the software itself is very specific for a single task. 
+Security is not a concern for this software. The satellite on which this software is running will only be deployed once, and the software itself is very specific for a single task. 
 
 \section{Software Quality Attributes}
-This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual rover in environments similar to where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the rover tests will ensure the software can detect real obstacles using the provided sensors on the rover.
+This software must be thoroughly tested to ensure it will be able to complete it's task on the first try. Therefore, the software will be tested both by simulating the environment it will be running in, and using the actual satellite in environments similar to where it will be deployed. The simulations will be used to ensure the software behaves as inteded when faced with obstacles such as rocks and tire tracks, while the satellite tests will ensure the software can detect real obstacles using the provided sensors on the satellite.
 
 \section{Business Rules}
 Each system in the software acts independently from the other systems. The parachute deployment system must activate first, followed by the drive mode, sensor and motor array initialization, and obstacle avoidance system. Each system has a specific task to perform, then it ends and a new system begins.
@@ -222,22 +230,19 @@ Stands for "above ground level".
 A collaborative effort between multiple institutions to build, launch, test and recover prototype satellites miniaturized to fit inside a soft drink can.
 
 \subsection{Autonomous}
-Used to refer to the self-driving rover. The rover must navigate to a GPS destination without any human intervention.
+Used to refer to the self-driving satellite. The satellite must navigate to a GPS destination without any human intervention.
 
 \subsection{CanSat}
-Name given to the prototype satellites used in the ARLISS competition. The words ``satelite'' and ``rover'' also are used to refer to the same object.
+Name given to the prototype satellites used in the ARLISS competition. 
 
 \subsection{Destination}
-The location specified by the event organizers which the rover must navigate to after being launched from the rocket.
+The location specified by the event organizers which the satellite must navigate to after being launched from the rocket.
 
 \subsection{Obstacle}
-Any object which may impede the rover's progress to it's destination. This includes rocks, tire tracks, plants, and uneven terrain.
-
-\subsection{Rover}
-Referred to also as ``CanSat'' and ``Satellite''. This term is used when the object is on the ground.
+Any object which may impede the satellite's progress to it's destination. This includes rocks, tire tracks, plants, and uneven terrain.
 
 \subsection{Satellite}
-Refered to also as ``CanSat'' and ``Rover''. This term is used when the object is in the air.
+Referred to also as ``CanSat'' this is the physical device that our software system will be loaded on.
 
 
 
@@ -263,23 +268,38 @@ Refered to also as ``CanSat'' and ``Rover''. This term is used when the object i
 		\ganttbar{Problem statement}{3}{4} \ganttnewline
 		\ganttbar{Requirement Document \& Modeling}{5}{6} \ganttnewline
 		\ganttbar{Research}{6}{10} \ganttnewline
-		\ganttbar{xx}{10}{12} \ganttnewline
+		\ganttbar{Progress Report}{9}{10} \ganttnewline
 		%%%%%%%%%%%%%%%%%Winter2017
 		\ganttgroup{Winter 2017}{11}{20} \\
-		\ganttbar{xx}{10}{15} \\
-		\ganttbar{xx}{15}{16} \ganttnewline
-		\ganttbar{xx}{16}{18} \ganttnewline
-		\ganttbar{xx}{18}{20} \ganttnewline
-		\ganttbar{xx}{20}{21} \ganttnewline
-		\ganttbar{xx}{21}{24} \ganttnewline
+		\ganttbar{Obstacle Avoidance System}{11}{18} \\
+		\ganttbar{Sensor and Motor Initialization}{14}{15} \ganttnewline
+		\ganttbar{Change to Drive Mode}{15}{17} \ganttnewline
+		\ganttbar{Parachute Deployment}{16}{19} \ganttnewline
+		\ganttbar{Progress report}{18}{20} \ganttnewline
 		%%%%%%%%%%%%%%%%%Spring2017
 		\ganttgroup{Spring 2017}{21}{30} \\
-		\ganttbar{xx}{24}{27} \\
-		\ganttbar{xx}{27}{30} \ganttnewline
-		\ganttbar{xx}{25}{30} \ganttnewline
+		\ganttbar{1.0 Release}{21}{23} \\
+		\ganttbar{Stretch Goals}{23}{25} \ganttnewline
+		\ganttbar{Final Report}{25}{30} \ganttnewline
 		\ganttbar{Engineering Expo!}{30}{30} \ganttnewline
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\end{ganttchart}
 \end{landscape}
+\clearpage
+
+%\vfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Steven Silvers}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zhaolong Wu}}
+\\
+\vspace{1in}
+\noindent \namesigdate{\textbf{Paul Minner}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zachary DeVita}}
+\\
+\noindent \namesigdate{\textbf{Nancy Squires}}
 
 \end{document}
