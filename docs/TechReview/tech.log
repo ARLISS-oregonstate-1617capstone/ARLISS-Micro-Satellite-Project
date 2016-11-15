@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.10.16)  14 NOV 2016 17:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.10.16)  14 NOV 2016 18:09
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -402,14 +402,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip51
 ))
-(./tech.aux
-
-LaTeX Warning: Label `tab:table1' multiply defined.
-
-
-LaTeX Warning: Label `tab:table1' multiply defined.
-
-)
+(./tech.aux)
 \openout1 = `tech.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -545,10 +538,6 @@ Missing character: There is no ™ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 241.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 241.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -601,6 +590,10 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
  [11] (./tech.bbl
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 27.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 27.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
@@ -611,27 +604,23 @@ ov 2013. [On-line]. Avail-able:
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 385.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
  [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 385.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
  (./tech.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 385.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 385.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 384.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
 Package rerunfilecheck Info: File `tech.out' has not changed.
-(rerunfilecheck)             Checksum: 726664DF18F531252E66F513A5B798BB;5562.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 385.
+(rerunfilecheck)             Checksum: 5F5CEB8D356607481555FCD76D6347F1;5563.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
  ) 
 Here is how much of TeX's memory you used:
- 8136 strings out of 494954
- 124696 string characters out of 6181002
- 235266 words of memory out of 5000000
- 11375 multiletter control sequences out of 15000+600000
- 27825 words of font info for 62 fonts, out of 8000000 for 9000
+ 8131 strings out of 494954
+ 124640 string characters out of 6181002
+ 235130 words of memory out of 5000000
+ 11370 multiletter control sequences out of 15000+600000
+ 27179 words of font info for 61 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,8n,32p,1198b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,7n,32p,1198b,394s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on tech.dvi (13 pages, 145612 bytes).
+Output written on tech.dvi (13 pages, 144680 bytes).

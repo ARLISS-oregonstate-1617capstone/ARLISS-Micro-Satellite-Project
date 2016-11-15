@@ -94,4 +94,4 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {XIII-D}}Selection}{12}{subsection.13.4}
 \contentsline {section}{\numberline {XIV}Conclusion}{12}{section.14}
 \contentsline {section}{\numberline {XV}References}{12}{section.15}
-\contentsline {section}{References}{12}{section*.8}
+\contentsline {section}{References}{12}{section*.11}
