@@ -43,7 +43,6 @@ In this document there are twelve components of our team's software which have b
 	\item[Methods of Object Recognition]
 		By Zachary DeVita
 	\item[Switching Modes to Locate the Pole]
-<<<<<<< HEAD
 		Zachary DeVita
 	\item[Control Board]
 		Steven Silvers
@@ -51,27 +50,18 @@ In this document there are twelve components of our team's software which have b
 		Steven Silvers
 	\item[Mode of Transportation]
 		Steven Silvers
-=======
-		By Zachary DeVita
 	\item[Parachute Deployment]
 		Paul Minner
 	\item[Getting Unstuck from Obstacles]
 		Paul Minner
 	\item[Find and Touch the Finish Pole]
 		Paul Minner
->>>>>>> c6b8611587be82921505f574068746a2c7d400ad
-	\item[temp]
-		name
-	\item[temp]
-		name
-	\item[temp]
-		name
-	\item[temp]
-		name
-	\item[temp]
-		name
-	\item[temp]
-		name
+	\item[Navigating algorithms selection]
+		Zhaolong Wu
+	\item[How to get unstuck if the rover fell or landed sideways]
+		Zhaolong Wu
+	\item[Payload fairing]
+		Zhaolong Wu
 	
 \end{description}
 
@@ -322,56 +312,112 @@ We chose to go with the circular search pattern. We chose this solution because 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{temp}
+\section{Navigating algorithms selection}
 
 \subsection{Options}
-\subsubsection{temp}
+\begin{itemize}
+	\item Shortest path method: rover drives to the target pole directly based on the navigation module generated shortest path, without using any obstacle avoidance.
+	
+	\item Decision making method: rover drives to the target pole with obstacle detections. We set a boolean numbers in the program where 1 represents obstacle and 0 represents clear path. When there's an obstacle on the rover's path the obstacle avoidance module will be enabled. \cite{Autonomous Autonavigation Robot}
+	
+	\item Shortest path + Decision: this method is the combination of these two methods above. The navigation module keeps updating the new shortest paths after the rover went around the obstacle.\cite{Autonomous Vehicle Navigation and Mapping System}
+\end{itemize}
+\subsection{Goals for Use}
+Navigation system is the one of the most crucial parts of any autonomous vehicles. The main goal for this part of the project is to get the rover drive towards it's target without any stuck,   
 
-\subsubsection{temp}
+\subsection{Evaluation Criteria}
+We evaluated these options based on easiness of implementation, resource needed, Path length, and chances of getting stuck. 
 
-\subsubsection{temp}
+\begin{table}[h!]
+	\centering
+	\caption{Comparison of evaluation criteria navigating algorithm selection.}
+	\label{tab:table1}
+	\begin{tabular}{l|l|l|l|l}
+		& Simplicity  &Resources needed   & Path length & Chances of getting stuck  \\
+		\hline
+		Shortest path          	& Most      	& Low			 & Short  & High \\
+		\hline
+		Decision making        	& Less       	&Medium   	     & High  & very low \\
+		\hline
+		Shortest path + decision making& least     	& High           & Medium    &  low	\\
+	\end{tabular}
+\end{table}
 
-\subsection{Goals for Use in Design}
-
-\subsection{Criteria being evaluated}
-
-\subsection*{temp (Graph Goes Here)}
+\subsection{Discussion}
+The shortest path method is the easiest implementation for this task, but it has very high chances to hit an obstacle, may result being stuck. The decision making method is less simple, it takes reasonable amount of resources, and having a very low rate to get stuck, the only problem for this method is it might result the rover to travel a very long path, which takes a lot of battery. The combined method is the hardest one to implement but will give us the best outcomes. 
 
 \subsection{Selection}
+The teams selection is we implement and test the decision making method first, if by the end we have extra time we will add the shortest path method on to it. Ultimately the combined method would be a cool feature and hopefully will make the impression. 
 
-\section{temp}
+\section{How to get unstuck if the rover landed sideways}
 
 \subsection{Options}
-\subsubsection{temp}
+\begin{itemize}
+	\item Two wheel rover solution: Two wheel design is a great solution in order to prevent the rover falls sideways, because of its unique shape and weight distribution, the rover has a very low center gravity, that can guarantee itself won't fall sideways.  
+	\item Programming approach: Design an algorithm that makes the rover to move the tread opposite of its moving direction when it encounters this situation.
+	\item Mechanical arm solution: By adding a servo driven arm onto the rover, it will get the rover unstuck when the rover landed sideways. 
+	
+\end{itemize}
+\subsection{Goals for Use}
+The main goal of this task is to get the rover recovers itself in normal position from landed or fell sideways. 
+\subsection{Evaluation Criteria}
+We evaluated these options based on feasibility, chances of success, and space requirement. Feasibility is the first thing to be considered, it would be a waste of time if we found the method we have chosen is less possible to archive after the implementation has started. Speaking on the chances of success, we want to ensure that the method we choose turns out has the best success rate. Per competition rules \& requirements, payload's space is extremely limited, space requirement is also an important criterion. 
 
-\subsubsection{temp}
+\begin{table}[h!]
+	\centering
+	\caption{Comparison of evaluation criteria for getting unstuck if the rover landed sideways.}
+	\label{tab:table1}
+	\begin{tabular}{l|l|l|l}
+		& Feasibility & Chances of success    & Space taken \\
+		\hline
+		Two wheel rover        				 & low         &  High                & Optimized \\
+		\hline
+		Program the Treads move clockwise    & High        & Medium		          &  No space needed \\
+		\hline
+		Mechanical arm 						 & Low         & Medium	              &  Takes space  \\
+	\end{tabular}
+\end{table}
 
-\subsubsection{temp}
-
-\subsection{Goals for Use in Design}
-
-\subsection{Criteria being evaluated}
-
-\subsection*{temp (Graph Goes Here)}
+\subsection{Discussion}
+Two wheel rover is a great method, it has unbeatable success rate and it utilizes the most of space in a soda can, but definitely beyond our knowledge to implement at this time being. Programming solution is the most feasible method for us computer science major student, the success rate is relatively high and it doesn't require any additional component so saves up some spaces. Mechanical arm method is also great but beyond our knowledge to implement, its success rate is only marginally higher than the programming method. 
 
 \subsection{Selection}
+We chose the programming approach. Recalling our goal is to get the rover recovers itself in normal position from landed or fell sideways, this is the most feasible method under our current knowledge base. 
 
-\section{temp}
-
+\section{Payload fairing}
 \subsection{Options}
-\subsubsection{temp}
+\begin{itemize}
+	\item Two half-shells solution\cite{SpaceX} - This method is inspired by the SpaceX Falcon Heavy and Falcon 9 payload fairing design. We cut the soda can into two halves and put the rover into it, the can breaks into halves when it landed on the ground, in order to let the rover moves away freely. 
+	\item Wrapping solution - We cut the top and bottom of the soda can off, then cut the rest of it in a flat sheet, then wrap the rover in it and tape them together. Ultimately, this fairing method works the best with the two wheel rover design.  
+	\item Catapult solution - In this method, we first cut the top of the soda can off, put a spring in the can then press the rover into it, when the can hit the ground it triggers to release the spring that throws the rover out of the soda can. 
+\end{itemize}
+\subsection{Goals for Use}
+The major goal for this part of the system is get the rover out and move away from the fairing quickly, safely and without stuck or having any residues. This is one of the must done tasks in this project.  
 
-\subsubsection{temp}
+\subsection{Evaluation Criteria}
+We evaluated these options based on feasibility, rover's safety, and probability to get stuck or having residues. Feasibility is the first thing to be considered since we want to get everything working in cost-effective ways. Rover's safety is a crucial point, if the rover is broken or damaged during the fairing stage then the whole competition is over. Probability of getting stuck or having residues is also important since the rover might also get damaged if something is jammed into its wheels or body. 
 
-\subsubsection{temp}
 
-\subsection{Goals for Use in Design}
+\begin{table}[h!]
+	\centering
+	\caption{Comparison of evaluation criteria for Payload fairing}
+	\label{tab:table1}
+	\begin{tabular}{l|l|l|l}
+		& Feasibility & Rover's Safety & Probability of getting stuck or having residues \\
+		\hline
+		Two half-shells       & High & High       & Medium  \\
+		\hline
+		Wrapping		      & High  &  Medium   & High \\
+		\hline
+		Catapult			  & Low  & Low  & Low  \\
+	\end{tabular}
+\end{table}
 
-\subsection{Criteria being evaluated}
-
-\subsection*{temp (Graph Goes Here)}
+\subsection{Discussion}
+Two half-shells option is a feasible, and relatively safe method, the only problem is it's possible to get the rover stuck in the can. Wrapping option is also a relatively feasible method, but because we break the can into too many pieces that we can't guarantee the rover's safety during its launching and landing stages, those pieces may also end up stuck in the rover. The catapult method has the least feasibility, it puts a lot of stress on the rover, also throw the rover out of the can might damage it. The only advantage of this method is it guarantees the rover can get out of the soda can, and without having any residues.  
 
 \subsection{Selection}
+Upon the discussions, we made the final decision that we will implement the payload fairing by using the two half-shells method. It was an easy decision for us since we made it clear in the discussion that this method is the most feasible and will give the team the best outcomes. 
 
 \section{Conclusion}
 
