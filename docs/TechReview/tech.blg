@@ -1,6 +1,14 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tech.aux
+White space in argument---line 100 of file tech.aux
+ : \citation{Autonomous
+ :                      Autonavigation Robot}
+I'm skipping whatever remains of this command
+White space in argument---line 101 of file tech.aux
+ : \citation{Autonomous
+ :                      Vehicle Navigation and Mapping System}
+I'm skipping whatever remains of this command
 The style file: IEEEtran.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -10,6 +18,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: tech.bib
 Warning--I'm ignoring 2015's extra "journal" field
 --line 6 of file tech.bib
+Warning--I didn't find a database entry for "SpaceX"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -17,7 +26,7 @@ Warning--I'm ignoring 2015's extra "journal" field
 Done.
 You've used 12 entries,
             4087 wiz_defined-function locations,
-            878 strings with 8696 characters,
+            880 strings with 8708 characters,
 and the built_in function-call counts, 3882 in all, are:
 = -- 262
 > -- 24
@@ -56,4 +65,4 @@ warning$ -- 0
 while$ -- 4
 width$ -- 14
 write$ -- 129
-(There was 1 warning)
+(There were 2 error messages)

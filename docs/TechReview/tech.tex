@@ -326,21 +326,21 @@ Navigation system is the one of the most crucial parts of any autonomous vehicle
 
 \subsection{Evaluation Criteria}
 We evaluated these options based on easiness of implementation, resource needed, Path length, and chances of getting stuck. 
-
-\begin{table}[h!]
-	\centering
-	\caption{Comparison of evaluation criteria navigating algorithm selection.}
-	\label{tab:table1}
-	\begin{tabular}{l|l|l|l|l}
-		& Simplicity  &Resources needed   & Path length & Chances of getting stuck  \\
+\subsection*{Comparison of Evaluation Criteria Navigating Algorithm Selection}
+\begin{center}
+  \begin{tabular}{cccccc}
+    \hline
+    \multicolumn{1}{l}{} & \textbf{Simplicity}  & \textbf{Resources needed}   & \textbf{Path length} & \textbf{Chances of getting stuck}  \\
 		\hline
-		Shortest path          	& Most      	& Low			 & Short  & High \\
+		\textbf{Shortest path}          	& Most      	& Low			 & Short  & High \\
 		\hline
-		Decision making        	& Less       	&Medium   	     & High  & very low \\
+		\textbf{Decision making}        	& Less       	&Medium   	     & High  & very low \\
 		\hline
-		Shortest path + decision making& least     	& High           & Medium    &  low	\\
+		\textbf{Shortest path + decision making} & least     	& High           & Medium    &  low	\\
+                \hline
 	\end{tabular}
-\end{table}
+  \end{center}
+\vspace{.3cm}
 
 \subsection{Discussion}
 The shortest path method is the easiest implementation for this task, but it has very high chances to hit an obstacle, may result being stuck. The decision making method is less simple, it takes reasonable amount of resources, and having a very low rate to get stuck, the only problem for this method is it might result the rover to travel a very long path, which takes a lot of battery. The combined method is the hardest one to implement but will give us the best outcomes. 
@@ -361,21 +361,21 @@ The teams selection is we implement and test the decision making method first, i
 The main goal of this task is to get the rover recovers itself in normal position from landed or fell sideways. 
 \subsection{Evaluation Criteria}
 We evaluated these options based on feasibility, chances of success, and space requirement. Feasibility is the first thing to be considered, it would be a waste of time if we found the method we have chosen is less possible to archive after the implementation has started. Speaking on the chances of success, we want to ensure that the method we choose turns out has the best success rate. Per competition rules \& requirements, payload's space is extremely limited, space requirement is also an important criterion. 
-
-\begin{table}[h!]
-	\centering
-	\caption{Comparison of evaluation criteria for getting unstuck if the rover landed sideways.}
-	\label{tab:table1}
-	\begin{tabular}{l|l|l|l}
-		& Feasibility & Chances of success    & Space taken \\
+\subsection*{Comparison of Evaluation Criteria for Getting Unstuck if the Rover Landed Sideways}
+\begin{center}
+  \begin{tabular}{cccccc}
+    \hline
+    \multicolumn{1}{l}{} & \textbf{Feasibility} & \textbf{Chances of success}    & \textbf{Space taken} \\
 		\hline
-		Two wheel rover        				 & low         &  High                & Optimized \\
+		\textbf{Two wheel rover}        				 & low         &  High                & Optimized \\
 		\hline
-		Program the Treads move clockwise    & High        & Medium		          &  No space needed \\
+		\textbf{Program the Treads move clockwise}    & High        & Medium		          &  No space needed \\
 		\hline
-		Mechanical arm 						 & Low         & Medium	              &  Takes space  \\
+		\textbf{Mechanical arm} 						 & Low         & Medium	              &  Takes space  \\
+                \hline
 	\end{tabular}
-\end{table}
+\end{center}
+\vspace{.3cm}
 
 \subsection{Discussion}
 Two wheel rover is a great method, it has unbeatable success rate and it utilizes the most of space in a soda can, but definitely beyond our knowledge to implement at this time being. Programming solution is the most feasible method for us computer science major student, the success rate is relatively high and it doesn't require any additional component so saves up some spaces. Mechanical arm method is also great but beyond our knowledge to implement, its success rate is only marginally higher than the programming method. 
@@ -396,21 +396,20 @@ The major goal for this part of the system is get the rover out and move away fr
 \subsection{Evaluation Criteria}
 We evaluated these options based on feasibility, rover's safety, and probability to get stuck or having residues. Feasibility is the first thing to be considered since we want to get everything working in cost-effective ways. Rover's safety is a crucial point, if the rover is broken or damaged during the fairing stage then the whole competition is over. Probability of getting stuck or having residues is also important since the rover might also get damaged if something is jammed into its wheels or body. 
 
-
-\begin{table}[h!]
-	\centering
-	\caption{Comparison of evaluation criteria for Payload fairing}
-	\label{tab:table1}
-	\begin{tabular}{l|l|l|l}
-		& Feasibility & Rover's Safety & Probability of getting stuck or having residues \\
+\subsection*{Comparison of Evaluation Criteria for Payload Fairing}
+\begin{center}
+  \begin{tabular}{cccccc}
+    \hline
+    \multicolumn{1}{l}{} & \textbf{Feasibility} & \textbf{Rover's Safety} & \textbf{Probability of getting stuck or having residues} \\
 		\hline
-		Two half-shells       & High & High       & Medium  \\
+		\textbf{Two half-shells}       & High & High       & Medium  \\
 		\hline
-		Wrapping		      & High  &  Medium   & High \\
+		\textbf{Wrapping}		      & High  &  Medium   & High \\
 		\hline
-		Catapult			  & Low  & Low  & Low  \\
+		\textbf{Catapult}			  & Low  & Low  & Low  \\
 	\end{tabular}
-\end{table}
+\end{center}
+\vspace{.3cm}
 
 \subsection{Discussion}
 Two half-shells option is a feasible, and relatively safe method, the only problem is it's possible to get the rover stuck in the can. Wrapping option is also a relatively feasible method, but because we break the can into too many pieces that we can't guarantee the rover's safety during its launching and landing stages, those pieces may also end up stuck in the rover. The catapult method has the least feasibility, it puts a lot of stress on the rover, also throw the rover out of the can might damage it. The only advantage of this method is it guarantees the rover can get out of the soda can, and without having any residues.  
@@ -420,7 +419,7 @@ Upon the discussions, we made the final decision that we will implement the payl
 
 \section{Conclusion}
 
-Conclusion goes here
+This document detailed our plans for different pieces of technology which could be used to complete our project. Finding multiple solutions for each technology allowed us to think more deeply about which solution would really be best for each technology. We believe the choices we have picked in this document will give us the best outcome for our project, although some of these decisions may change over the coming weeks, as we better understand what we are building.
 
 \section{References}
 
