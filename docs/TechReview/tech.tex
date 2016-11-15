@@ -1,0 +1,330 @@
+\documentclass[10pt,letterpaper,onecolumn,journal]{IEEEtran}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{enumitem}
+\usepackage{courier}
+\usepackage[hidelinks]{hyperref}
+
+
+%\graphicspath{{../images/}}
+
+
+\setlength{\parindent}{0cm}
+
+\begin{document}
+\begin{titlepage}
+	\title{The ARLISS Project\\Technology Review\\CS 461}
+	\author{Steven Silvers, Paul Minner, Zhaolong Wu, Zachary DeVita\\
+		Capstone Group 27, Fall 2016}
+	\date{\today}
+	\maketitle
+	\vspace{4cm}
+	\begin{abstract}
+		\noindent Abstract needs to go here
+	\end{abstract}
+
+\end{titlepage}
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+
+In this document there are twelve components of our team's software which have been researched by the corresponding member from the list below. Each component compares and contrasts three alternate methods of accomplishing the same goal, and, at the end of each technology review, the method which best fits our teams needs has been chosen.
+
+\begin{description}[leftmargin=12em,style=nextline]
+	\item[A Comparison of Languages]
+		Zachary DeVita
+	\item[Methods of Object Recognition]
+		Zachary DeVita
+	\item[Switching Modes to Locate the Pole]
+		Zachary DeVita
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	
+\end{description}
+
+\section{A Comparison of Languages}
+For this tech review I will be comparing and analyzing the differences, and benefits of Assembly Language, C and C++ in regard to microcontrollers. These are the three most prominent languages used for programming single integrated circuit controllers, and each one has its own unique pros and cons.
+
+\subsection{Options}
+\subsubsection{Assembly Language}
+Assembly language has some huge benefits that are virtually incomparable to C, or C++ for that matter. There are several functionalities which are possible in assembly which cannot be accomplished by higher level languages as well. In terms of speed and memory cost, assembly language blows both C and C++ out of the water; there is no comparison or debate on its superiority. The programmer retains ultimate control over each bit of memory when using assembly, but it is debatable whether this is a benefit or an encumbrance. With this control comes more potential for bugs, issues with readability, portability, testing, and a far more laborious implementation of the code. Assembly utilizes preprocessing directives and is used at the earliest stages of the bootloader which is not possible in higher level languages.
+\subsubsection{C}
+Though not nearly as compressed as assembly language, C utilizes a syntax which is much more compressed than most of higher level languages, which allows it to provide similar functionality at a lower cost of memory. In comparison to assembly language, C has a much larger library, and, thus, a larger instruction set and op-code associated with its commands. This can drastically slow performance in smaller processors which only have an 8 or 16-bit BUS because additional cycles are necessary to carry out each of the operations. This would only be a legitimate issue with small microcontrollers though. The benefits of C over assembly are considerably greater in this day ‘n’ age where the amount of memory and speed are not nearly as concerning as in previous decades. C is far, far, far easier to program in. This allows C programs to be written faster, and with fewer errors. The programs are easier to read, debug, manage and maintain as well. An interesting fact, you can also write assembly language in a C program, but you cannot write a C program in assembly ~\cite{codeproject}. I’m not sure why you would ever do such a thing but it is possible. 
+\subsubsection{C++}
+It is a common assumption that C++ is unsuitable for use in small embedded systems. This is partially due to the fact that 8-bit and 16-bit processors lack a C++ compiler, but now there are 32-bit microcontrollers available which are supported by C++ compilers. The majority of C++ features have no impact on code size or on CPU speed when being compared to C ~\cite{herity2015}. C++ has all the same benefits over assembly language that C has, which are very important considerations when choosing the language. The most focal comparison here would be between C and C++. One of the original intentions of C++ was to prevent more mistakes at compile time, and, in comparison to C, it has achieved its goal. It is cleaner than C, easier to debug, easier to read and the code is more robust. C++ has added functionality, i.e. function name overloading, and classes which can be declared using different access modifiers.
+\subsection{Goals for Use in Design}
+The programming language is hugely important for the success of the project. Different languages offer different sets of functionalities, some which might be necessary to meet our goals and some which might just add unnecessary overhead. This decision might be the most important decision made at this stage in the project.
+\subsection{Criteria Being Evaluated}
+The most important aspects to consider when selecting a programming language for our specific project are going to be energy consumption, and ease of use. We are very tight on energy due to our satellite having size and weight constraints, and due to the fact that we have no idea how far our satellite might need to travel to reach its destination. Obviously ease of use would be important because this project is very time sensitive. Additional criteria being evaluated are the speed at which the code is executed, the memory cost of executing the same block of code, and the amount of extra functionality being provided by one language over another. This functionality may be gained from libraries or by tools that are made available by using that language.  
+\vspace{.3cm}
+\par
+Another important consideration is that you only pay for what you use. This is in regards to the cost of memory which seems to always be a concern when considering C++. What this means is that, because C++ is almost exactly a superset of C, there is no principally caused in a program that only uses C features ~\cite{2015}. A block of code written in C can be run through a C++ compiler, and the compiler will treat it the same as if it was ran through a C compiler; it will produce the same machine code.
+\vspace{.3cm}
+\par
+The big negative with C++ is with the additional overhead which is common in higher level languages. In our specific circumstance, this isn’t really a memory or bus size issue as much as a power issue. Because our satellite is so small, and will only weigh a maximum of 150 ounces, the overhead issue starts to become a legitimate issue for whether or not we can power this satellite long enough to reach its destination. The team that won last year had their satellite travel approximately 7 miles to its destination after being blown way off course. Having a program which uses twice as many micro-operations or cycles to complete the same task will absolutely require more energy to operate.
+\subsection*{Visual Comparison of Languages}
+\begin{center}
+\begin{tabular}{cccccc}
+\hline
+\multicolumn{1}{l}{} & \textbf{Energy Consumption} & \textbf{Ease of Use} & \textbf{Functionality} & \textbf{Memory Cost} & \textbf{Speed} \\ \hline
+\textbf{Assembly}    & 1st                         & 3rd                  & 3rd                    & 1st                  & 1st            \\ \hline
+\textbf{C}           & 2nd                         & 2nd                  & 2nd                    & 2nd                  & 2nd            \\ \hline
+\textbf{C++}         & 3rd                         & 1st                  & 1st                    & 3rd                  & 3rd            \\ \hline
+\end{tabular}
+\end{center}
+\vspace{.3cm}
+\subsection{Selection}
+Based on the research, I’m a little torn in my decision. I thought coming into this assignment that C was the obvious choice because of lower cost of memory and higher speeds than other higher level languages, and its monstrous benefit over assembly with ease of use, debugging and maintainability. Assembly is out of the question primarily due to there being a considerable chance we would never finish the project. Assembly is just unrealistic for our purposes, and both memory and speed shouldn’t be too much of an issue in our project since we will be building this satellite in 2016.
+\vspace{.3cm}
+\par
+There are some important benefits for using C++, particularly the use of classes and access modifiers, and the fact that it is easier to debug and better at catching bugs at compile-time. Considering the fact that almost all C code can be cut and pasted into a C++ compiler and return the same machine code, our team will use C and utilize the benefits of slightly higher speeds and a lower memory cost, but we will reserve the option to port over to C++ in the case that we decide to implement classes with access modifiers.
+
+\section{Methods of Object Recognition}
+There are many sensors used for object recognition, each with its own differences and benefits. For our project we are looking for an object recognition system which will be accurate, has a relatively high resolution at a short range, is light on energy consumption, and which will operate properly in potentially 100+$^{\circ}$F temperatures. These are the primary concerns for choosing this hardware, and this still leaves many options to choose from. The two types of sensors used for this type of functionality are proximity sensors and image sensors. Proximity sensors include the photoelectric, “light” sensors, as well as the ultrasonic, a.k.a. radar, sensors. These two sensors, as well as, imaging sensors will be analyzed and compared in this technical review.
+
+\subsection{Options}
+\subsubsection{Photoelectric Sensors}
+As far as photoelectric sensors go, I did some research on LIDAR and Sharp IR sensors as they are the most applicable for our team’s project. I found a lot of interesting articles about these sensors; they shine a small light at a surface and measure the time it takes for the light to be reflected back. These types of sensors can determine the distance of objects in near-instantaneous time because light moves so fast. They have proven to be very accurate in the right settings as well. IR sensors are very cheap as well and use little energy to be powered. LIDAR sensors, on the other hand, are much less energy efficient and seem to cost a considerable amount of money for a reliable one ~\cite{lidar2016}. The worst part about photoelectric sensors is that sunlight causes a tremendous amount of noise. These sensors will be completely unreliable and ineffective for our purposes, as our satellite will be navigating through the Nevada desert. Photoelectric sensors are absolutely not an option for our team’s object recognition system.
+\subsubsection{Ultrasonic Sensors}
+Ultrasonic sensors, on the other hand, are not compromised by direct sunlight. These sensors are cheap to purchase, light weight, use little energy to be powered, and are accurate in most cases. They rely on the speed of sound opposed to light to determine distances of objects so the response is not nearly as immediate as with photoelectric sensors, but the difference is negligible in the scope of our project. These sensors have a range of more than 6 meters which is more than the range necessary for our requirements. These sensors provide accurate detection of even small objects, and are reliable in critical ambient conditions where there is lots of dirt and dust ~\cite{gmbh2016}. They are not easily weatherproofed for a humid climate, but that should not be a problem where the competition is being held.
+\subsubsection{Image Sensing}
+Image sensing is a third option for object detection. Image sensing is primarily done using a CMOS (complementary metal oxide semiconductor) or a CCD (charge-coupled device) sensor which are commonly used in digital cameras. Both of these systems convert light into electrons, but the methods each of them uses have very distinct differences. Of these two sensors I have chosen CMOS for the comparison based on the fact that they are less sensitive to light, extremely inexpensive, and more importantly, consume far less power than their counterpart ~\cite{howstuffworks2000}.\vspace{.3cm}
+\par
+CMOS sensors create a moderate amount of noise due to the process of converting light into electrons. This has a potential to affect the accuracy of a reading. Because these sensors have no way to determine distance, they often require the additional support of photoelectric or ultrasonic sensors. Other relevant perks to using image sensors is that they are able to prioritize obstacles or dangers, and they can detect specific shapes. This is important for the final leg of the satellite’s expedition, where the satellite must recognize the shape of the pole which it must make contact with to finish the competition. Using an image sensor will definitely require far more complicated programming to detect objects but it seems like a valid consideration for the project ~\cite{robotics2013}.
+\subsection{Goals for Use in Design}
+The goal for the sensor, if not clear, is that we need some kind of sensor to send data to the micro-controller so that the data may be analyzed and obstacles can be detected. If the obstacles can be detected using some system of sensors, than the obstacles can also be avoided. The goal is to avoid all obstacles which are determined to be a threat to our satellite reaching its destination.
+\subsection{Criteria Being Evaluated}
+The most important criteria that these sensors are being evaluated on would be the accuracy of the sensor and the energy consumption by the sensor. Again, energy consumption is important because we have tight constraints on space and weight for the satellite. This means that we are limited to a relatively small battery to provide power to the satellite for the entire duration of its expedition. Accuracy is important because we don't want the satellite to miss an obstacle or waste energy thinking there are obstacles when there are none. We need a sensor which creates minimal noise while operating. Also important criteria can be the range of a sensor, the cost of a sensor, and any environmental conditions which may cause adverse affects to the precision of the sensor. 
+\subsection*{A Comparison of Object Recognition Sensors}
+\begin{center}
+\begin{tabular}{cccccc}
+\hline
+\multicolumn{1}{l}{} & \textbf{Accuracy} & \textbf{Range} & \textbf{Energy Consumption} & \textbf{Cost} & \textbf{Environmental Conditions} \\ \hline
+\textbf{Photoelectric}    & High      & 0.8m       & Low         & Low       & Won't work in direct sunlight\\ \hline
+\textbf{Ultrasonic}         & High      & 6m          & Low         & Low       & Problems at high pressure or with humidity\\ \hline
+\textbf{CMOS}               & High      & N/A         & Low         & Low       & Problems with humidity\\ \hline
+\end{tabular}
+\end{center}
+\subsection{Selection}
+After an analysis and comparison of the various sensors I have chosen to use the combination of an ultrasonic radar sensor and a CMOS imaging sensor. The CMOS imaging sensor will be used to identify obstacles in the satellite’s path while the ultrasonic radar sensor will be used to find the distances of these objects. Changes in light can help to identify obstacles or abrupt changes in pitch of the terrain, and then the radar can be used to determine the precise distance of the obstacle. I believe this combination will be the most effective, and provide the highest accuracy of the possible sensors. These sensors are also cheap, effective for the climate, and they both have a low energy consumption.
+
+\section{Switching Modes to Locate the Pole}
+At the satellite’s final destination there will be a metal pole which the satellite must bump in order to successfully finish the objective. The problem created by this is that the GPS, global positioning satellite, is only accurate to within 7.8 meters with a 95\% confidence interval, according to the U.S. government ~\cite{gps.gov2016}. This means that between 8-9 meters of the pole that there must be a switch to a different interface to guide the satellite. The pole is metal so we have the option of using capacitive or inductive sensors. The other option, which seems much more difficult but may be necessary due to the range, would be utilizing the CMOS image sensing technology that we are already using for the object recognition.
+
+\subsection{Options}
+\subsubsection{Capacitive Sensor}
+A capacitive sensor is a proximity sensor that can detect nearby object by their effect on the electrical field that is sent out by the sensor. Capacitive sensors are cheap, light and relatively durable. Like any electrical component, they have problems in humidity, but they would be much easier to weatherproof than, for example, an ultrasonic sensor. Either way, humidity should not be an issue in the tail end of summer, and in the Nevada desert. This type of sensor will detect anything with a positive or negative charge which could be a potential problem, but probably not at the location of the competition ~\cite{capacitive}. The bad news about this approach is that capacitive sensors only have a range of approximately 1cm or less. This is not an option for our project.
+\subsubsection{Inductive Sensor}
+Inductive sensors are proximity sensors as well, but they can only detect metal, whereas the capacitive sensor can detect anything which affects the electric field. Again, these are cheap to buy, light, durable, easy to weatherproof for our purposes, etc. Unless there will be other metal objects in the satellite’s path for the last 9 meters, I would feel safe to say that this would be accurate as well. But again the range makes these sensors, similarly, not a viable solution for the problem. These sensors have a range of up to 2 inches ~\cite{inductive}. 
+\subsubsection{Image Sensing}
+After analyzing GPS, capacitive and inductive sensors, all there is left is using the CMOS image sensing technology that will already be in place. The advantage of using CMOS is that the system will already be in place for the obstacle recognition component of the project. This means that there is no additional weight or space used. This also means that there will not be any additional energy consumption, cost or weatherproofing associated with the selection. There will be much more programming needed to implement this design though.
+\subsection{Goals for Use in Design}
+The goal for this component of the software is to determine what method is being when switching modes in the final stage of the satellite's expedition. The sensor being used to locate the pole which the satellite must make contact with must be established. It is based off this that we are able to design the software for making the transition.
+\subsection{Criteria being evaluated}
+The most important criterias for this component are obviously the accuracy of the sensor, and also the range of the sensor. The range is important because GPS is only viable until approximately eight meters from the target so the system must begin working at around eight meters. Other factors being considered are cost, energy consumption and environmental effects on the sensor. 
+\subsection*{A Comparison of Methods to Locate the Pole}
+\begin{center}
+\begin{tabular}{cccccc}
+\hline
+\multicolumn{1}{l}{} & \textbf{Accuracy} & \textbf{Range} & \textbf{Energy Consumption} & \textbf{Cost} & \textbf{Environmental Conditions} \\ \hline
+\textbf{Capacitive}    & Moderate      & 1.0cm       & Low         & Low       & False positives near electrically charged objects.\\ \hline
+\textbf{Inductive}         & High      & 2 in          & Low         & Low       & Problemswith humidity\\ \hline
+\textbf{CMOS}               & High      & N/A         & *None         & *None       & Problems with humidity\\ \hline
+\end{tabular}
+\end{center}
+\subsection{Selection}
+After analyzing GPS, capacitive and inductive sensors, all there is left is using the CMOS image sensing technology that will already be in place. The way this will have to work is that when the satellite is within 8-9 meters of the pole, the program will need to alternate to a different interface. In this interface, the satellite will be guided by the object recognition system, and it will quit reading data from the GPS. The object recognition software will be designed to pick out abrupt changes in light on the edges of objects which signifies a change in depth. When these objects are interpreted, they will be compared to an object that is a digital representation of the pole. When the satellite finds an object which has the same shape, obviously using some level of error in the computation, it will self-drive itself to the object. This seems like a difficult chunk of code to produce, but it is possible, and it has been done before. Considering there will likely not be any objects, i.e. rocks, which have a similar shape to the pole, I think this is an excellent way to solve this problem.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{temp}
+
+\subsection{Options}
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsubsection{temp}
+
+\subsection{Goals for Use in Design}
+
+\subsection{Criteria being evaluated}
+
+\subsection*{temp (Graph Goes Here)}
+
+\subsection{Selection}
+
+\section{Conclusion}
+
+Conclusion goes here
+
+\section{References}
+
+\bibliographystyle{IEEEtran}
+\bibliography{tech}
+
+\end{document}
