@@ -1,0 +1,21 @@
+Parachute Deployment
+	  Determine Height using GPS
+	  Deploy parachute at 1,000 feet (?)
+	  First part of software to run.
+	  Starts once separated from rocket.
+	  Function which takes readings from GPS until under certain elevation
+	  Then, Send signal to hardware component to deploy parachute.
+	  Finally, switch to next part of software to check when the satellite hits the ground.
+
+Getting Unstuck from Obstacles
+	Must determine when stuck.
+	     Can be determined by obstacle sensor not detecting change in terrain.
+	Then, run function to get unstuck from obstacles.
+	Function will try different combinations of directions and speeds to spin the treads, periodically checking if the rover has become unstuck by using the obstacle avoidance sensors.
+	Once unstuck, end function, and resume normal operation.
+
+Finding and Touching the Finish Pole
+	Needs to run once close to the finish pole.
+	GPS is accurate to within a few meters, so once within that area, switch to this function.
+	In function, use software to search for pole by rotating the satellite so the obstacle sensors can get a 360 view.
+	Once the pole has been found, orient the rover towards the pole, and drive into it.
