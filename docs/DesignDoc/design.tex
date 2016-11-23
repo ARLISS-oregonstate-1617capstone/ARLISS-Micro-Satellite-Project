@@ -4,11 +4,16 @@
 \usepackage{color}
 \usepackage{longtable}
 \usepackage{graphicx}
+\usepackage{PSTricks}
 \usepackage{float}
 \usepackage{tabu}
 \usepackage{enumitem}
 \usepackage{courier}
 \usepackage[hidelinks]{hyperref}
+
+
+\floatstyle{boxed}
+\restylefloat{figure}
 
 \setlength{\parindent}{0cm}
 
@@ -110,12 +115,22 @@ This functionality of importing the live video feed, converting it to frames, an
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{temp}
+\section{Continuous Tracks}
+\par
+For the method of how we would travel along the ground, the team members of the ARLISS Project decided to go with the continuous track, or tank tread, method of traveling.
 
-\section{temp}
 
-\section{temp}
+\section{Control Board}
 
+\section{Obstacle Avoidance}
+\par
+As detailed in the CMOS Image Sensing section, the data that we will be working with to detect and avoid obstacles will be a 2D array of binary values. A value of '1' will represent a change in the gray scale image, which will ultimately outline the terrain and give an easy to traverse dataset with which to avoid obstacles with. A value of '0' will represent no major change in shade of gray between neighboring pixels of the image, meaning that this will either be the interior of an object bounded by '1' values, or empty space in front of the camera.\vspace{.3cm}
+\par
+The biggest concern and challenge facing our satellite project is the conservation of power and limiting power usage. Due to the space constraints of the competition our batteries will be smaller than desired for this kind of journey so we must conserve where we can. One way that we are doing this within the obstacle avoidance system is by not continuously taking in video feed from the camera. The setting where our system will be tested is for the most part very flat, meaning we can realistically take a new image to analyze after a short time interval without having to worry too much about a new obstacle appearing before we can avoid it. The exact time interval is not yet known, as it will take physically testing the satellite system to determine the correct value to use.\vspace{.3cm}
+\par
+The way that the 2D array will be used to avoid obstacles is by examining the values by column from left to right to detect if an obstacle has appeared in our path. We expect there to almost always be a row of solid '1' values along the bottom of the 2D array that represents the horizon, where the ground meets the sky in the cameras eye. The algorithm for avoiding an object is quite simple, if a column or close to a column of '1' values appear towards the right side of the array, we stop forward motion, and rotate counterclockwise while periodically stopping to take a new picture to see if we have angled around the obstacle. once we have a picture showing no obstacles, we travel forward in this direction for approximately five seconds before going back to driving towards the target GPS coordinates. If the obstacle appears on the left side of the 2D array, we do the same thing except rotate clockwise.\vspace{.3cm}
+\par
+Once we have the satellite built and the CMOS imaging implemented with the gray scale to 2D array conversion working, we will be able to test our satellite in various conditions and with different obstacles to see what kinds of obstacles we can drive over and ignore, and what obstacles must be driven around. During this testing period we will also tweak the timing at which how often a new picture will be taken and analyzed. The target for this testing is to find the time cycle at which we can take the fewest pictures while still avoiding all of the obstacles that we need to, and thus saving battery usage by the camera.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
