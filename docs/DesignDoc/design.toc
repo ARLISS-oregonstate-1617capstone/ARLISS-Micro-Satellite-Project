@@ -3,8 +3,8 @@
 \contentsline {section}{\numberline {III}CMOS Image Sensing}{3}{section.3}
 \contentsline {section}{\numberline {IV}temp}{3}{section.4}
 \contentsline {section}{\numberline {V}Continuous Tracks}{3}{section.5}
-\contentsline {section}{\numberline {VI}Control Board}{3}{section.6}
-\contentsline {section}{\numberline {VII}Obstacle Avoidance}{3}{section.7}
+\contentsline {section}{\numberline {VI}Control Board}{4}{section.6}
+\contentsline {section}{\numberline {VII}Obstacle Avoidance}{4}{section.7}
 \contentsline {section}{\numberline {VIII}temp}{4}{section.8}
 \contentsline {section}{\numberline {IX}temp}{4}{section.9}
 \contentsline {section}{\numberline {X}temp}{4}{section.10}
