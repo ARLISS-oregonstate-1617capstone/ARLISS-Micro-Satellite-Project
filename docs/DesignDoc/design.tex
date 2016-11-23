@@ -1,0 +1,142 @@
+\documentclass[10pt,letterpaper,onecolumn,journal]{IEEEtran}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{enumitem}
+\usepackage{courier}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0cm}
+
+\begin{document}
+\pagenumbering{gobble}
+
+\begin{titlepage}
+	\title{The ARLISS Project\\Design Document\\CS 461}
+	\author{Steven Silvers, Paul Minner, Zhaolong Wu, Zachary DeVita\\
+		Capstone Group 27, Fall 2016}
+	\date{\today}
+	\maketitle
+	\vspace{4cm}
+	\begin{abstract}
+		\noindent Abstract needs to go here
+	\end{abstract}
+
+\end{titlepage}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section{Introduction}
+In this document we have divided our software into twelve components, and a framework for each one of these components has been designed by the corresponding member from the list below. Each section will detail how a component will operate, and how it will interact with other related components. This document is intended to provide a structure, and the architectural layout for the entire project. 
+
+\vspace{.3cm}
+\begin{description}[leftmargin=3em,style=nextline]
+	\item[Project Framework]
+		Zachary DeVita
+	\item[CMOS Image Sensing]
+		Zachary DeVita
+	\item[Ultrasonic Radar]
+		Zachary DeVita
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	\item[temp]
+		name
+	
+\end{description}
+\clearpage
+
+%
+%	Section 1
+%
+\section{Framework}
+For our overall project design and framework, our team has decided to utilize the C++ programming language. We will be writing our individual portions of code using a C compiler in order to reduce the overall overhead and energy cost of the program, but we will eventually combine the portions into a C++ framework where we will be able to utilize classes and access modifiers. The team feels strongly that utilizing classes and access modifiers for a project of this magnitude would be a huge benefit, and, since C is a subset of C++, we can get the best of both programming languages. Using C++ compilers and C++ specific tools will also reduce time spent debugging and testing ~\cite{codeproject}.\vspace{.3cm}
+\par 
+As far as the framework for the project, we will need a series of classes to pass control of the satellite between. This is due to the fact that our satellite's journey will be comprised of four primary stages where the controls for the satellite are vastly different from each other. All of these classes governing stages of control should have a ‘private’ modifier so they can't be accessed by other classes.\vspace{.3cm}
+\par 
+The first stage of the satellite's expedition will be when it is encapsulated in its “can-shaped” housing. This stage will take place during the period of time that the rocket is on the ground prior to launch, and it will last until some period of time after the satellite has landed safely to the ground via the parachute. Though the satellite will remain in a static state during this period, it must turned on and ready to receive instructions.\vspace{.3cm}
+\par 
+There will be a class designated for the control of the satellite for this period of time. The satellite will simply be listening for interrupts from other classes.  There will be an interrupt that tells this class when to deploy its parachute. This interrupt will be provided by another class, and it will be based on some form of a timer. This event should occur shortly after the satellite has been ejected from the rocket. Another interrupt will tell the satellite to pass control to the class responsible for the next control stage of the expedition. Both of these classes with the interrupts should have a ‘protected modifier so they are only visible to the class which has control of the satellite. This event should occur shortly after the satellite has been ejected from the rocket. This event should occur shortly after the satellite has landed safely on Earth's surface.\vspace{.3cm}
+\par
+The second stage of the satellite's expedition will encompass the majority of the satellite's expedition, and there will be a class written specifically for the segment. This class will be responsible for the period of time that the rocket navigates from its landing zone until it has reached approximately 8-9 meters from the pole. The pole marks the final destination of the satellite, and the satellite must physically come in contact with the pole to finish the competition. The reason for the 8-9 meters is due to the fact that GPS is only accurate at 7.8 meters with a 95\% confidence interval ~\cite{gov2016}.\vspace{.3cm}
+\par
+During this period there will be many other classes interacting with the class retaining control of the satellite. There should be a class which tells this control class if there is obstacles in the way and what direction to move to avoid them. That class should be a ‘protected’ class as well, and that class should have a parent/child relationship with each class governing the sensors being used to identify obstacles.\vspace{.3cm}
+\par 
+There should also be a class which governs the GPS sensor. This class should help direct the satellite on a macro level, not taking into consideration any obstacles at the local level. This ‘protected’ class should have its navigation instructions be overridden in the case of an obstacle in its path. This class will also send an interrupt to the control class when the satellite has reached 8-9 meters of the pole which will tell the control class to pass off control to the final governing the satellite's navigation\vspace{.3cm}
+\par.
+The third stage of control will be reached only in the case where the satellite becomes stuck or on its side. The satellite design is being made specifically to preventing this type of situation from occurring, but there is still a chance of it happening. There will be a specific routine devised for this circumstance, and control of the satellite will be passed to this stage in this type of event. This class will have access to the CMOD, ultrasonic sensors via inheriting from these protected classes. When the satellite has recovered from the event, and some routine to avert the obstacle has been completed, then the control will be returned to the previous control stage.\vspace{.3cm}
+\par
+The final stage of control will cover the period of time when the satellite reaches the 8-9 meter range from the pole, and it will last until contact with the pole has been made. The class responsible for the satellite's control over this period will no longer take input from the GPS. The system used previously for the obstacle avoidance system, i.e. the CMOS imaging sensor and the ultrasonic sensor, will be used here for navigation. Even if the ultrasonic sensor is operating at 40kHz, considering the target has a spherical shape, the sensor will be only accurate for up to 20.2 feet so the CMOS imaging sensor will have to suffice until the satellite is close to the pole ~\cite{massa1999}. The CMOS imaging sensor will need to switch modes in this stage to look for a pole shaped object and direct the satellite towards it. A separate ‘protected’ class should be governing the sensor in this stage of navigation. Instead of looking for obstacles the sensor should be searching for an object which is similar to some stored image, allowing for an appropriate level of error. 
+%
+%	Section 2
+%
+\section{CMOS Image Sensing}
+For the ARLISS project we are using a combination of a CMOS imaging sensor and at least one ultrasonic sensor in order to detect and avoid obstacles. The path of the satellite, on a macro level, is determined by the GPS sensor, but modifications to the path will need to be set locally using this system.\vspace{.3cm}
+\par
+The idea behind the imaging sensor is that, when there is an abrupt change in color in an image, especially when referring to nature, it often shows that there is an abrupt change in the depth being viewed. For our purposes we want to use this observation to detect objects in the satellite's path, as well as, changes in terrain like a steep incline or a steep decline.\vspace{.3cm}
+\par  
+Manipulating raw camera frames can require a relatively large amount of space, as well as consume a large amount of energy. Energy is the most valuable resource for our project because we have a strict limit to the size and weight of the satellite so we have a very limited space for a battery to fit. There are several methods which we must use to minimize this cost, and there is one critical library in particular which we will use to help conserve this limited battery power.\vspace{.3cm}
+\par 
+As far as libraries go, we will be utilizing the cv.h library provided by OpenCV. This open-source library provides the capability of image and video I/O, image processing for individual video frames, as well as, built-in object recognition functionality ~\cite{agam2006}. All foreseeable video manipulating should be able to be done with this single library.\vspace{.3cm}
+\par 
+The plan for reducing energy consumption is simple; first we will take a frame of raw footage as input from the CMOS device, then we will convert it to grayscale, and from grayscale we can convert it to binary data. Manipulating this binary data will consume far less energy than performing complex algorithms on the original, raw video footage ~\cite{ikalogic}.\vspace{.3cm}
+\par
+Using the OpenCv library we will be able to capture video and directly load each video frame from the sensor to an IplImage object. OpenCv also has a built-in function called cvCvtColor() which will convert each image to grayscale. There will then need to be an algorithm which will create a digital map of the image using a two-dimensional array, and which will assign values of 1 or 0 depending on the difference in color change between pixels [5]. When objects or abrupt changes in elevation are detected we can combine data from the ultrasonic sensor to determine the distance of the object, and modify the satellite's route to avoid the obstacle.\vspace{.3cm}
+\par 
+This functionality of importing the live video feed, converting it to frames, and applying functions to the data to convert it to binary will need to exist in its own class. This class will be responsible for the flow of the input video data from the sensor, and outputting the data as an array of binary values to a separate class. The output from this class will combined with the output from the class responsible for the ultrasonic sensor data, and this combination of data will be used elsewhere to help determine what sequence of events needs to occur in order to safely navigate the terrain.
+%
+%	Section 3
+%
+\section{temp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{temp}
+
+\section{temp}
+
+\section{temp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{temp}
+
+\section{temp}
+
+\section{temp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{temp}
+
+\section{temp}
+
+\section{temp}
+
+
+\clearpage
+\pagenumbering{gobble}
+\bibliographystyle{IEEEtran}
+\bibliography{design}
+\end{document}
