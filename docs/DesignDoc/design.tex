@@ -53,12 +53,12 @@ In this document we have divided our project into twelve components, and a frame
 		Steven Silvers
 	\item[Motorized Tracks]
 		Steven Silvers
-	\item[temp]
-		name
-	\item[temp]
-		name
-	\item[temp]
-		name
+	\item[Parachute Deployment]
+		Paul Minner
+	\item[Getting Unstuck from Obstacles]
+		Paul Minner
+	\item[Finding and Touching the Finish Pole]
+		Paul Minner
 	\item[temp]
 		name
 	\item[temp]
@@ -141,12 +141,27 @@ Once we have the satellite built and the CMOS imaging implemented with the gray 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{temp}
-
-\section{temp}
-
-\section{temp}
-
+\section{Parachute Deployment}
+For the parachute deployment protocol, we have decided to use GPS to determine when to deploy the parachute. This method is perfect for us because we already need a GPS unit for other uses, and the GPS unit will be more accurate than just deploying the parachute based on a timer, and take less time in the air than deploying the parachute immediately.\vspace{.3cm}
+\par
+The parachute deployment system will be the first part of our software to run, so we will start the system once the satellite separates from the rocket. This will be accomplished by tripping a mechanical switch which sends a signal to the satellite. Once started, the system will take periodic altitude measurements every second until the altitude drops below 1,000 feet. Once below 1,000 feet for two measurements in a row, the software will send a signal to deploy the parachute. We chose 1,000 feet as the desired height because the average reserve parachute for a skydiver deploys in less than 400 feet ~\cite{scott}. Since our satellite only weights as much as a can of soda, 400 feet is a conservative estimate of the distance the parachute will take to deploy. This should ensure we don’t waste too much time in the air, but also gives us a large margin of error so we don’t accidentally hit the ground before our parachute deploys. The worst case accuracy for civilian GPS coordinates is 25 meters (75 feet) ~\cite{mehaffey}. This accuracy is much worse than the navigation specification because of the high speed the satellite is traveling. In addition, altitude error is actually about 1.5 times the amount of horizontal error, which can be a significant amount. In addition, if the GPS doesn’t have an unobstructed view of the sky, the data cannot be trusted at all ~\cite{mehaffey}. It is highly unlikely that our view will be obstructed, but it is possible a plane could fly overhead, or the rocket could briefly block our view of the sky. This is the reason we take two measurements before deploying the parachute. All of these factors effect the accuracy of our parachute deployment height, which is why we have been conservative. An extra 600 feet of distance to deploy the parachute is plenty of space, but still minimizes our time spent in the air. Once the software sends the signal to deploy the parachute, the parachute deployment system will end, and a new system will begin to check when the satellite is on the ground.\vspace{.3cm}
+\par
+The system will be implemented within it’s own class which is responsible for deploying the parachute. An interrupt will be sent to the first stage class once the satellite is ejected from the rocket. Then, the parachute deployment class will launch it’s own function, which will loop continuously, checking the altitude from the GPS until the value of the altitude is less than 1,000 feet. Once this happens, the loop will execute one more time to check if the altitude is still below 1,000 feet. If it is, end the loop, send a signal to the first stage class to deploy the parachute, and hand control back to the first stage class. If the altitude isn’t still below 1,000 feet, start the process over again. The first stage class will be responsible for actually deploying the parachute.\vspace{.3cm}
+\par
+\section{Getting Unstuck From Obstacles}
+The system for getting unstuck from obstacles has two components. First, determining when the satellite is stuck, and second, getting the satellite unstuck. To determine when the satellite is stuck, the satellite’s speed will be monitored, and if the speed drops below a certain threshold for a specific amount of time, the system to get the satellite unstuck will be enabled ~\cite{herbach}. To get the satellite unstuck, the system will attempt to move the satellite in different directions until the satellite frees itself.\vspace{.3cm}
+\par
+The first component which checks if the satellite is stuck will be running constantly in the background while the satellite is navigating itself to it’s destination. It works by checking the coordinates from the GPS sensor every five seconds. After taking a new reading, the algorithm will determine the average speed the satellite has been moving in those five seconds. If the average speed is below the minimum threshold of 0.2 m/s, the satellite will switch from it’s normal navigation mode to getting unstuck mode ~\cite{herbach}. This mode will work by attempting to move the satellite a different direction every five seconds, then checking the GPS coordinates like before to see if the average speed is greater than the minimum threshold of 0.2 m/s. If it is, then the satellite must have moved and the system can switch back to it’s normal navigation mode. The first direction the rover will try is directly backwards, and each time the rover fails to get unstuck, the algorithm will attempt to drive 45 degrees clockwise of the previous direction driven. If the algorithm travels 360 degrees, then it will drive 45 degrees counterclockwise. This cycle will continue until the satellite gets unstuck, or the satellite runs out of battery.\vspace{.3cm}
+\par
+This system will be implemented in two separate pieces. The first piece, which detects if the satellite is stuck, will be running concurrently with the navigation system. The algorithm will be a continuous loop, which checks the coordinates from the GPS, calculates the average speed from the current coordinate and the previous coordinates, checks if the speed is less than the minimum threshold, and sleeps for five seconds. If the speed is less than the minimum threshold, an interrupt will be sent, transferring control from the navigation system to the getting unstuck system. This piece will be located in the class which contains the second stage of control, which is navigation. This second piece will be located in the class which contains the third stage of control, which deals with the satellite becoming stuck, or on it’s side. The algorithm will be a continuous loop which increments the direction by 45 degrees, attempts to move for five seconds, and checks if the satellite has moved by calculating its average velocity and comparing it to the minimum threshold. Once the satellite is determined to be unstuck, control will be transferred back to the navigation system.\vspace{.3cm}
+\par
+\section{Finding and Touching the Finish Pole}
+For the protocol to find and touch the finish pole, we have decided to use the existing CMOS imaging sensor to find the pole. Once the pole has been located, the satellite just needs to drive in the direction of the pole until it makes contact with it. The most complicated portion of this is the object detection algorithm. This algorithm will use the OpenCV library, due to it’s object recognition capabilities ~\cite{agam2006}. The object detection algorithm, however, will work differently than the obstacle avoidance algorithm.\vspace{.3cm}
+\par
+Control of the satellite will be switched to this system once the satellite is within the error range for the GPS coordinates of the finish. Once in this mode, this system must do two things, locate the pole, and move towards the pole. To locate the pole, the satellite will slowly rotate, scanning it’s surroundings with the CMOS imaging sensor. An image will be taken every second, and each image will be scanned for a specific shape. That shape is the shape of the finish pole, which would resemble a long, skinny rectangle on a 2D image. This shape scanning ability is achievable using the OpenCV library ~\cite{rosebrock}. Once the shape has been located, the algorithm will instruct the satellite to move forward. Images will still be taken every second, and the direction the satellite is driving will be adjusted based on how far the shape is from the center of the image. If the shape is on the right of the image, the satellite will direct itself more to the right, and if the shape is on the left, the satellite will direct itself more to the left. Once the satellite is very close to the target the shape may not be detectable, so the satellite will continue to move forward in the same direction. Once the satellite hits the pole, it may get deflected and drive in another direction, but we will have completed the competition, so that isn’t important. The system can turn itself off after a certain amount of time has passed.\vspace{.3cm}
+\par
+This system will be implemented as it’s own class. It is the final stage class, and is started once the satellite is within the error margin of the finish pole. There will be two functions in this class. The first will search for the pole, and the second will move towards the pole. The first function will be implemented as a continuous loop, which rotates the satellite ten degrees, gets an image from the CMOS sensor, and checks that image for the shape of the pole using OpenCV. Once the pole is located, the next function will be called. This function will also be implemented as a loop. Each iteration, it will move the satellite forward, get an image from the CMOS sensor, use OpenCV to find the location of the pole in the image, and determine how far to the left or right to navigate the satellite based on the location of the pole in the image. Eventually, the satellite should hit the finish pole, and we will have completed our mission.\vspace{.3cm}
+\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

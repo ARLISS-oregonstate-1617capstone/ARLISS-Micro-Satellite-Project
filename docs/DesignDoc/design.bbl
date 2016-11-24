@@ -54,4 +54,24 @@ G.~Agam, ``Introduction to programming with opencv,'' Jan 2006. [Online].
   \url{https://www.ikalogic.com/image-processing-as-a-sensor/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{scott}
+\BIBentryALTinterwordspacing
+E.~Scott, ``Uspa raises minimum deployment altitude,'' Feb 2013. [Online].
+  Available:
+  \url{https://skydiveuspa.wordpress.com/2013/08/02/uspa-raises-minimum-deployment-altitude/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mehaffey}
+\BIBentryALTinterwordspacing
+J.~Mehaffey, ``Gps altitude readout: How accurate?'' [Online]. Available:
+  \url{http://gpsinformation.net/main/altitude.htm}
+\BIBentrySTDinterwordspacing
+
+\bibitem{herbach}
+N.~F. Joshua~Herbach, ``Detecting that an autonomous vehicle is in a stuck
+  condition,'' Mar 2015.
+
+\bibitem{rosebrock}
+A.~Rosebrock, ``Opencv shape detection,'' Feb 2016.
+
 \end{thebibliography}
