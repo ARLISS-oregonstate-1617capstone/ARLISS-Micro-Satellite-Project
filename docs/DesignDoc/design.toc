@@ -5,9 +5,9 @@
 \contentsline {section}{\numberline {V}Continuous Tracks}{3}{section.5}
 \contentsline {section}{\numberline {VI}Control Board}{4}{section.6}
 \contentsline {section}{\numberline {VII}Obstacle Avoidance}{4}{section.7}
-\contentsline {section}{\numberline {VIII}Parachute Deployment}{4}{section.8}
+\contentsline {section}{\numberline {VIII}Parachute Deployment}{5}{section.8}
 \contentsline {section}{\numberline {IX}Getting Unstuck From Obstacles}{5}{section.9}
-\contentsline {section}{\numberline {X}Finding and Touching the Finish Pole}{5}{section.10}
+\contentsline {section}{\numberline {X}Finding and Touching the Finish Pole}{6}{section.10}
 \contentsline {section}{\numberline {XI}temp}{6}{section.11}
 \contentsline {section}{\numberline {XII}temp}{6}{section.12}
 \contentsline {section}{\numberline {XIII}temp}{6}{section.13}
