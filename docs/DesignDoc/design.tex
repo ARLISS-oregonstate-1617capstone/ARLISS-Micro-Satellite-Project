@@ -45,7 +45,7 @@ In this document we have divided our project into twelve components, and a frame
 		Zachary DeVita
 	\item[CMOS Image Sensing]
 		Zachary DeVita
-	\item[Ultrasonic Radar]
+	\item[Ultrasonic Radar Sensor]
 		Zachary DeVita
 	\item[Obstacle Avoidance]
 		Steven Silvers
@@ -110,8 +110,18 @@ This functionality of importing the live video feed, converting it to frames, an
 %
 %	Section 3
 %
-\section{temp}
-
+\section{Ultrasonic Radar Sensor}
+For the obstacle detection system, data will be created using a complex algorithm which combines data from the CMOS imaging sensor as well as at least one ultrasonic sensor. As mentioned previously, the path of the satellite will be determined based on the terrain encountered and any obstacles detected in its path. The system will switch from the satellite's GPS sensor to the obstacle avoidance system when an obstacle is sensed, and then will temporarily divert from the direct path in order to drive navigate around it. The GPS will be used to determine the path on a macro level, but it can be modified locally using this system.\vspace{.3cm}
+\par
+The reason for the combination of the CMOS sensor and the ultrasonic sensor is simple. Though a camera sensor, like the CMOS, is the absolute best at interpreting texture, shape, and is the natural choice for scene interpretation based on its accuracy, it has no way to tell the distance of an object ~\cite{santo2016}. Without a distance measuring sensor the satellite would not know the difference between an obstacle directly in front of it, and the horizon which is miles away.\vspace{.3cm}
+\par 
+The hardware being used will be a ping-response ultrasonic rangefinder. These sensors have two transducers, a speaker which sends out the burst of ultrasonic sound, and a microphone which listens for the sound as it is reflected off objects in its path. This hardware has two connections to the microcontroller, one for the echo pulse output and the other for the trigger pulse input which must be connected to digital I/O ports ~\cite{2016frc}.\vspace{.3cm}
+\par 
+There will be one primary library for setting up the class for the ultrasonic radar sensor. The library NewPing.h already has built-in functions to read in input from the sensor. This library will allow us to specify the input pins where the sensor will be connected to the microcontroller, as well as set up a maximum distance of interest using a ‘NewPing’ object. There is also a timer for the ping which allows us to set the frequency that each ping is sent out in milliseconds. For each ping that is sent out we must have a function which listens for the echo, and converts the time between the ping and echo into a distance ~\cite{grinberg2013}.\vspace{.3cm}
+\par 
+There will be many distances recorded for each ping so they must be stored in a two-dimensional array which will be used as a map of the terrain. When a second echo is recorded then the two can be compared for accuracy. If the object in question does not show up in subsequent readings then the algorithm is reset. If the object continues to show up in subsequent readings, than this map of the terrain will be output to another class which will combine the map created by the CMOS sensor, and will use the data to determine if the satellite needs to divert from its current path.\vspace{.3cm}
+\par 
+Ultrasonic sensors provide not only accurate distance measurements, but they can also utilize this functionality to provide a method of determining angles of objects, or, more importantly, the slope of the ground. This will prove to be important when calculating the slope of the ground that is in the satellite's path. The ground should always show up in the readings. If, for instance, the ground was not being detected, it would mean that the robot was positioned in front of a steep decline. There will need to be some sort of range of acceptable slopes, and these constraints will need to be determined through testing.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
