@@ -10,13 +10,21 @@
 \usepackage{enumitem}
 \usepackage{courier}
 \usepackage[hidelinks]{hyperref}
-
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
 
 \floatstyle{boxed}
 \restylefloat{figure}
 
 \setlength{\parindent}{0cm}
-
+\newcommand{\namesigdate}[2][6cm]{%
+\begin{tabular}{@{}p{#1}@{}}
+	#2 \\[3\normalbaselineskip] \hrule \\[0pt]
+	{\small \textit{Signature}} 
+	\\[2\normalbaselineskip] \hrule \\[0pt]
+	{\small \textit{Date}}
+\end{tabular}
+}
 \begin{document}
 \pagenumbering{gobble}
 
@@ -59,12 +67,12 @@ In this document we have divided our project into twelve components, and a frame
 		Paul Minner
 	\item[Finding and Touching the Finish Pole]
 		Paul Minner
-	\item[temp]
-		name
-	\item[temp]
-		name
-	\item[temp]
-		name
+	\item[Navigation algorithm and GPS]
+		Zhaolong Wu
+	\item[Mechanical arm unstuck system]
+		Zhaolong Wu
+	\item[Payload fairing]
+		Zhaolong Wu
 	
 \end{description}
 \clearpage
@@ -85,8 +93,8 @@ The second stage of the satellite's expedition will encompass the majority of th
 \par
 During this period there will be many other classes interacting with the class retaining control of the satellite. There should be a class which tells this control class if there is obstacles in the way and what direction to move to avoid them. That class should be a ‘protected’ class as well, and that class should have a parent/child relationship with each class governing the sensors being used to identify obstacles.\vspace{.3cm}
 \par 
-There should also be a class which governs the GPS sensor. This class should help direct the satellite on a macro level, not taking into consideration any obstacles at the local level. This ‘protected’ class should have its navigation instructions be overridden in the case of an obstacle in its path. This class will also send an interrupt to the control class when the satellite has reached 8-9 meters of the pole which will tell the control class to pass off control to the final governing the satellite's navigation\vspace{.3cm}
-\par.
+There should also be a class which governs the GPS sensor. This class should help direct the satellite on a macro level, not taking into consideration any obstacles at the local level. This ‘protected’ class should have its navigation instructions be overridden in the case of an obstacle in its path. This class will also send an interrupt to the control class when the satellite has reached 8-9 meters of the pole which will tell the control class to pass off control to the final governing the satellite's navigation.\vspace{.3cm}
+\par
 The third stage of control will be reached only in the case where the satellite becomes stuck or on its side. The satellite design is being made specifically to preventing this type of situation from occurring, but there is still a chance of it happening. There will be a specific routine devised for this circumstance, and control of the satellite will be passed to this stage in this type of event. This class will have access to the CMOD, ultrasonic sensors via inheriting from these protected classes. When the satellite has recovered from the event, and some routine to avert the obstacle has been completed, then the control will be returned to the previous control stage.\vspace{.3cm}
 \par
 The final stage of control will cover the period of time when the satellite reaches the 8-9 meter range from the pole, and it will last until contact with the pole has been made. The class responsible for the satellite's control over this period will no longer take input from the GPS. The system used previously for the obstacle avoidance system, i.e. the CMOS imaging sensor and the ultrasonic sensor, will be used here for navigation. Even if the ultrasonic sensor is operating at 40kHz, considering the target has a spherical shape, the sensor will be only accurate for up to 20.2 feet so the CMOS imaging sensor will have to suffice until the satellite is close to the pole ~\cite{massa1999}. The CMOS imaging sensor will need to switch modes in this stage to look for a pole shaped object and direct the satellite towards it. A separate ‘protected’ class should be governing the sensor in this stage of navigation. Instead of looking for obstacles the sensor should be searching for an object which is similar to some stored image, allowing for an appropriate level of error. 
@@ -184,15 +192,99 @@ This system will be implemented as it’s own class. It is the final stage class
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Next Person
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{temp}
+\section{Navigation system design}
+Navigation system is the one of the most crucial parts of any autonomous vehicles. The team is planning to implementing the rover's navigating system with two major goals: to get the rover drive towards the target pole without getting stuck; Design or use some existing algorithms to let the rover remotely updates the best driving path, in order to achieve the optimized battery life. The team divided the navigation system implementation into hardware and software two pieces, in order to help us research more comprehensively.\vspace{.3cm}
+\par
+On the hardware side, by far we have designed two layers to ensure that the CanSat to meet the functional requirements. The team first collaborated with the electrical engineering team and made the agreement on that we will use the FGPMMOPA6C MTK3339 GPS chipset. The MTK3339 ultimate GPS module has an excellent high-sensitivity receiver and a built in antenna. It is capable to get up to -165 dBm sensitivity, track 22 satellites on 66 channels with a 10 Hz update rate, with its ultra low power usage, this GPS module is unbeatable considering its the under 30 dollars price and ultra compact size(16mm * 16mm *5 mm, 4 grams). A GPS module essentially generates a set of way-points(path) based on the given target pole coordinates, in order to make the CanSat to have more precision control and a better motion awareness, we decided to add a 3 axis accelerometer onto the system. At this time being, we have not yet finalized the selection on which specific accelerometer we are going to use on the CanSat. \vspace{.3cm}
+\par 
+Software design is the most important piece of the Navigation system, as mentioned above, the CanSat will navigate itself to the target pole based on the given pole coordinates. In order to enable the autonomous driving feature, we have made a basic design which is based on an existing function called distance and angle calculation method.\cite{Dhanasingaraja} With this method, the system essentially compares its current location with the target pole location, Calculate the shortest path between these two points, then travels through the shortest path. If the system senses any obstacles in the path, it will calculate the new path based on the new current location. This simple process is continued until the CanSat gets close to the target pole(roughly within 8 meters), the target pole mode will be turned on in this case. Lastly, if the CanSat has successfully touched the target pole, it gets stopped, and the whole system will be shut down, see \textbf{Fig. 1}. This distance and angle calculation method can be expressed in a set of mathematical equations, please see below:  \vspace{.3cm}
+\begin{center}
+$A = Long_{pole} - long_{current}$\\
+$B = Lat_{pole}  - lat_{current}$\\
+$\theta_{pole} = tan^-1(B/A)$\\
+$Angle(\theta) = Pole_{angle}  - Current_{angle}$\\
+\vspace{.3cm}
+Where, A is distance to be travelled in latitude and B is distance to be travelled in longitude\\
+\end{center}
+\newpage
+Furthermore, for details about the obstacle avoidance algorithms, as we discussed in the section No.VII, we are essentially using the CMOS image sensor to constantly generating pictures of the front of the path, convert those pictures into a 2D array of binary values, where 1 means object and 0 means open space. \cite{astarkfuture} This 2D array contains a set of binary values can be expressed as this imaginary figure below, the center of this array has a bunch of 1 values which represent an object, more specifically, is an obstacle. \vspace{.3cm}
+\begin{center}
+00000000000000000000000000000000\\
+00000000000001111100000000000000\\
+00000000001111111111000000000000\\
+00000000111111111111100000000000\\
+00000000001111111110000000000000\\
+00000000000111111100000000000000\\
+00000000000001111000000000000000\\
+00000000000000000000000000000000\\
+\end{center}
+\vspace{.3cm}
 
-\section{temp}
+\tikzstyle{block} = [rectangle, rounded corners, text width=8em, minimum width=3cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{decision} = [diamond, draw, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{line} = [draw, -latex']
+\begin{figure}
+\caption{the flowchart above shows the details of how the navigation system works.}
+	\begin{center}
+		\vspace{.5cm}
+		\begin{tikzpicture}[node distance = 1.7cm, auto]
+		% Place nodes
+		\node [block] (init) {GPS calculates the path angle.};
+		\node [decision, below of=init, node distance=2.3cm] (dec1) {Obstacle detected?};
+		\node [block, right of=dec1, node distance=4cm] (act1) {Make a turn to avoid obstacle.};
+		\node [decision, below of=dec1, node distance=3.5cm] (dec2) {Target pole within 8 meters?};
+		\node [block, left of=dec2, node distance=4cm] (act3) {Keep searching};
+		\node [block, below of=dec2, node distance=2.8cm] (act2) {Switching to target pole mode.};
+		\node [block, below of=act2] (final) {Touch the pole, done!};
+		\path [line] (init) -- (dec1);
+		\path [line] (dec1) -- node {yes}(act1);
+		\path [line] (act1) |- (init);
+		\path [line] (dec1) -- node {no}(dec2);
+		\path [line] (dec2) -- node {no}(act3);
+		\path [line] (act3) |- (dec1);
+		\path [line] (dec2) -- node {yes}(act2);
+		\path [line] (act2) -- (final);
+		\end{tikzpicture}
+	\end{center}
+\end{figure}
 
-\section{temp}
+\section{How to get unstuck if the rover landed sideways}
+The main goal of this task is to get the rover recovered from falling sideways. We have designed a very efficient protocol that ensures the rover is able get unstuck under any kind of scenarios. This protocol can be simply broken down to three layers. The first layer is to determine whether the rover has fell sideways, second layer is called self-rescue program, and the third layer is to place a servo driven arm on the rover body. These three layers has to be executed in this sequence of order in order to make the protocol operates in a cost effective fashion.\vspace{.3cm}
+\par
+To determine whether the rover is operating under normal the conditions or running into problems, we simply utilize its moving speed and heading data from comparing the current waypoint with the last waypoint. If suddenly, the accelerometer captured an unexpected motion and the rover is constantly sitting on a same waypoint, or moving under a minimum threshold of 0.2m/s, if it is, the system will make the decision on that the rover fell sideways, send an instruction to let the system enable the self-rescue layer.\vspace{.3cm}
+\par
+The self-rescue program layer is a script we are going to implement in the third stage of control. After the system has confirmed that the rover is on its sides, the microprocessor will send an instruction to the motor controller, triggering the motor generating the maximum torque to drive the treads moving opposite direction of its heading, three times. Normally, the motor we are going to use is able to generate torque up to 120 Nm, this type of sudden force is big enough to get the rover recovered consider the rover weighs 300 grams. If the program failed on the rover recovery, then the system will enable the third layer of the protocol. \vspace{.3cm}
+\par
+The third layer is an add-on, though the team believed that the self-rescue program has enough power to recover the rover itself from land sideways. Mechanical engineering team has still made the decision on adding an extra servo on the rover in case for any need. This mechanical arm will be used in the fairing process as well as the third layer of the recovery protocol. If the self-rescue program failed to recover the rover, then the program calls that servo to move mechanical arm push perpendicularly the against the ground to make the recovery. \vspace{.3cm}
+\par
 
+\section{Payload fairing}
+The main purpose of the research done into this subsystem was to help determine the ways the payload can stay safe during its descent and landing. Fairing is essentially the first task the CanSat has to pass when it landed on the ground. The major goal of the fairing protocol is get the rover out then move away from the fairing, and parachute quickly, safely, and without stuck, jam, or having any residues. \vspace{.3cm}
+\par  
+Per competition requirement, it is known that the fairing will be built out of a soda can and will probably contain cushioning on the inside to protect the payload. So this limits the options that can be used to separate the fairing. We have developed a solution that is inspired by the SpaceX Falcon Heavy and Falcon 9 payload fairing design, or two half-shells fairing design.\cite{SpaceX} We broke down this fairing protocol into two stages. First determine whether the CanSat is landed or not, if so then move onto the fairing separation stage so that the rover is able to move away as quick as possible. \vspace{.3cm}
+\par  
+To determine whether the CanSat is landed or not, we use the accelerometer to track its ground hitting motion. Speaking the motion, the CanSat create a big deceleration when it goes from descent into a complete stop, any accelerometer in the market is capable to capture this motion. As soon as the accelerometer captured this motion, a signal will be sent to the microprocessor, triggers the fairing separates into two halves. The separation of the fairing is the part that we still stuck on at this moment, we have came up with two feasible options. First, a small explosive or a compressed gas will have to be placed in the fairing in order to cause the separation. Second, as mentioned above in section \textbf{XII}, there will be an mechanical arm placed on the rover, this servo controlled arm is primarily used to get the rover unstuck when it falls sideways, we can also write a small script to let this arm to make a series of motions to cause the separation.\vspace{.3cm}
+\par  
+Additionally, we have to ensure that the rover moves away from the fairing the opposite direction, compare to its moving direction before landing. This action will ensure that the rover won't get jammed with the parachute and able to move onto the next stage as soon as possible. We simply write a script that let the GPS and accelerometer to determine it's landing direction, and set the rover's initial heading the opposite direction of its descent heading. Many teams from previous years competition have stuck on this stage, specifically their CanSat were jammed by the parachute, made theirs rovers aren't able to go anywhere.\vspace{.3cm}
 
 \clearpage
 \pagenumbering{gobble}
 \bibliographystyle{IEEEtran}
 \bibliography{design}
+
+\clearpage
+\vspace{1in}
+\noindent \namesigdate{\textbf{Steven Silvers}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zhaolong Wu}}
+\\
+\vspace{1in}
+\noindent \namesigdate{\textbf{Paul Minner}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zachary DeVita}}
+\\
+\noindent \namesigdate{\textbf{Nancy Squires}}
+
 \end{document}

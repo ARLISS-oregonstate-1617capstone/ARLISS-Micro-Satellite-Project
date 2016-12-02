@@ -54,6 +54,27 @@ G.~Agam, ``Introduction to programming with opencv,'' Jan 2006. [Online].
   \url{https://www.ikalogic.com/image-processing-as-a-sensor/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{santo2016}
+\BIBentryALTinterwordspacing
+D.~Santo, ``Autonomous cars' pick: Camera, radar, lidar?'' Jul 2016. [Online].
+  Available:
+  \url{http://www.eetimes.com/author.asp?section_id=36&doc_id=1330666}
+\BIBentrySTDinterwordspacing
+
+\bibitem{2016frc}
+\BIBentryALTinterwordspacing
+``Ultrasonic sensors - measuring robot distance to a surface.'' [Online].
+  Available:
+  \url{http://wpilib.screenstepslive.com/s/4485/m/13809/l/599715-ultrasonic-sensors-measuring-robot-distance-to-a-surface}
+\BIBentrySTDinterwordspacing
+
+\bibitem{grinberg2013}
+\BIBentryALTinterwordspacing
+M.~Grinberg, ``Building an arduino robot, part ii: Programming the arduino,''
+  Jan 2013. [Online]. Available:
+  \url{https://blog.miguelgrinberg.com/post/building-an-arduino-robot-part-ii-programming-the-arduino}
+\BIBentrySTDinterwordspacing
+
 \bibitem{ATxmega}
 \BIBentryALTinterwordspacing
 Atxmega128a4u. [Online]. Available:
@@ -79,5 +100,20 @@ N.~F. Joshua~Herbach, ``Detecting that an autonomous vehicle is in a stuck
 
 \bibitem{rosebrock}
 A.~Rosebrock, ``Opencv shape detection,'' Feb 2016.
+
+\bibitem{Dhanasingaraja}
+\BIBentryALTinterwordspacing
+``Autonomous Vehicle Navigation and Mapping System.'' [Online]. Available: \url{http://www.rroij.com/open-access/autonomous-vehicle-navigation-and-mappingsystem.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{astarkfuture}
+\BIBentryALTinterwordspacing
+``Autonomous Autonavigation Robot.'' [Online]. Available: \url{http://www.instructables.com/id/Autonomous-Autonavigation-Robot-Arduino/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SpaceX}
+\BIBentryALTinterwordspacing
+``FAIRING.'' [Online]. Available: \url{http://www.spacex.com/news/2013/04/12/fairing}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
