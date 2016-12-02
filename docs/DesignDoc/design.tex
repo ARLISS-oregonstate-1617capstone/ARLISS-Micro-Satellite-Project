@@ -67,11 +67,11 @@ In this document we have divided our project into twelve components, and a frame
 		Paul Minner
 	\item[Finding and Touching the Finish Pole]
 		Paul Minner
-	\item[Navigation algorithm and GPS]
+	\item[Navigation System and Algorithm(s)]
 		Zhaolong Wu
-	\item[Mechanical arm unstuck system]
+	\item[Getting Rover Unstuck When It on Its Side]
 		Zhaolong Wu
-	\item[Payload fairing]
+	\item[Payload Fairing]
 		Zhaolong Wu
 	
 \end{description}
@@ -248,7 +248,7 @@ Furthermore, for details about the obstacle avoidance algorithms, as we discusse
 	\end{center}
 \end{figure}
 
-\section{How to get unstuck if the rover landed sideways}
+\section{Getting rover unstuck when it on its side}
 The main goal of this task is to get the rover recovered from falling sideways. We have designed a very efficient protocol that ensures the rover is able get unstuck under any kind of scenarios. This protocol can be simply broken down to three layers. The first layer is to determine whether the rover has fell sideways, second layer is called self-rescue program, and the third layer is to place a servo driven arm on the rover body. These three layers has to be executed in this sequence of order in order to make the protocol operates in a cost effective fashion.\vspace{.3cm}
 \par
 To determine whether the rover is operating under normal the conditions or running into problems, we simply utilize its moving speed and heading data from comparing the current waypoint with the last waypoint. If suddenly, the accelerometer captured an unexpected motion and the rover is constantly sitting on a same waypoint, or moving under a minimum threshold of 0.2m/s, if it is, the system will make the decision on that the rover fell sideways, send an instruction to let the system enable the self-rescue layer.\vspace{.3cm}
