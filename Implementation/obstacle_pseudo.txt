@@ -1,0 +1,12 @@
+Function name()
+{
+            Read image value;
+            If (value > 2 meters)
+                        Move forward
+            Else
+            Scan for obstacles in left and right side of vehicle
+                        If (more space in left than in right)
+                                    Move left
+                        Else
+                                    Move right
+} // continue loop
