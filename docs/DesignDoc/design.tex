@@ -267,6 +267,11 @@ To determine whether the CanSat is landed or not, we use the accelerometer to tr
 \par  
 Additionally, we have to ensure that the rover moves away from the fairing the opposite direction, compare to its moving direction before landing. This action will ensure that the rover won't get jammed with the parachute and able to move onto the next stage as soon as possible. We simply write a script that let the GPS and accelerometer to determine it's landing direction, and set the rover's initial heading the opposite direction of its descent heading. Many teams from previous years competition have stuck on this stage, specifically their CanSat were jammed by the parachute, made theirs rovers aren't able to go anywhere.\vspace{.3cm}
 
+\section{Amendments}
+\subsection{Control Board: 2/11/17}
+\par
+This Amendment reflects a change in the design in the control board. We are no longer using a custom built control board built by the ECE subteam, but are instead using a Raspberry Pi Zero. This change was made by the ECE team as a way to have a compact board with high processing power. It was realized that the 8-bit processor would not be mentioned previously would not be powerful enough to process our image conversions in a timely manner.
+
 \clearpage
 \pagenumbering{gobble}
 \bibliographystyle{IEEEtran}
