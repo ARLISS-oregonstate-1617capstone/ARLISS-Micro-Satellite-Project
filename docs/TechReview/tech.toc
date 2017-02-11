@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-C}}Evaluation Criteria}{7}{subsection.5.3}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-D}}Discussion}{7}{subsection.5.4}
 \contentsline {paragraph}{\numberline {\unhbox \voidb@x \hbox {V-D}0a}Arduino Uno}{7}{paragraph.5.4.0.1}
-\contentsline {paragraph}{\numberline {\unhbox \voidb@x \hbox {V-D}0b}Raspberry Pi Model A+}{7}{paragraph.5.4.0.2}
+\contentsline {paragraph}{\numberline {\unhbox \voidb@x \hbox {V-D}0b}Raspberry Pi Zero}{7}{paragraph.5.4.0.2}
 \contentsline {paragraph}{\numberline {\unhbox \voidb@x \hbox {V-D}0c}Custom Board}{7}{paragraph.5.4.0.3}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-E}}Selection}{7}{subsection.5.5}
 \contentsline {section}{\numberline {VI}Avoiding Obstacles}{8}{section.6}

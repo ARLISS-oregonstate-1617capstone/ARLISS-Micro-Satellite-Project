@@ -94,19 +94,4 @@ R.~MacLachlan, ``Capacitive sensor introduction.'' [Online]. Available:
 ``Raspberry pi.'' [Online]. Available: \url{https://www.raspberrypi.org/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{astarkfuture}
-\BIBentryALTinterwordspacing
-``Autonomous Autonavigation Robot.'' [Online]. Available: \url{http://www.instructables.com/id/Autonomous-Autonavigation-Robot-Arduino/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Dhanasingaraja}
-\BIBentryALTinterwordspacing
-``Autonomous Vehicle Navigation and Mapping System.'' [Online]. Available: \url{http://www.rroij.com/open-access/autonomous-vehicle-navigation-and-mappingsystem.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{SpaceX}
-\BIBentryALTinterwordspacing
-``FAIRING.'' [Online]. Available: \url{http://www.spacex.com/news/2013/04/12/fairing}
-\BIBentrySTDinterwordspacing
-
 \end{thebibliography}
