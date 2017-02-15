@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {I}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {II}Summary of the Term}{2}{section.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Week 1}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Week 2}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Week 3}{2}{subsection.2.3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Week 4}{2}{subsection.2.4}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Week 5}{3}{subsection.2.5}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-F}}Week 6}{3}{subsection.2.6}
+\contentsline {section}{\numberline {III}Conclusion}{3}{section.3}
