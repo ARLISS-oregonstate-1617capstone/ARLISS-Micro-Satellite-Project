@@ -4,6 +4,7 @@
 \usepackage{color}
 \usepackage{longtable}
 \usepackage{graphicx}
+\usepackage{caption}
 \usepackage{float}
 \usepackage{tabu}
 \usepackage{enumitem}
@@ -11,17 +12,18 @@
 \usepackage[hidelinks]{hyperref}
 
 \setlength{\parindent}{0cm}
+\setcounter{secnumdepth}{1}
 
 \begin{document}
 \begin{titlepage}
-	\title{The ARLISS Project\\Progress Report\\CS 461}
+	\title{The ARLISS Project\\Progress Report\\Senior Capstone}
 	\author{Steven Silvers, Paul Minner, Zhaolong Wu, Zachary DeVita\\
-		Capstone Group 27, Fall 2016}
+		Capstone Group 27\\2016-17 Academic Year}
 	\date{\today}
 	\maketitle
 	\vspace{4cm}
 	\begin{abstract}
-		\noindent This document details our experiences designing our project in the last ten weeks. This includes progress made, problems encountered, and plans for the future. We also detail changes we plan to implement in the future.
+		\noindent This document details our experiences designing our project over the duration of the academic year. This includes progress made, problems encountered, and plans for the future. We also detail changes we plan to implement in the future.
 	\end{abstract}
 
 \end{titlepage}
@@ -29,9 +31,9 @@
 \clearpage
 
 \section{Introduction}
-This document is a progress report which details our team's progress on the ARLISS Project throughout the Fall term of 2016. It  contains a week by week summary of all related activities, problems we have encountered, solutions to prior problems, and a detailed retrospective of the last ten weeks. The retrospective will contain a section for things which have gone well, a section for changes which need to be implemented, and a section which will detail actions which will need to occur to make those changes.  
+This document is a progress report which details our team's progress on the ARLISS Project throughout the Fall term of 2016. It  contains a week by week summary of all related activities, problems we have encountered, solutions to prior problems, and a detailed retrospective of the academic year. The retrospective will contain a section for things which have gone well, a section for changes which need to be implemented, and a section which will detail actions which will need to occur to make those changes.  
 
-\section{Summary of the Term}
+\section{Summary of Fall Term}
 \subsection{Week 3}
 By week 3 our team was established, we had met with our mentor and client for the first time, and our team had also met with our extended team of electrical and mechanical engineers. In class we had been briefly described upcoming assignments for our project, as well as, had been assigned the Problem Statement. Our project, the ARLISS Project, is to build a satellite, i.e. robot, and compete in the ARLISS competition. ARLISS stands for "A Rocket Launch for International Student Satellites," and it is a national competition where teams comprised of multiple engineering disciplines build a "soda-can" sized satellite which must autonomously navigate to a specified location after being ejected from a rocket at approximately 12,000' AGL and landing safely on the ground.\vspace{.3cm}
 \par
@@ -80,28 +82,28 @@ The plan for the following week was to make final edits to the technology review
 
 \subsection{Week 8}
 \par
-Week eight was highlighted by making final edits to and submitting our technology review for grading. Once the technology review was done and behind us we began focusing on the next assignment, the design document. Work on the design document in week eight was focused around planning out how to approach the document and the overall outline for what it will look like.
+Week eight was highlighted by making final edits to and submitting our technology review for grading. Once the technology review was done and behind us we began focusing on the next assignment, the design document. Work on the design document in week eight was focused around planning out how to approach the document and the overall outline for what it will look like.\vspace{.3cm}
 \par
-We held our all-group meeting with the mechanical and electrical engineering sub-teams on Tuesday night where we further discussed the hardware implementation of our project. Some of the decisions made included using GPS to calculate altitude for parachute deployment, using a 9V 1200~1500 mA battery for the main power supply, as well as using two motors for driving. It is still undecided as to what kind of sensor will be used for detecting obstacles, whether it will be an image sensor or SONAR/RADAR. This raises a problem because the decision as to what kind of sensor to use directly impacts how our design document will be written and if our technology review will need revision.
+We held our all-group meeting with the mechanical and electrical engineering sub-teams on Tuesday night where we further discussed the hardware implementation of our project. Some of the decisions made included using GPS to calculate altitude for parachute deployment, using a 9V 1200~1500 mA battery for the main power supply, as well as using two motors for driving. It is still undecided as to what kind of sensor will be used for detecting obstacles, whether it will be an image sensor or SONAR/RADAR. This raises a problem because the decision as to what kind of sensor to use directly impacts how our design document will be written and if our technology review will need revision.\vspace{.3cm}
 \par
-The plan for week nine is to write the design document and finish it early so we have more time to focus on the final progress report and presentation. There will be another all-group meeting where we will hopefully finalize our decision as to what kind of sensor we will be using to detect and avoid obstacles. We are still brainstorming how we would like to approach the progress report in the following weeks, whether we will record as a group or individually and then splice our presentations together.
-
+The plan for week nine is to write the design document and finish it early so we have more time to focus on the final progress report and presentation. There will be another all-group meeting where we will hopefully finalize our decision as to what kind of sensor we will be using to detect and avoid obstacles. We are still brainstorming how we would like to approach the progress report in the following weeks, whether we will record as a group or individually and then splice our presentations together.\vspace{.3cm}
+\par
 
 \subsection{Week 9}
+
+A lot of work done during week nine was done individually as it fell on the Thanksgiving holiday break. Most of the team finished their individual portions for the design document over break, which was fairly easy to do without much collaboration as each person was responsible for writing up the same sections they wrote about in the technology review. We held our usual all-group meeting Tuesday night, where further discussion was had in regards to sensors and other design aspects of the project. It was decided that a CMOS imaging sensor would be used to detect objects in the satellite's path.\vspace{.3cm}
 \par
-A lot of work done during week nine was done individually as it fell on the Thanksgiving holiday break. Most of the team finished their individual portions for the design document over break, which was fairly easy to do without much collaboration as each person was responsible for writing up the same sections they wrote about in the technology review. We held our usual all-group meeting Tuesday night, where further discussion was had in regards to sensors and other design aspects of the project. It was decided that a CMOS imaging sensor would be used to detect objects in the satellite's path.
+It is still uncertain what kind of control board the electrical team will implement for the project. It currently looks like they are between using a Raspberry PI Zero and building their own custom board with an ATMega128 chip. This decision will hopefully be made soon as ultimately effects how our overall system will be designed and implemented.\vspace{.3cm}
 \par
-It is still uncertain what kind of control board the electrical team will implement for the project. It currently looks like they are between using a Raspberry PI Zero and building their own custom board with an ATMega128 chip. This decision will hopefully be made soon as ultimately effects how our overall system will be designed and implemented.
-\par
-The plan for week ten is to work on the progress report early, and finish the presentation the weekend before finals week. We decided to meet as a group in a study room on campus Sunday afternoon to record the audio and screen capture for the presentation. It was decided that each person would be responsible for a portion of the progress report, and then to prepare their own speaking portions for the presentations and arrive Sunday ready to record. Steven volunteered his Engr webspace for hosting the project submission.
+The plan for week ten is to work on the progress report early, and finish the presentation the weekend before finals week. We decided to meet as a group in a study room on campus Sunday afternoon to record the audio and screen capture for the presentation. It was decided that each person would be responsible for a portion of the progress report, and then to prepare their own speaking portions for the presentations and arrive Sunday ready to record. Steven volunteered his Engr webspace for hosting the project submission.\vspace{.3cm}
 
 \subsection{Week 10}
-During week 10, our team managed to finish the majority of our Design Document over the weekend so there was not too much time spent working on it. Everyone did there part and researched their topics, wrote up their portions of the document, and we managed to get it turned in on time. We also made sure to get a considerable head start on our progress report. 
+During week 10, our team managed to finish the majority of our Design Document over the weekend so there was not too much time spent working on it. Everyone did there part and researched their topics, wrote up their portions of the document, and we managed to get it turned in on time. We also made sure to get a considerable head start on our progress report.\vspace{.3cm} 
 \par
-For the progress report, we decided to split the weeks up and each write a couple weeks. We wrote the rest of the progess report and starting to play around with the video recording tools.
+For the progress report, we decided to split the weeks up and each write a couple weeks. We wrote the rest of the progess report and starting to play around with the video recording tools.\vspace{.3cm}
 \par
-For the future hardware desgin, the electrical engineers apparently want to use an AtMega128 processor. We suspect that it is only because that is what they are accustomed to and not because it is the best tool for the job. Ideas for sensors were also mentioned. Hopefully they consider the CMOS and the ultrasonic sensors that we researched and suggested to them. During the week we also got the specifications for the competition. Our team plans on putting forth some effort and working on this project over break which would be nice. We've requested some supplies from Dr. McGrath so that hopefully we are able to work on some of the coding over the winter break. 
-
+For the future hardware desgin, the electrical engineers apparently want to use an AtMega128 processor. We suspect that it is only because that is what they are accustomed to and not because it is the best tool for the job. Ideas for sensors were also mentioned. Hopefully they consider the CMOS and the ultrasonic sensors that we researched and suggested to them. During the week we also got the specifications for the competition. Our team plans on putting forth some effort and working on this project over break which would be nice. We've requested some supplies from Dr. McGrath so that hopefully we are able to work on some of the coding over the winter break.\vspace{.3cm} 
+\par
 
 \section{A Reflection of Development Period}
 \begin{tabular}{ |p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|  }
@@ -123,8 +125,60 @@ Keep track of project progress better. & Use a separate application to keep trac
 \hline
 \end{tabular}
 
-\section{Conclusion}
+\section{Fall Term Conclusion}
 Overall, our project so far has been very successful. There have been some difficulties, such as being unsure of what hardware components were being used for so long, and realizing the hardware for the rover won't be completed until the end of winter term, but we have yet to encounter any problems which we can't find a solution to. We have a plan for how to design each component of our software, and if we implement the actions mentioned in the table above, creating our project should go very smoothly.
+
+\section{Summary of Winter Term}
+
+\subsection{Zachary DeVita}
+\subsubsection{Week 1}\hspace*{\fill}\\ 
+The first progress report blog was done in week 1 of the term, and it included a brief summary of my progress made on the project during the winter break. I sincerely worked on the project over the break; nothing too impressive, but I made a program which converts a colored 24-bit .bmp image into a two-dimensional array of binary values. Essentially zeros in the array indicate that the change in grade of the terrain is safe to traverse, and that there are no obstacles present. A couple issues arose later in the term which had a negative impact on this progress. After the hardware was chosen by the rest of our team, better options for a programming language became available which included better libraries for image processing. Much of the algorithm can still be utilized for traversing the image matrix which is good. One issue that was realized when creating this program was that we have no way to accurately represent the terrain in Black Rock Desert. This is still an issue we must deal with at some point before the project is finalized.\vspace{.3cm}
+\par
+During this first week our team was under the impression that we were using an 8-bit AtMega128 processor for the project. This means that we would have had to use C for programming, and thus is why I had written a program in C. I spent a considerable amount of time researching how to mimic some of the C++ features that our team was hoping to utilize. Considering it was the first week of the term, and we hadn't even had a team meeting or met with our mentor, there wasn't much to that any of us could do.\vspace{.3cm}
+\par
+\subsubsection{Week 2}\hspace*{\fill}\\
+There wasn't too much to report for week 2 either. We finally met with our advisor for the first time of the term, and he gave us some important due dates for the project. One of the due dates that seemed especially problematic was the due date for the first prototype of the project occurring in week 6. There was a profound misunderstanding of what this first prototype entailed because I left the meeting being under the impression that we needed fully functioning prototype by week 6. We still hadn't met with our extended team in week 2, but we did finally have a meeting date for the following week.\vspace{.3cm}
+\par
+Much of our project's programming requires interacting with hardware that is being used on the "satellite". A major problem which was inhibiting our progress at this point was that the hardware was originally planned to be built by the electrical engineers, and their due date for building the hardware is approximately the same due date as we have to finish our programming. There seems to be a major flaw in how these multi-disciplinary projects are organized. I'm no rocket surgeon, but it would make infinitely more sense to have the senior design projects, which are cross-disciplinary, have their implementation terms staggered so that the hardware is being completed at the end of one term, and then the programming could begin in the subsequent term. Either way, some decisions had to be made later in the term to fix this problem. We sacrificed much of the ambition and ingenuity that went into the original plans for the project, and we decided to implement an off-the-shelf raspberry pi for the project.\vspace{.3cm}
+\par
+\subsubsection{Week 3}\hspace*{\fill}\\
+This week marked a huge breakthrough in our team's progress in the project. We met with our entire team of engineers for the first time of the term, and we were able to decide on the microcontroller being used for our project. This means we now knew our processing speed, and we knew that C++ was now an option as the programming language. This came as great news to our team as we could then begin programming for the project. Now in C++, I began writing a program which manipulates images and detects the edges in the images. This algorithm utilizes the opencv library which is an amazing, powerful library.\vspace{.3cm}
+\par 
+At this point I had developed a method of eliminating the noise in an image, as well as, finding a very effective configuration of filters and image conversions to detect prominent edges in the image. I have attached images below showing the results of some of the testing. These include an original photo taken in Blackrock Desert and two different methods of eliminating noise which have shown success. There are many different methods of image manipulation which can be utilized for eliminating noise in the image. For both of the methods which I found in week 3, I first convert the image to grayscale, then I blur the image along the horizontal axis. For one image I then use the Canny filter to finish the process. On the other image I run it through a binary inverted threshold. Both these methods seem to accomplish what I am looking for so we might rely on testing to determine the best. At this point it hadn't been determined what the next step for the images was. The original idea was to convert the image to a binary array, but I'm not so sure that converting to binary and then using a loop to traverse each frame is the most efficient method. It is already possible to traverse the .mat files which are output from the image processing so I think the current plan is to do that.
+
+\begin{figure}[h]
+	\captionsetup{justification=raggedright, singlelinecheck=off}
+    	\includegraphics[width=0.6\textwidth]{blackrock}
+    	\caption{Original image of Black Rock Desert, Nevada.}
+	\vspace{1.5cm}
+
+	\centering
+	\captionsetup{justification=raggedleft, margin=3.6cm,singlelinecheck=off}
+	\hfill
+    	\includegraphics[width=0.6\textwidth]{thresh}
+    	\caption{Sample image utilizing a threshing filter.}
+
+\end{figure}
+\newpage
+\begin{figure}
+	\captionsetup{justification=raggedright, singlelinecheck=off}
+    	\includegraphics[width=0.6\textwidth]{canny}
+    	\caption{Sample image utilizing a Canny filter.}
+
+\end{figure}
+
+\subsubsection{Week 4}\hspace*{\fill}\\
+In the fourth week our team met with our mentor, as well as, our client. The client showed up at our team meeting which proved to be very beneficial. We were able to get many of our questions answered or directed to the appropriate resource to get the questions answered. There were also important decisions made at the meeting regarding the hardware we will be working with. Since this team meeting we have officially known all the hardware which we will be interacting with! This was one of the weeks where we had a lecture for capstone. At this lecture we were given an assignment description of the midterm progress report. The alpha version prototype requirements were defined in this lecture by Dr. McGrath as well. His description of the alpha prototype made it seem far more realistic to complete by week 6 which helped relieve much of my stress.\vspace{.3cm}
+\par
+As far as progress on the project, In week 4 I was able to get in contact with Bill Smart who is one of the leading researchers in robotics and machine learning here at OSU. He put me in contact with some of his grad student researchers so that I could get some assistance working on the object detection algorithm. By the end of this week, I had still not heard back from them, but merely gaining his assistance is a huge step in learning how to implement the object recognition that will be used in the final stage of the satellite's trek.\vspace{.3cm}
+\par
+\subsubsection{Week 5}\hspace*{\fill}\\
+In week 5, our team met with the other engineers working on our project and with our client again on Tuesday. We had a lecture this week as well, and some new assignments were discussed. One of the assignments was the progress report. Our team was assigned to update the original progress report document with each of our progress over the last five weeks. We were also informed that we needed to record another presentation for our project which should be approximately 30 minutes long. We were also informed that we needed to update all documents from the previous term if any of the information in them had changed. After making the necessary changes, we were instructed to publish them in a OneNote notebook.\vspace{.3cm}
+\par  
+In this week, I created the OneNote notebook for our project and I've been working with some of Bill Smart's graduate students to develop a machine learning algorithm for locating the pole at the end of our satellite's trek. These types of algorithms are pretty foreign to me, and we still do not know exactly what the target will look like, so there was not and will not be a way that it gets finished before the alpha release but hopefully for our beta release. I've been conducting a lot of research on machine learning object recognition and it is extraordinarily interesting to me. This may be the most interesting chunk of code I will have developed by the time it's finished.\vspace{.3cm}
+\par
+
+
 
 %\section{References}
 
