@@ -266,11 +266,14 @@ Per competition requirement, it is known that the fairing will be built out of a
 To determine whether the CanSat is landed or not, we enable the GPS module to check the altitude constantly, then have the accelerometer to track its ground hitting motion. Speaking the motion, the impact from a CanSat hits ground is significant, any accelerometer in the market is capable to capture this motion. Soon as the accelerometer captured the CanSat's landing motion, a signal will be sent to the CanSat's microprocessor, which triggers the fairing protocol. The design of the fairing separation has been redesigned completely. The CanSat will be wrapped into a thick plastic sheet, we use tape to ensure that the CanSat will not move around during the launching stage. As mentioned above in section \textbf{XII}, there will be a servo powered mechanical arm placed on the top of rover to prevent the rover lands on its side, the mechanical arm is also used to help the rover breaks out of the plastic wrapped fairing.\vspace{.3cm}
 \par  
 Additionally, to ensure that the rover moves away from the parachute quickly is really important, previous years competition shown that several teams rover drove into the parachute, end up broken or stuck. To prevent this happens on the CanSat, we simply write a protocol that separates the parachute and the rover during the landing stage. We simply write a script that let the GPS and accelerometer to determine it's landing direction, and set the rover's initial heading the opposite direction of its descent heading. Many teams from previous years competition have stuck on this stage, specifically their CanSat were jammed by the parachute, made theirs rovers aren't able to go anywhere.\vspace{.3cm}
-
+\par
 \section{Amendments}
 \subsection{Control Board: 2/11/17}
+This amendment reflects a change in the design in the control board. We are no longer using a custom built control board built by the ECE subteam, but are instead using a Raspberry Pi Zero. This change was made by the ECE team as a way to have a compact board with high processing power. It was realized that the 8-bit processor would not be mentioned previously would not be powerful enough to process our image conversions in a timely manner.\vspace{.3cm}
 \par
-This Amendment reflects a change in the design in the control board. We are no longer using a custom built control board built by the ECE subteam, but are instead using a Raspberry Pi Zero. This change was made by the ECE team as a way to have a compact board with high processing power. It was realized that the 8-bit processor would not be mentioned previously would not be powerful enough to process our image conversions in a timely manner.
+\subsection{Ultrasonic Radar Sensor: 2/08/17}
+This amendment reflects a change to the design of the obstacle recognition system. The object recognition system is no longer using an ultrasonic radar sensor in its implementation. We will instead solely be using a CMOS camera sensor for this process. The entire design section for the ultrasonic radar sensor has been commented off in, and thus will not appear in this document.\vspace{.3cm}
+\par
 
 \clearpage
 \pagenumbering{gobble}
