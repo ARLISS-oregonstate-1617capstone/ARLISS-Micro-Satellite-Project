@@ -1,12 +1,29 @@
 \contentsline {section}{\numberline {I}Introduction}{2}{section.1}
-\contentsline {section}{\numberline {II}Summary of the Term}{2}{section.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Week 3}{2}{subsection.2.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Week 4}{2}{subsection.2.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Week 5}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Week 6}{4}{subsection.2.4}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Week 7}{4}{subsection.2.5}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-F}}Week 8}{5}{subsection.2.6}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-G}}Week 9}{5}{subsection.2.7}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-H}}Week 10}{5}{subsection.2.8}
-\contentsline {section}{\numberline {III}A Reflection of Development Period}{5}{section.3}
-\contentsline {section}{\numberline {IV}Conclusion}{6}{section.4}
+\contentsline {section}{\numberline {II}Summary of Fall Term}{2}{section.2}
+\contentsline {subsection}{\relax Week 3}{2}{section*.2}
+\contentsline {subsection}{\relax Week 4}{2}{section*.3}
+\contentsline {subsection}{\relax Week 5}{3}{section*.4}
+\contentsline {subsection}{\relax Week 6}{4}{section*.5}
+\contentsline {subsection}{\relax Week 7}{4}{section*.6}
+\contentsline {subsection}{\relax Week 8}{5}{section*.7}
+\contentsline {subsection}{\relax Week 9}{5}{section*.8}
+\contentsline {subsection}{\relax Week 10}{5}{section*.9}
+\contentsline {section}{\numberline {III}A Reflection of Development Period}{6}{section.3}
+\contentsline {section}{\numberline {IV}Fall Term Conclusion}{6}{section.4}
+\contentsline {section}{\numberline {V}Summary of Winter Term}{6}{section.5}
+\contentsline {subsection}{\relax Zachary DeVita}{6}{section*.10}
+\contentsline {subsubsection}{\relax Week 1}{6}{section*.11}
+\contentsline {subsubsection}{\relax Week 2}{7}{section*.12}
+\contentsline {subsubsection}{\relax Week 3}{7}{section*.13}
+\contentsline {subsubsection}{\relax Week 4}{9}{section*.16}
+\contentsline {subsubsection}{\relax Week 5}{9}{section*.17}
+\contentsline {subsection}{\relax Steven Silvers}{9}{section*.18}
+\contentsline {subsection}{\relax Week 1}{10}{section*.19}
+\contentsline {subsection}{\relax Week 2}{10}{section*.20}
+\contentsline {subsection}{\relax Week 3}{10}{section*.21}
+\contentsline {subsection}{\relax Week 4}{10}{section*.22}
+\contentsline {subsection}{\relax Week 5}{10}{section*.23}
+\contentsline {subsection}{\relax Week 6}{11}{section*.24}
+\contentsline {subsection}{\relax Control Board}{11}{section*.25}
+\contentsline {subsection}{\relax Wheel System}{11}{section*.27}
+\contentsline {subsection}{\relax Obstacle Avoidance}{11}{section*.28}

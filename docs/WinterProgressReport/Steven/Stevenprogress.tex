@@ -49,11 +49,29 @@ This week was mostly business as usual, we continued working on the alpha versio
 Week five was spent doing work on the alpha version of the modules I am responsible for, mostly the obstacle avoidance system. Because of this modules' complexity it was decided that the alpha would be a lower level "prof of concept" and full functionality would be added by the 1.0 release. I edited both the tech review and the design document to reflect changes that had been made to the project for the sections I am responsible for. The biggest edit was for the control board, reflecting the decision made by the ECE team to use a Raspberry Pi Zero instead of one of the previously listed options.
 
 \subsection{Week 6}
-Week six was focused entirely on the upcoming alpha release and progress report. We decided that each team member would write their pieces individually and then combine them into one document Thursday, giving us plenty of time to submit the report on Friday. We got together with the ECE and ME teams for our weekly meeting, which ended early because all three groups were busy with progress reports and had nothing of significance to share. The ME team is uncertain of their capstone number, which hopefully they will figure out soon so that we can register as a group for Expo.
+Week six was focused entirely on the upcoming alpha release and progress report. We decided that each team member would write their pieces individually and then combine them into one document Thursday, giving us plenty of time to submit the report on Friday. We got together with the ECE and ME teams for our weekly meeting, which ended early because all three groups were busy with progress reports and had nothing of significance to share. The ME team is uncertain of their capstone number, which hopefully they will figure out soon so that we can register as a group for Expo. The ME team also revealed to us during the short meeting that the rover frame did not hold up in testing and broke. They are now considering manufacturing the frame to the rover out of acrylic as it is a sturdy lightweight material that they believe will be easier to work with.
 
 \section{Module Progress}
 \subsection{Control Board}
+Progress for the control board module so far consists of coming together with the ECE and ME teams and selecting what board we would like to use for the project. At our first all group meeting we decided that a Raspberry Pi Zero would be the best fit for our project given the size constraints and the processing power needed by our imaging system. Once that decision was made, it was a matter of placing the order for the Pi Zero boards and updating the technology review and the design document to reflect the decision to use the Pi Zero.
+\begin{figure}[h!]
+	\includegraphics[scale = .4]{capture.png}
+	\caption{SolidWorks design of the rover}
+	\label{fig:rover}
+\end{figure}
+\subsection{Wheel System}
+The wheel system for our rover will be designed and manufactured by our project's ME team here at Oregon State. As shown in figure \ref{fig:rover}, our wheel system is a caterpillar track featuring three wheels per track, one of which is connected to a motor while the other two are for stabilization and guidance. Currently only the design for the wheel system has been created, the wheel system should be produced and ready for testing by the beta release.
 
+
+\subsection{Obstacle Avoidance}
+The obstacle avoidance system is what took up most of my time so far this term, as it is proving to be one of the trickier modules. I spent part of winter break as well as the first few weeks of winter term just focused on research for how to best implement a solution to this problem. The current plan is to take in a 2D binary array as input where ones represent edges detected in an image, and zeros are unchanging terrain.
+\begin{figure}[h]
+	\includegraphics[scale = .75]{obstacleavoidance.png}
+	\caption{current output from alpha version}
+	\label{fig:obstacle}
+\end{figure}
+\par
+ The obstacle avoidance algorithm splits the array into three large columns, left, center and right, and then sums those columns. This summation tells us where the most edges are, which translates to where the roughest terrain is. In figure \ref{fig:obstacle} it shows that the sum of the right column was the lowest, so the rover should turn right to avoid the rougher terrain in front of it and to the left. For testing purposes, the array used in the alpha release is randomly populated with ones and zeros. The current plan is for the beta version to be tested with actual images to ensure accuracy and logical correctness of the algorithm.
 
 %\section{References}
 

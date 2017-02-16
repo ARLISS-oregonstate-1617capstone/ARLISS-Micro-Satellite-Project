@@ -6,4 +6,7 @@
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-D}}Week 4}{2}{subsection.2.4}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-E}}Week 5}{3}{subsection.2.5}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-F}}Week 6}{3}{subsection.2.6}
-\contentsline {section}{\numberline {III}Conclusion}{3}{section.3}
+\contentsline {section}{\numberline {III}Module Progress}{3}{section.3}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Control Board}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Wheel System}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Obstacle Avoidance}{4}{subsection.3.3}
