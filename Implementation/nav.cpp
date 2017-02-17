@@ -8,9 +8,11 @@
 #include <math.h>
 #include <iomanip>
 #include <unistd.h>
+#include <stdlib.h>
 
-double radEarth = 6371009; //radians of earth in km
+
 double PI= 3.14159265358979323846;
+double radEarth = 6370009; //radians of earth in meters
 double degreetoRadian(double deg){
   return deg * PI / 180;
 }
@@ -20,12 +22,16 @@ double radiantoDegree(double rad){
 }
 
 double calcDist(double currLat,double destLat, double currLong, double destlong){
-  double dclat = degreetoRadian(currLat); 
-  double ddlat = degreetoRadian(destLat); 
-  double difLat = degreetoRadian(destLat-currLat);
+  double dclat, ddlat;
+  dclat = degreetoRadian(currLat); 
+  ddlat = degreetoRadian(destLat); 
+  double difLat = ddlat - dclat;
   double difLong = degreetoRadian(destlong-currLong); 
-  double a = sin(difLat/2) * sin(difLat/2) + cos(currLat) * cos(destLat) * sin(difLong/2) * sin(difLong/2);
-    double c = 2 * atan2(sqrt(a), sqrt(1-a)); 
+  double a = sin(difLat/2) * sin(difLat/2) + cos(dclat) * cos(ddlat) * sin(difLong/2) * sin(difLong/2);
+ // double c = 2 * atan2(sqrt(a), sqrt(1-a)); 
+
+  double c = 2 * asin(sqrt(a));
+
   double d = radEarth * c; 
   return d;
 }
@@ -37,7 +43,7 @@ double calcBearing(double currLat, double destLat, double currLong, double destl
   double y = sin(difLong) * cos(destLat);
   double x = cos(currLat) * sin(destLat) - sin(currLat) * cos(destLat) * cos(difLong);
   double bearing = radiantoDegree(atan2(y,x)); 
-  double compassNormalized = fmod(bearing + 360, 360); 
+  double compassNormalized = fmod(bearing - 360, 360); 
   return compassNormalized;
 }
 
@@ -54,26 +60,26 @@ double calcBearing(double currLat, double destLat, double currLong, double destl
 int main (){
 using namespace std;
 	
-	double	currLat = 40.753820, currLong = -119.223000, destlat = 40.753833, destlong = -119.277000;
+	double	currLat = 40.753820, destlat = 40.753833, currLong = -119.223000, destlong = -119.277000;
 
   std::cout << std::setprecision(11) << "(" << currLat << "," << currLong << ") --- ""(" << destlat << "," << destlong << ")\n";
 
-  double compassNormalized = calcBearing(currLat, currLong, destlat, destlong);
+  double compassNormalized = calcBearing(currLat, destlat, currLong, destlong);
   cout << "Initial heading =  " << compassNormalized << endl;
 
-  double d = calcDist(currLat, currLong, destlat, destlong);
+  double d = calcDist(currLat, destlat, currLong, destlong);
   cout << "distance to travel = " << d << endl;
-
+  
 
 }
 
 void navigation(double currLat, double currLong, double destLat, double destlong)
 {
- if(calcDist(currLat, currLong, destLat, destlong) < 2)
+ if(calcDist(currLat, destLat, currLong, destlong) < 2)
 	 sleep(5);
  else
  {
-   calcBearing(currLat, currLong, destLat, destlong);
-   //forward();
+   calcBearing(currLat, destLat, currLong, destlong);
+   //roverforward();
  }
 }
