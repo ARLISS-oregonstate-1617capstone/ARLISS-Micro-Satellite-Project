@@ -243,7 +243,26 @@ During the week 4 of winter term the team had 2 major parts done, during the all
 During Thursday's class meeting, both instructors went through things we need to do in the future of the term, I'm aware that first we need a team leader, due to the over crowded classroom and the time conflicts with another class, I wasn't able to find the team members and had to leave class early, I will send out an email to ask.
 
 \subsection{Week 5}
-During week 5, we were mainly focus on revising the design document and get the mid-term assessment ready. I'm still trying to test the gps functions like feed dummy data in and trying to see the systems response. Also I did some researches only and wrote a obstacle detection pseudo code. Next week we will finish up our progress report and get more testing done.
+During week 5, we were mainly focus on revising the design document and get the mid-term assessment ready. I'm still trying to test the gps functions like feed dummy data in and trying to see the systems response. Also I did some researches only and wrote a obstacle detection pseudo code. Next week we will finish up our progress report and get more testing done. 
+\begin{figure}[h]
+	\includegraphics{navout.png}
+	\caption{Current output from navigation system.}
+	\label{fig:Navigation}
+\end{figure}
+\begin{figure}[h]
+	\includegraphics{testout.png}
+	\caption{Comparing current output from navigation system with online GIS source.}
+	\label{fig:Navigation1}
+\end{figure}
+\newpage
+
+\subsection{Week 6}
+During week 6, I spent most of the time to do more testing on the navigation system, the two output images above shows that the algorithm in the navigation program for getting the shortest path and initial heading, the output is matching the online GIS calculator. I'm currently waiting on to get the GPS, pcb board, and motor controller, etc. from the ECE team so I can do the integration tests. For the current testing method I used the location coordinates from the competition site Black Rock, NV, I hard coded two sets of coordinates as start point and finish pole.  
+
+
+\subsection{Future of the term}
+For the second half of the term, I will have to do more integrate tests, to ensure that the navigation system will working, as well as the payload fairing protocol and mechanical arm control. The system integration will be our goal for the beta version, so we can have a fully functional platform that allows us to perform further complex tests on.
+\par
 
 \subsection{Paul Minner}
 Paul Minner is responsible for three modules on this project. They are for parachute deployment, getting unstuck from obstacles, and finding/touching the finish pole. Parachute deployment is fairly simple, we just deploy the parachute once below a certain altitude. Getting unstuck from obstacles is more difficult. Since we don’t yet have access to the rover itself, I had to make assumptions about what would work. Currently, I am attempting to back up the rover, and then rotating it if I don’t detect that the rover has moved, and backing up again. This module may change significantly once we have access to the rover and we can test it. Finally, finding/touching the finish pole is also difficult. Once the rover navigates to within the GPS error range of the finish destination, we have to switch to this mode. There is a pole that the rover needs to hit, so we use the camera to search for the pole so we can drive into it. Another team member is in charge of detecting the pole in the image, but I am in charge of using that data to direct the rover to hit the pole itself. At the beginning of this term, I had determined how I was going to implement these modules, but I hadn’t written any code yet. Here is a week by week summary of my progress over this term. 
