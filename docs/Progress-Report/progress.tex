@@ -202,7 +202,7 @@ Week six was focused entirely on the upcoming alpha release and progress report.
 \subsection{Control Board}
 Progress for the control board module so far consists of coming together with the ECE and ME teams and selecting what board we would like to use for the project. At our first all group meeting we decided that a Raspberry Pi Zero would be the best fit for our project given the size constraints and the processing power needed by our imaging system. Once that decision was made, it was a matter of placing the order for the Pi Zero boards and updating the technology review and the design document to reflect the decision to use the Pi Zero.
 \begin{figure}[h!]
-	\includegraphics[scale = .4]{capture.png}
+	\includegraphics[scale = .4]{Capture.PNG}
 	\caption{SolidWorks design of the rover}
 	\label{fig:rover}
 \end{figure}
@@ -245,7 +245,29 @@ During Thursday's class meeting, both instructors went through things we need to
 \subsection{Week 5}
 During week 5, we were mainly focus on revising the design document and get the mid-term assessment ready. I'm still trying to test the gps functions like feed dummy data in and trying to see the systems response. Also I did some researches only and wrote a obstacle detection pseudo code. Next week we will finish up our progress report and get more testing done.
 
-
+\subsection{Paul Minner}
+Paul Minner is responsible for three modules on this project. They are for parachute deployment, getting unstuck from obstacles, and finding/touching the finish pole. Parachute deployment is fairly simple, we just deploy the parachute once below a certain altitude. Getting unstuck from obstacles is more difficult. Since we don’t yet have access to the rover itself, I had to make assumptions about what would work. Currently, I am attempting to back up the rover, and then rotating it if I don’t detect that the rover has moved, and backing up again. This module may change significantly once we have access to the rover and we can test it. Finally, finding/touching the finish pole is also difficult. Once the rover navigates to within the GPS error range of the finish destination, we have to switch to this mode. There is a pole that the rover needs to hit, so we use the camera to search for the pole so we can drive into it. Another team member is in charge of detecting the pole in the image, but I am in charge of using that data to direct the rover to hit the pole itself. At the beginning of this term, I had determined how I was going to implement these modules, but I hadn’t written any code yet. Here is a week by week summary of my progress over this term. 
+\subsection{Week 1}
+This week, we started getting back into the swing of things. We've scheduled our weekly meetings with our TA for 11:30 AM Tuesday, and are currently getting our weekly meetings with the entire group figured out. Over break I researched about the components needed for the parts of the project I'm responsible for, such as GPS and cameras. I learned that the GPS error for altitude is actually about 1.5 times worse than horizontal coordinate error, which is good to know for the parachute deployment module. Soon, I should begin actually implementing my design. Our only implementation problem is that the hardware isn't available yet, and therefore we will have to simulate it. In my case, that means simulating the GPS altitude, and the camera with obstacle detection.
+\subsection{Week 2}
+This week, we didn't accomplish much. Mostly, we started planning what parts need to be completed for the alpha build due during week 6 of the term. For me, that means I need a working simulation of each of my modules by week 6. This was a challenge, because my module to find and touch the finish pole relies on another teammate’s task to detect the finish pole itself. I had to think of a way to simulate his part of the task for now. The entire ARLISS team is working on setting up a time for group meetings. Currently, Wednesdays at 6pm - 7pm is thought to be the time.
+\subsection{Week 3}
+This week, we finally met with the entire ARLISS group. At the meeting, we discussed where each group was, and upcoming due dates. We also finally know exactly what hardware we will be implementing our software on, which is a Raspberry Pi Zero. Each member of our group has been working on implementing their portions of the project, and will continue to do so next week. I have made significant progress on the parachute deployment module, and started working on the getting unstuck from obstacles module. There should also be another large group meeting next Tuesday to discuss progress with the other teams. Simulating hardware components for our modules has still been a challenge. Some components are difficult to simulate, which means we won't know exactly how the software will react until the hardware is finished and we can test the rover itself. Other than that, simulating most modules of our software for the alpha build seems doable.
+\subsection{Week 4}
+This week, we continued to work on the alpha release of our project. We also got our OneNote page set up. We are beginning to revise our documents to reflect recent changes in our plans, and we need to write our progress report. My technology pick for finding and touching the finish pole on the tech review turned out to not actually be what we used, so I changed that, as well as made minor changes to the algorithms I use on the design document for the separate modules. 
+\subsection{Week 5}
+This week, we made significant progress on our modules in preparation for the upcoming progress report and demo. I finished the Parachute Deployment Module, as well as the Getting Unstuck From Obstacles module, with testing programs for each module. I ended up simulating the GPS by decreasing the altitude value by a fixed amount every time the altitude function was called, and I simulated finding the finish pole by returning a true value randomly 1/6 of the time. These simulations just ensure the algorithms will work correctly under currently anticipated conditions. We will have to test the entire program with the hardware to discover edge cases we didn’t anticipate, but that will be done later.
+\subsection{Week 6}
+We’ve finally made it to our current progress. This week, I finished up the find and touch the finish pole module, so all programming I need to complete for the alpha release is done. I have also worked on writing this progress report, and am currently working on the presentation. Everything is going smoothly, and we should have no problem hitting the friday deadline for the alpha release.
+\subsection{Future}
+In summary, I managed to create a working testing programs for each of my modules. All data from the sensors are currently simulated, so it’s still difficult to know how well my modules will work in the real world. I do know, however, that they will at least work for anticipated conditions, and there are no logical errors with them.
+\begin{figure}[h]
+  \includegraphics{parachuteoutput.png}
+  \caption{Current output from parachute deployment simulation.}
+  \label{fig:parachute}
+\end{figure}
+\par
+Over the rest of this term, I will need to integrate my modules with the rest of the team’s pieces to create one large program. Once we have a single program, we can create better tests to better simulate the system as a whole. This should be our goal for the beta release at the end of this term. By then, the engineering teams should be finished up with the hardware components, so next term we can test the hardware itself. That means next term, we will focus on testing our software in the real world, and making any changes to ensure the rover succeeds at the competition. 
 
 %\section{References}
 
