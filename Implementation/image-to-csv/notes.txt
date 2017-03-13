@@ -1,0 +1,7 @@
+to compile the jpg -> .csv module on command line:
+
+g++ Source.cpp -lopencv_core -lopencv_highgui -lopencv_imgproc
+
+will save "file.csv" which is a csv file of the canny filter and
+"file2.csv" which is a csv file of the thresh filter
+
