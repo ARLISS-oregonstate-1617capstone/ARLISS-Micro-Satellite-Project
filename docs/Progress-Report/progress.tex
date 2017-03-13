@@ -14,6 +14,15 @@
 \setlength{\parindent}{0cm}
 \setcounter{secnumdepth}{1}
 
+\newcommand{\namesigdate}[2][6cm]{%
+	\begin{tabular}{@{}p{#1}@{}}
+		#2 \\[3\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Signature}} 
+		\\[2\normalbaselineskip] \hrule \\[0pt]
+		{\small \textit{Date}}
+	\end{tabular}
+}
+
 \begin{document}
 \begin{titlepage}
 	\title{The ARLISS Project\\Progress Report\\Senior Capstone}
@@ -293,4 +302,20 @@ Over the rest of this term, I will need to integrate my modules with the rest of
 %\bibliographystyle{IEEEtran}
 %\bibliography{tech}
 
+\clearpage
+
+\pagenumbering{gobble}
+\vspace{1in}
+\noindent \namesigdate{\textbf{Steven Silvers}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zhaolong Wu}}
+\\
+\vspace{1in}
+\noindent \namesigdate{\textbf{Paul Minner}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zachary DeVita}}
+\\
+\noindent \namesigdate{\textbf{Nancy Squires}}
 \end{document}
