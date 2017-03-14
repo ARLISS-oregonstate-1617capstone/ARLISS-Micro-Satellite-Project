@@ -15,8 +15,8 @@
 using namespace cv;
 using namespace std;
 
-const int Width = 800;
-const int Height = 600;
+const int Width = 1920;
+const int Height = 1080;
 
 int threshval = 150;
 void on_trackbar(int, void*);
@@ -32,16 +32,19 @@ void createTrackbars();
 void Analyze(int(Array)[][Height], int rows, int cols) {
 
 	//prints the array
-	for (int x = 0; x < rows; x++) {
+	/*for (int x = 0; x < rows; x++) {
 		cout << endl;
 		for (int y = 0; y < cols; y++) {
 
 			cout << Array[x][y] << " ";
 		}
 	}
+	*/
+
+	
 	int suml = 0, sumc = 0, sumr = 0;
 	//sum left column 
-	for (int x = 0; x < 267; x++){
+	for (int x = 0; x < 300; x++){
 		for (int y = 0; y < rows; y++) {
 			if (Array[y][x] == 0){
 				suml += Array[y][x];
@@ -54,32 +57,32 @@ void Analyze(int(Array)[][Height], int rows, int cols) {
 	cout << endl << "sum of left section:" << suml << endl;
 
 	//sum center column 
-	for (int x = 267; x < 533; x++) {
+	for (int x = 300; x < 600; x++) {
 		for (int y = 0; y < rows; y++) {
 			if (Array[y][x] == 0){
 				suml += Array[y][x];
 			}
 			else
-				suml += 1;
+				sumc += 1;
 		}
 	}
 
 	cout << endl << "sum of center section:" << sumc << endl;
 
 	//sum right column 
-	for (int x = 533; x < 800; x++) {
+	for (int x = 600; x < 900; x++) {
 		for (int y = 0; y < rows; y++) {
 			if (Array[y][x] == 0){
 				suml += Array[y][x];
 			}
 			else
-				suml += 1;
+				sumr += 1;
 		}
 	}
 
 	cout << endl << "sum of right section:" << sumr << endl;
 
-	//compare results, choose direction
+	//compare results, choose direction ------------ modify to account for larger values
 
 	if (sumc > (suml + 3) && suml <= sumr) {
 		cout << "Turn left." << endl;
@@ -104,7 +107,7 @@ int main(int argc, char **argv)
 
 	Mat frame, blurred, thresimg, gray, canny, canny2;
 	//frame = imread("images/testBMP2.bmp", CV_LOAD_IMAGE_UNCHANGED);	//	use threshval = 43
-	frame = imread("rv.jpg", CV_LOAD_IMAGE_GRAYSCALE);	
+	frame = imread("road.jpg", CV_LOAD_IMAGE_GRAYSCALE);	
 	
 	imwrite("gray.jpg", frame);
 
@@ -129,11 +132,11 @@ int main(int argc, char **argv)
 	threshold(blurred, thresimg, threshval, 255, CV_THRESH_BINARY_INV);
 	imwrite("thresh.jpg", thresimg);
 		
-	imshow("Canny", canny);
-	imshow("Threshing", thresimg);
+	//imshow("Canny", canny);
+	//imshow("Threshing", thresimg);
 		
-	imshow("Blurred", blurred);
-	imshow("Grayscale", frame);
+	//imshow("Blurred", blurred);
+	//imshow("Grayscale", frame);
 		
 
 
@@ -145,26 +148,16 @@ for(int i=0; i<canny.rows; i++)
 {
     for(int j=0; j<canny.cols; j++)
     {
-        outputFile << canny.at<float>(i,j) << ",";
+    	Vec3b color = canny.at<Vec3b>(Point(i,j));
+    	if(color.val[0] >= 25 && color.val[1] >= 25 && color.val[2] >= 25)
+        	outputFile << 1 << ",";
+        else
+        	outputFile << 0 << ",";
     }
     outputFile << endl;
 
 }
 outputFile.close( );
-
-fstream outputFile2;
-outputFile2.open( "file2.csv", ios::out ) ;
-
-for(int i=0; i<thresimg.rows; i++)
-{
-    for(int j=0; j<thresimg.cols; j++)
-    {
-        outputFile2 << thresimg.at<float>(i,j) << ",";
-    }
-    outputFile2 << endl;
-
-}
-
 
 //start of obstacle avoidance section
 ifstream infile;
@@ -172,7 +165,7 @@ ifstream infile;
 
 int Image_Array[Width][Height];
 
-	infile.open("file2.csv");
+	infile.open("file.csv");
 	if (infile.is_open()) {
 		cout << "file opened. \n";
 			for (int row = 0; row < Width; ++row){
@@ -218,8 +211,6 @@ int Image_Array[Width][Height];
 	Analyze(Image_Array, Width, Height);
 
 
-
-outputFile2.close( );
 	waitKey(0);
 }
 
