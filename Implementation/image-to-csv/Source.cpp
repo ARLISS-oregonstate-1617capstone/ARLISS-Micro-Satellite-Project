@@ -3,6 +3,10 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <fstream>
+#include <string>
+#include <stdio.h>
+#include <sstream>
+
 //#include "opencv-3.2.0/modules/imgproc/include/opencv2/imgproc.hpp"
 //#include "opencv2/imgcodecs.hpp"
 //#include "opencv-3.2.0/modules/highgui/include/opencv2/highgui/highgui.hpp"
@@ -11,9 +15,86 @@
 using namespace cv;
 using namespace std;
 
+const int Width = 800;
+const int Height = 600;
+
 int threshval = 150;
 void on_trackbar(int, void*);
 void createTrackbars();
+
+
+/*
+# The Analyze function is the heart of the obstacle avoidance module. this function takes in our image array, and then checks which
+# of the three columns (left, center, or right) has the fewest edges and then decides which direction to go based off that data.
+#
+#
+*/
+void Analyze(int(Array)[][Height], int rows, int cols) {
+
+	//prints the array
+	for (int x = 0; x < rows; x++) {
+		cout << endl;
+		for (int y = 0; y < cols; y++) {
+
+			cout << Array[x][y] << " ";
+		}
+	}
+	int suml = 0, sumc = 0, sumr = 0;
+	//sum left column 
+	for (int x = 0; x < 267; x++){
+		for (int y = 0; y < rows; y++) {
+			if (Array[y][x] == 0){
+				suml += Array[y][x];
+			}
+			else
+				suml += 1;
+		}
+	}
+
+	cout << endl << "sum of left section:" << suml << endl;
+
+	//sum center column 
+	for (int x = 267; x < 533; x++) {
+		for (int y = 0; y < rows; y++) {
+			if (Array[y][x] == 0){
+				suml += Array[y][x];
+			}
+			else
+				suml += 1;
+		}
+	}
+
+	cout << endl << "sum of center section:" << sumc << endl;
+
+	//sum right column 
+	for (int x = 533; x < 800; x++) {
+		for (int y = 0; y < rows; y++) {
+			if (Array[y][x] == 0){
+				suml += Array[y][x];
+			}
+			else
+				suml += 1;
+		}
+	}
+
+	cout << endl << "sum of right section:" << sumr << endl;
+
+	//compare results, choose direction
+
+	if (sumc > (suml + 3) && suml <= sumr) {
+		cout << "Turn left." << endl;
+	}
+	else if (sumc > (sumr + 3) && sumr < suml) {
+		cout << "Turn right." << endl;
+	}
+	else
+		cout << "Continue forward." << endl;
+
+	return;
+}
+
+
+
 
 int main(int argc, char **argv)
 {
@@ -38,49 +119,22 @@ int main(int argc, char **argv)
 	imwrite("canny.jpg", canny);
 	//cvtColor(blurred, gray, CV_BGR2GRAY);
 	
-	//while (waitKey(30) != 27)
-	//{	
+	
 		/* 0: Binary
 		1: Binary Inverted
 		2: Threshold Truncated
 		3: Threshold to Zero
 		4: Threshold to Zero Inverted
 		*/
-		threshold(blurred, thresimg, threshval, 255, CV_THRESH_BINARY_INV);
-		imwrite("thresh.jpg", thresimg);
+	threshold(blurred, thresimg, threshval, 255, CV_THRESH_BINARY_INV);
+	imwrite("thresh.jpg", thresimg);
 		
-		imshow("Canny", canny);
-		imshow("Threshing", thresimg);
+	imshow("Canny", canny);
+	imshow("Threshing", thresimg);
 		
-		imshow("Blurred", blurred);
-		imshow("Grayscale", frame);
-		//ofstream outputFile("image.csv");
-		//outputFile << format(thresimg, "CSV") << endl;
-		//outputFile.close();
-	//}
-	//Mat gray, edge, draw;
-	//cvtColor(thresimg, gray, CV_BGR2GRAY);
-		/*std::vector<uchar> array;
-		for (int i = 0; i < canny.rows; ++i) {
-			int canny.
-			if()
-			array.insert(array.end(), mat.ptr<uchar>(i), mat.ptr<uchar>(i) + mat.cols);
-		}*/
-
-		/*std::vector<uchar> array;
-		if (canny.isContinuous()) {
-			array.assign(canny.datastart, canny.dataend);
-		}
-		else {
-			for (int i = 0; i < canny.rows; ++i) {
-				array.insert(array.end(), canny.ptr<uchar>(i), canny.ptr<uchar>(i) + canny.cols);
-			}
-		}
-		for (const auto& i : array)
-			std::cout << i << ' ';*/
-
-	//imshow("image", gray);
-	//imwrite("notBlurred.jpg", gray);
+	imshow("Blurred", blurred);
+	imshow("Grayscale", frame);
+		
 
 
 
@@ -91,7 +145,7 @@ for(int i=0; i<canny.rows; i++)
 {
     for(int j=0; j<canny.cols; j++)
     {
-        outputFile << canny.at<float>(i,j) << ", ";
+        outputFile << canny.at<float>(i,j) << ",";
     }
     outputFile << endl;
 
@@ -105,11 +159,66 @@ for(int i=0; i<thresimg.rows; i++)
 {
     for(int j=0; j<thresimg.cols; j++)
     {
-        outputFile2 << thresimg.at<float>(i,j) << ", ";
+        outputFile2 << thresimg.at<float>(i,j) << ",";
     }
     outputFile2 << endl;
 
 }
+
+
+//start of obstacle avoidance section
+ifstream infile;
+
+
+int Image_Array[Width][Height];
+
+	infile.open("file2.csv");
+	if (infile.is_open()) {
+		cout << "file opened. \n";
+			for (int row = 0; row < Width; ++row){
+				string line;
+				getline(infile, line);
+				if( !infile.good())
+					break;
+
+				stringstream iss(line);
+				for (int col = 0; col < Height; ++col){
+					string val;
+					getline(iss, val, ',');
+					if( !iss.good())
+						break;
+
+					stringstream convert(val);
+					convert >> Image_Array[row][col];
+					//if(Image_Array[row][col] != '0')
+						//Image_Array[row][col] = 1;
+				}		
+			}
+		infile.close();
+	}
+	else {
+		cout << "file wasn't opened.\n";
+	}
+
+
+/*
+	for (int x = 0; x < Width; x++)
+
+		for (int y = 0; y < Height; y++) {
+			float f = ((float)rand() / (RAND_MAX));
+			int j;
+			if (f > .85) {
+				j = 1;
+			}
+			else
+				j = 0;
+			Image_Array[x][y] = j;
+		}
+*/
+	Analyze(Image_Array, Width, Height);
+
+
+
 outputFile2.close( );
 	waitKey(0);
 }
@@ -129,6 +238,4 @@ void on_trackbar(int, void*)
 {//This function gets called whenever a
  // trackbar position is changed
 	cout << threshval << endl;
-
-
 }
