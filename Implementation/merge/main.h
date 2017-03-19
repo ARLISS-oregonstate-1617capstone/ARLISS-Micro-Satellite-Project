@@ -1,5 +1,6 @@
 #include <string>
 #include <fstream>
+#include <sstream>
 #include <stdio.h>
 #include <unistd.h>
 #include <time.h>
@@ -7,6 +8,9 @@
 #include <iostream>
 #include <math.h>
 #include <iomanip>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 class MotorFuncs;
 class GPSFuncs;
@@ -63,9 +67,12 @@ class Obstacle {
  public:
 	void checkObstacle ();
  private:
-	static const int Width = 30;
-	static const int Height = 30;
+	static const int Width = 1920;
+	static const int Height = 1080;
+	int threshval = 150;
 	void Analyze (int(Array)[][Height], int, int);
+	void createTrackbars();
+	void createTrackbars2();
 };
 
 // Class to get rover unstuck from obstacle 

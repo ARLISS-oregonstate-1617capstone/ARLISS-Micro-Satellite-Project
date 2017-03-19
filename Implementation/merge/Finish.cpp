@@ -3,6 +3,7 @@
 Finish::Finish () {
 	fieldOfView = 90.0;   //View angle of camera for course correction
 	waitTime = 2.0;       //Time to wait between course corrections
+	srand(time (NULL));   //Seed random number generator for testing
 }
 
 void Finish::touchPole () {
@@ -56,7 +57,6 @@ int Finish::findPole () {
 
 	  Right now, this functionality is simulated.
 	*/
-	srand(time (NULL));
-	return rand() % 6;
+	return rand() % 3;
 }
 
