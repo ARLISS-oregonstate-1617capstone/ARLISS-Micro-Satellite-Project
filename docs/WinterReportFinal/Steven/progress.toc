@@ -1,0 +1,45 @@
+\contentsline {section}{\numberline {I}Introduction}{3}{section.1}
+\contentsline {section}{\numberline {II}Summary of Fall Term}{3}{section.2}
+\contentsline {subsection}{\relax Week 3}{3}{section*.2}
+\contentsline {subsection}{\relax Week 4}{3}{section*.3}
+\contentsline {subsection}{\relax Week 5}{4}{section*.4}
+\contentsline {subsection}{\relax Week 6}{5}{section*.5}
+\contentsline {subsection}{\relax Week 7}{5}{section*.6}
+\contentsline {subsection}{\relax Week 8}{6}{section*.7}
+\contentsline {subsection}{\relax Week 9}{6}{section*.8}
+\contentsline {subsection}{\relax Week 10}{6}{section*.9}
+\contentsline {section}{\numberline {III}A Reflection of Development Period}{7}{section.3}
+\contentsline {section}{\numberline {IV}Fall Term Conclusion}{7}{section.4}
+\contentsline {section}{\numberline {V}Summary of Winter Term}{7}{section.5}
+\contentsline {subsection}{\relax Zachary DeVita}{7}{section*.10}
+\contentsline {subsubsection}{\relax Week 1}{7}{section*.11}
+\contentsline {subsubsection}{\relax Week 2}{8}{section*.12}
+\contentsline {subsubsection}{\relax Week 3}{8}{section*.13}
+\contentsline {subsubsection}{\relax Week 4}{10}{section*.16}
+\contentsline {subsubsection}{\relax Week 5}{10}{section*.17}
+\contentsline {subsection}{\relax Steven Silvers}{11}{section*.18}
+\contentsline {subsection}{\relax Week 1}{11}{section*.19}
+\contentsline {subsection}{\relax Week 2}{11}{section*.20}
+\contentsline {subsection}{\relax Week 3}{11}{section*.21}
+\contentsline {subsection}{\relax Week 4}{12}{section*.22}
+\contentsline {subsection}{\relax Week 5}{12}{section*.23}
+\contentsline {subsection}{\relax Week 6}{12}{section*.24}
+\contentsline {subsection}{\relax Control Board}{12}{section*.25}
+\contentsline {subsection}{\relax Wheel System}{12}{section*.27}
+\contentsline {subsection}{\relax Obstacle Avoidance}{13}{section*.28}
+\contentsline {subsection}{\relax Zhaolong Wu}{14}{section*.30}
+\contentsline {subsection}{\relax Week 1}{14}{section*.31}
+\contentsline {subsection}{\relax Week 2}{14}{section*.32}
+\contentsline {subsection}{\relax Week 3}{14}{section*.33}
+\contentsline {subsection}{\relax Week 4}{15}{section*.34}
+\contentsline {subsection}{\relax Week 5}{15}{section*.35}
+\contentsline {subsection}{\relax Week 6}{16}{section*.38}
+\contentsline {subsection}{\relax Future of the term}{16}{section*.39}
+\contentsline {subsection}{\relax Paul Minner}{17}{section*.40}
+\contentsline {subsection}{\relax Week 1}{17}{section*.41}
+\contentsline {subsection}{\relax Week 2}{17}{section*.42}
+\contentsline {subsection}{\relax Week 3}{17}{section*.43}
+\contentsline {subsection}{\relax Week 4}{18}{section*.44}
+\contentsline {subsection}{\relax Week 5}{18}{section*.45}
+\contentsline {subsection}{\relax Week 6}{18}{section*.46}
+\contentsline {subsection}{\relax Future}{18}{section*.47}
