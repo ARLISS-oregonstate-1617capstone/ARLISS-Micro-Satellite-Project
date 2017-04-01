@@ -2,11 +2,14 @@
 
 void Program::start () {
 
-	Parachute ParachuteModule;
-	Navigation NavigationModule;
-	Obstacle ObstacleAvoidance;
-	Unstuck GetUnstuckModule;
-	Finish FindFinishModule;
+	GPSFuncs myGPS;
+	MotorFuncs myMotors;
+	
+	Parachute ParachuteModule (&myGPS, &myMotors);
+	Navigation NavigationModule (&myGPS, &myMotors);
+	Obstacle ObstacleAvoidance (&myMotors);
+	Unstuck GetUnstuckModule (&myGPS, &myMotors);
+	Finish FindFinishModule (&myMotors);
 
 	//Deploy Parachute
 	printf("\n\n------Parachute------\n\n");

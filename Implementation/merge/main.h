@@ -28,31 +28,40 @@ class MotorFuncs {
 	void roverForward ();
 	void roverBackward ();
 	void roverStop ();
+	void deployParachute ();
 };
 
 // Class to hold all GPS functions
 class GPSFuncs {
  public:
-	float getAltitude (float);
-	float getXCoord (float);
-	float getYCoord (float);
+	GPSFuncs ();
+	float getAltitude ();
+	float getXCoord ();
+	float getYCoord ();
+ private:
+	bool isStuck;
+	float oldXCoord;
+	float oldYCoord;
+	float oldZCoord;
 };
 
 // Class for parachute deployment
 class Parachute {
  public:
-	Parachute ();
+	Parachute (GPSFuncs*, MotorFuncs*);
 	void deployParachute ();
  private:
-	float curAlt;
 	float minAlt;
-	float finAlt;
 	float waitTime;
+	
+	GPSFuncs* myGPS;
+	MotorFuncs* myMotors;
 };
 
 // Class for navigation to finish coordinates
 class Navigation {
  public:
+	Navigation (GPSFuncs*, MotorFuncs*);
 	void startNavigation ();
  private:
 	double degreetoRadian (double);
@@ -60,41 +69,52 @@ class Navigation {
 	double calcDist (double, double, double, double);
 	double calcBearing (double, double, double, double);
 	void navigation (double, double, double, double);
+
+	GPSFuncs* myGPS;
+	MotorFuncs* myMotors;
 };
 
 // Class to avoid obstacles
 class Obstacle {
  public:
+	Obstacle (MotorFuncs*);
 	void checkObstacle ();
  private:
 	static const int Width = 1920;
 	static const int Height = 1080;
-	int threshval = 150;
+	int threshval;
 	void Analyze (int(Array)[][Height], int, int);
 	void createTrackbars();
 	void createTrackbars2();
+
+	MotorFuncs* myMotors;
 };
 
 // Class to get rover unstuck from obstacle 
 class Unstuck {
  public:
-	Unstuck ();
+	Unstuck (GPSFuncs*, MotorFuncs*);
 	void getUnstuck ();
  private:
-	bool checkStuck (float, float, GPSFuncs);
+	bool checkStuck (float, float);
 	float waitTime;    //Number of Seconds to Wait Between Checks
 	float errorMargin; //Distance rover can travel and still be stuck
+
+	GPSFuncs* myGPS;
+	MotorFuncs* myMotors;
 };
 
 // Class to touch the finish pole
 class Finish {
  public:
-	Finish ();
+	Finish (MotorFuncs*);
 	void touchPole ();
  private:
 	int findPole ();
 	float fieldOfView;
 	float waitTime;
+
+	MotorFuncs* myMotors;
 };
 
 // Class to run program

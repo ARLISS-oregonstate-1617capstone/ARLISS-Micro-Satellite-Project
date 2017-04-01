@@ -8,6 +8,11 @@
 
 using namespace std;
 
+Navigation::Navigation (GPSFuncs* g, MotorFuncs* m) {
+	myGPS = g;
+	myMotors = m;
+}
+
 double Navigation::degreetoRadian(double deg){
   return deg * M_PI / 180;
 }

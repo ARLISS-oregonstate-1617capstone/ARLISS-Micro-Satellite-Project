@@ -1,9 +1,11 @@
 #include "main.h"
 
-Finish::Finish () {
+Finish::Finish (MotorFuncs* m) {
 	fieldOfView = 90.0;   //View angle of camera for course correction
 	waitTime = 2.0;       //Time to wait between course corrections
 	srand(time (NULL));   //Seed random number generator for testing
+
+	myMotors = m;
 }
 
 void Finish::touchPole () {
@@ -11,7 +13,6 @@ void Finish::touchPole () {
 	bool foundPole = false;     //Set to true once pole is found
 	bool poleInView = true;     //Set to false once pole is out of view
 	int sector = 0;             //Sector of image pole is located
-	MotorFuncs myMotor;
 
 	printf ("Testing Find and Touch Finish Pole Module:\n");
 	printf ("View Angle: %f\nWait Time: %f\n", fieldOfView, waitTime);
@@ -20,7 +21,7 @@ void Finish::touchPole () {
 	while (! foundPole) {
 		if (! findPole ()) {
 			printf ("Did not find pole.\n");
-			myMotor.roverRotate (10.);
+			myMotors->roverRotate (10.);
 		}
 		else {
 			printf ("Did find pole.\n");
@@ -30,14 +31,14 @@ void Finish::touchPole () {
 
 	//Head towards the pole until hitting it.
 	while (poleInView) {
-		myMotor.roverForward ();
+		myMotors->roverForward ();
 		sleep (waitTime);
-		myMotor.roverStop ();
+		myMotors->roverStop ();
 		
 		sector = findPole ();
 		if (sector) {
 			//Rotate rover by proportion of view angle of camera
-			myMotor.roverRotate ((fieldOfView / 5.0) * (sector - 3));
+			myMotors->roverRotate ((fieldOfView / 5.0) * (sector - 3));
 		}
 		else {
 			printf ("Pole no longer in view.\n");
@@ -45,7 +46,7 @@ void Finish::touchPole () {
 		}
 	}
 	//Continue forward since pole is close enough to not be seen by camera
-	myMotor.roverForward ();
+	myMotors->roverForward ();
 	printf ("Hit Pole\n");
 }
 

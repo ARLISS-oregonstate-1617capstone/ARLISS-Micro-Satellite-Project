@@ -1,24 +1,26 @@
 #include "main.h"
 
-Parachute::Parachute () {
+Parachute::Parachute (GPSFuncs* g, MotorFuncs* m) {
 
-	curAlt = 2000.0;    //Current Altitude
 	minAlt = 500.0;     //Minimum Altitude for Deployment
-	finAlt = 0;         //Final Altitude After Deployment
 	waitTime = 5.0;     //Number of Seconds to Wait Between Checks
+
+	myGPS = g;
+	myMotors = m;
 }
 
 void Parachute::deployParachute () {
 
-	GPSFuncs myGPS;
 	bool deploy = false;      //Set to True When Depoying
-
+	float curAlt = 0.;        //Current Altitude
+	float finAlt = 0.;        //Final Altitude After Deployment
+	
 	printf ("Testing Parachute Deployment Module:\n");
 	printf ("Deployment Altitude: %f\nWait Time: %f\n",
 		minAlt, waitTime);
 	
 	while (!deploy) {
-		curAlt = myGPS.getAltitude (curAlt);
+		curAlt = myGPS->getAltitude ();
 		
 		printf ("Altitude: %f\n", curAlt);
 		if (curAlt > minAlt)
@@ -32,7 +34,8 @@ void Parachute::deployParachute () {
 		}
 	}
 	printf ("Deploying Parachute...\n");
-
-	finAlt = myGPS.getAltitude (curAlt);
+	myMotors->deployParachute ();
+	
+	finAlt = myGPS->getAltitude ();
 	printf ("Final Altitude: %f\n", finAlt);
 }

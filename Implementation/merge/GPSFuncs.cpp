@@ -4,37 +4,46 @@
 GPS Functions
 ***************************************************************************/
 
-float GPSFuncs::getAltitude (float curAlt) {
+GPSFuncs::GPSFuncs () {
+
+	isStuck = false;
+	oldXCoord = 100.;
+	oldYCoord = 200.;
+	oldZCoord = 1000.;
+
+	srand(time (NULL));
+}
+
+float GPSFuncs::getAltitude () {
 	//This is a testing function. The real function will
 	//get data from the GPS unit.
 
-	return curAlt - 325.7;
+	oldZCoord -= 325.7;
+	return oldZCoord;
 }
 
-float GPSFuncs::getXCoord (float oldXCoord) {
+float GPSFuncs::getXCoord () {
 	//Either returns the same value as oldXCoord, or
 	//has a 1 in 5 chance of returning a different number.
 	int chance;
 
-	srand(time (NULL));
 	chance = rand() % 5;
 
 	if (chance == 0) {
-		return oldXCoord + 10;
+		oldXCoord += 10;
 	}
 	return oldXCoord;       
 }
 
-float GPSFuncs::getYCoord (float oldYCoord) {
+float GPSFuncs::getYCoord () {
 	//Either returns the same value as oldYCoord, or
 	//has a 1 in 5 chance of returning a different number.
 	int chance;
 
-	srand(time (NULL));
 	chance = rand() % 5;
 
 	if (chance == 0) {
-		return oldYCoord + 10;
+		oldYCoord += 10;
 	}
 	return oldYCoord;       
 }

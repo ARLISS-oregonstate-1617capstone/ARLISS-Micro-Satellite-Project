@@ -19,3 +19,7 @@ void MotorFuncs::roverBackward () {
 void MotorFuncs::roverStop () {
 	printf ("Stopped.\n");
 }
+
+void MotorFuncs::deployParachute () {
+	printf ("Deploying parachute...\n");
+}
