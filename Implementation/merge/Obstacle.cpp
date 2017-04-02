@@ -64,9 +64,11 @@ void Obstacle::Analyze(int(Array)[][Height], int rows, int cols) {
 
 	if (sumc > (suml + 3) && suml <= sumr) {
 		cout << "Turn left." << endl;
+		myMotors->roverRotate (-30.);
 	}
 	else if (sumc > (sumr + 3) && sumr < suml) {
 		cout << "Turn right." << endl;
+		myMotors->roverRotate (30.);
 	}
 	else
 		cout << "Continue forward." << endl;

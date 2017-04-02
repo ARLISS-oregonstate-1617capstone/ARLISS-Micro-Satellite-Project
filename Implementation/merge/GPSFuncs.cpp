@@ -7,14 +7,14 @@ GPS Functions
 GPSFuncs::GPSFuncs () {
 
 	isStuck = false;
-	oldXCoord = 100.;
-	oldYCoord = 200.;
-	oldZCoord = 1000.;
+	oldXCoord = 40.753820;    //Latitude in degrees
+	oldYCoord = -119.223000;  //Longitude in degrees
+	oldZCoord = 1000.;         //Altitude in feet
 
 	srand(time (NULL));
 }
 
-float GPSFuncs::getAltitude () {
+double GPSFuncs::getAltitude () {
 	//This is a testing function. The real function will
 	//get data from the GPS unit.
 
@@ -22,7 +22,7 @@ float GPSFuncs::getAltitude () {
 	return oldZCoord;
 }
 
-float GPSFuncs::getXCoord () {
+double GPSFuncs::getXCoord () {
 	//Either returns the same value as oldXCoord, or
 	//has a 1 in 5 chance of returning a different number.
 	int chance;
@@ -30,12 +30,13 @@ float GPSFuncs::getXCoord () {
 	chance = rand() % 5;
 
 	if (chance == 0) {
-		oldXCoord += 10;
+		//Each degree is 69 miles, or 364320 feet
+		oldXCoord += 0.00005;   //Very small number, about 20 feet
 	}
 	return oldXCoord;       
 }
 
-float GPSFuncs::getYCoord () {
+double GPSFuncs::getYCoord () {
 	//Either returns the same value as oldYCoord, or
 	//has a 1 in 5 chance of returning a different number.
 	int chance;
@@ -43,7 +44,8 @@ float GPSFuncs::getYCoord () {
 	chance = rand() % 5;
 
 	if (chance == 0) {
-		oldYCoord += 10;
+		//Each degree is 69 miles, or 364320 feet
+		oldYCoord += 0.00005;   //Very small number, about 20 feet
 	}
 	return oldYCoord;       
 }

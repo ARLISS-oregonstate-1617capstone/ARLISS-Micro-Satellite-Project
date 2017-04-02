@@ -1,11 +1,8 @@
-prog: main.o Program.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o
-	g++ -g main.o Program.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o -lopencv_core -lopencv_highgui -lopencv_imgproc -o prog
+prog: main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o
+	g++ -g main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o -lopencv_core -lopencv_highgui -lopencv_imgproc -o prog
 
 main.o: main.h main.cpp
 	g++ -Wall -g -c main.cpp
-
-Program.o: main.h Program.cpp
-	g++ -Wall -g -c Program.cpp
 
 MotorFuncs.o: main.h MotorFuncs.cpp
 	g++ -Wall -g -c MotorFuncs.cpp

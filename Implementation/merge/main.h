@@ -19,12 +19,11 @@ class Navigation;
 class Obstacle;
 class Unstuck;
 class Finish;
-class Program;
 
 // Class to hold all Motor functions
 class MotorFuncs {
  public:
-	void roverRotate (float);
+	void roverRotate (double);
 	void roverForward ();
 	void roverBackward ();
 	void roverStop ();
@@ -35,14 +34,14 @@ class MotorFuncs {
 class GPSFuncs {
  public:
 	GPSFuncs ();
-	float getAltitude ();
-	float getXCoord ();
-	float getYCoord ();
+	double getAltitude ();
+	double getXCoord ();
+	double getYCoord ();
  private:
 	bool isStuck;
-	float oldXCoord;
-	float oldYCoord;
-	float oldZCoord;
+	double oldXCoord;
+	double oldYCoord;
+	double oldZCoord;
 };
 
 // Class for parachute deployment
@@ -51,8 +50,8 @@ class Parachute {
 	Parachute (GPSFuncs*, MotorFuncs*);
 	void deployParachute ();
  private:
-	float minAlt;
-	float waitTime;
+	double minAlt;
+	double waitTime;
 	
 	GPSFuncs* myGPS;
 	MotorFuncs* myMotors;
@@ -66,10 +65,13 @@ class Navigation {
  private:
 	double degreetoRadian (double);
 	double radiantoDegree (double);
-	double calcDist (double, double, double, double);
-	double calcBearing (double, double, double, double);
-	void navigation (double, double, double, double);
+	double calcDist (double, double);
+	double calcBearing (double, double);
+	void navigation (double, double);
 
+	double destLat;     //Latitude of Finish
+	double destLong;    //Longitude of Finish
+	
 	GPSFuncs* myGPS;
 	MotorFuncs* myMotors;
 };
@@ -96,9 +98,9 @@ class Unstuck {
 	Unstuck (GPSFuncs*, MotorFuncs*);
 	void getUnstuck ();
  private:
-	bool checkStuck (float, float);
-	float waitTime;    //Number of Seconds to Wait Between Checks
-	float errorMargin; //Distance rover can travel and still be stuck
+	bool checkStuck (double, double);
+	double waitTime;    //Number of Seconds to Wait Between Checks
+	double errorMargin; //Distance rover can travel and still be stuck
 
 	GPSFuncs* myGPS;
 	MotorFuncs* myMotors;
@@ -111,15 +113,9 @@ class Finish {
 	void touchPole ();
  private:
 	int findPole ();
-	float fieldOfView;
-	float waitTime;
+	double fieldOfView;
+	double waitTime;
 
 	MotorFuncs* myMotors;
-};
-
-// Class to run program
-class Program {
- public:
-	void start (); //Starts program
 };
 

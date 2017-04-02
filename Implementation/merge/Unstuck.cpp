@@ -3,7 +3,8 @@
 Unstuck::Unstuck (GPSFuncs* g, MotorFuncs* m) {
 
 	waitTime = 2.0;      //Number of Seconds to Wait Between Checks
-	errorMargin = 2.0;   //Distance rover can travel and still be stuck
+	//0.00004 degrees is about 15 feet
+	errorMargin = 0.00004;   //Distance rover can travel and still be stuck
 
 	myGPS = g;
 	myMotors = m;
@@ -13,7 +14,7 @@ void Unstuck::getUnstuck () {
 
 	float oldXCoord = 0.;   //Previous X Coordinate
 	float oldYCoord = 0.;   //Previous Y Coordinate
-	bool isStuck = true;       //Set to False Once Unstuck
+	bool isStuck = true;    //Set to False Once Unstuck
 
 	oldXCoord = myGPS->getXCoord ();
 	oldYCoord = myGPS->getYCoord ();
@@ -48,13 +49,14 @@ void Unstuck::getUnstuck () {
 }
 
 //Returns True if Rover is Stuck.
-bool Unstuck::checkStuck (float oldXCoord, float oldYCoord) {
+bool Unstuck::checkStuck (double oldXCoord, double oldYCoord) {
 
 	bool isStuck = false;     //Set to True if Rover is Stuck
 
 	//Compute distance formula from current and previous coordinates
-	if (sqrt (pow (myGPS->getXCoord () - oldXCoord, 2) +
-		  pow (myGPS->getYCoord () - oldYCoord, 2)) < errorMargin)  {
+	double dist = sqrt (pow (myGPS->getXCoord () - oldXCoord, 2) +
+			    pow (myGPS->getYCoord () - oldYCoord, 2));
+	if (dist < errorMargin)  {
 
 		isStuck = true;
 	}

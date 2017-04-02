@@ -4,7 +4,7 @@ Motor Functions
 
 #include "main.h"
 
-void MotorFuncs::roverRotate (float degree) {
+void MotorFuncs::roverRotate (double degree) {
 	printf ("Rotating %f degrees...\n", degree);
 }
 

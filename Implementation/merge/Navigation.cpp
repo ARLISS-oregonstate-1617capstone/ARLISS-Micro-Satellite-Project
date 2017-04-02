@@ -9,6 +9,9 @@
 using namespace std;
 
 Navigation::Navigation (GPSFuncs* g, MotorFuncs* m) {
+	destLat = 40.753820;
+	destLong = -119.277000;
+	
 	myGPS = g;
 	myMotors = m;
 }
@@ -21,13 +24,13 @@ double Navigation::radiantoDegree(double rad){
   return rad * 180 / M_PI;
 }
 
-double Navigation::calcDist(double currLat,double destLat, double currLong, double destlong){
+double Navigation::calcDist(double currLat, double currLong){
   double dclat, ddlat;
   double radEarth = 6370009; //radians of earth in meters
   dclat = degreetoRadian(currLat); 
   ddlat = degreetoRadian(destLat); 
   double difLat = ddlat - dclat;
-  double difLong = degreetoRadian(destlong-currLong); 
+  double difLong = degreetoRadian(destLong-currLong); 
   double a = sin(difLat/2) * sin(difLat/2) + cos(dclat) * cos(ddlat) * sin(difLong/2) * sin(difLong/2);
  // double c = 2 * atan2(sqrt(a), sqrt(1-a)); 
 
@@ -37,10 +40,10 @@ double Navigation::calcDist(double currLat,double destLat, double currLong, doub
   return d;
 }
 
-double Navigation::calcBearing(double currLat, double destLat, double currLong, double destlong){
+double Navigation::calcBearing(double currLat, double currLong){
 	//double dclat = degreetoRadian(currLat);
 	//double ddlat = degreetoRadian(destLat);
-  double difLong = degreetoRadian(destlong-currLong);
+  double difLong = degreetoRadian(destLong-currLong);
   double y = sin(difLong) * cos(destLat);
   double x = cos(currLat) * sin(destLat) - sin(currLat) * cos(destLat) * cos(difLong);
   double bearing = radiantoDegree(atan2(y,x)); 
@@ -50,26 +53,27 @@ double Navigation::calcBearing(double currLat, double destLat, double currLong, 
 
 void Navigation::startNavigation (){
 
-	double	currLat = 40.753820, destlat = 40.753833, currLong = -119.223000, destlong = -119.277000;
+	double currLat = myGPS->getXCoord ();
+	double currLong = myGPS->getYCoord ();
 
-  std::cout << std::setprecision(11) << "(" << currLat << "," << currLong << ") --- ""(" << destlat << "," << destlong << ")\n";
+  std::cout << std::setprecision(11) << "(" << currLat << "," << currLong << ") --- ""(" << destLat << "," << destLong << ")\n";
 
-  double compassNormalized = calcBearing(currLat, destlat, currLong, destlong);
+  double compassNormalized = calcBearing(currLat, currLong);
   cout << "Initial heading =  " << compassNormalized << endl;
 
-  double d = calcDist(currLat, destlat, currLong, destlong);
+  double d = calcDist(currLat, currLong);
   cout << "distance to travel = " << d << endl;
   
 
 }
 
-void Navigation::navigation(double currLat, double currLong, double destLat, double destlong)
+void Navigation::navigation(double currLat, double currLong)
 {
- if(calcDist(currLat, destLat, currLong, destlong) < 2)
+ if(calcDist(currLat, currLong) < 2)
 	 sleep(5);
  else
  {
-   calcBearing(currLat, destLat, currLong, destlong);
+   calcBearing(currLat, currLong);
    //roverforward();
  }
 }

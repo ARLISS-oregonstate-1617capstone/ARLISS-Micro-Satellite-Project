@@ -33,7 +33,6 @@ void Parachute::deployParachute () {
 				deploy = true;
 		}
 	}
-	printf ("Deploying Parachute...\n");
 	myMotors->deployParachute ();
 	
 	finAlt = myGPS->getAltitude ();
