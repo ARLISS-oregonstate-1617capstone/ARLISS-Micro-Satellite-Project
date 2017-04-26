@@ -12,6 +12,12 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+extern "C" {
+#include "deviceControl.h"
+}
+
+const int DEBUG = 1;
+
 class MotorFuncs;
 class GPSFuncs;
 class Parachute;

@@ -11,6 +11,12 @@ int main () {
 	Unstuck GetUnstuckModule (&myGPS, &myMotors);
 	Finish FindFinishModule (&myMotors);
 
+	//Initialize GPS, Accelerometer, and Motors
+	//(Required fo GPSFuncs and MotorFuncs Classes)
+	if (!DEBUG) {
+		deviceInit ();
+	}
+	  
 	//Deploy Parachute
 	printf("\n\n------Parachute------\n\n");
 	ParachuteModule.deployParachute ();

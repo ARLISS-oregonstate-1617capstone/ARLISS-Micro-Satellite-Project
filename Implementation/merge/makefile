@@ -1,5 +1,5 @@
-prog: main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o
-	g++ -g main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o -lopencv_core -lopencv_highgui -lopencv_imgproc -o prog
+prog: main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o deviceControl.o
+	g++ -g main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o deviceControl.o -lwiringPi -lpthread -lnmea -lopencv_core -lopencv_highgui -lopencv_imgproc -o prog
 
 main.o: main.h main.cpp
 	g++ -Wall -g -c main.cpp
@@ -24,6 +24,9 @@ Unstuck.o: main.h Unstuck.cpp
 
 Finish.o: main.h Finish.cpp
 	g++ -Wall -g -c Finish.cpp
+
+deviceControl.o: deviceControl.h deviceControl.c
+	gcc -Wall -g -c deviceControl.c
 
 clean:
 	rm *.o prog
