@@ -1,5 +1,8 @@
 prog: main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o deviceControl.o
-	g++ -g main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o deviceControl.o -lwiringPi -lpthread -lnmea -lopencv_core -lopencv_highgui -lopencv_imgproc -o prog
+	g++ -g main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o deviceControl.o -lwiringPi -lpthread -lnmea `pkg-config opencv --cflags --libs` -o prog
+
+debug: main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o
+	g++ -g main.o MotorFuncs.o GPSFuncs.o Parachute.o Navigation.o Obstacle.o Unstuck.o Finish.o `pkg-config opencv --cflags --libs` -o prog
 
 main.o: main.h main.cpp
 	g++ -Wall -g -c main.cpp

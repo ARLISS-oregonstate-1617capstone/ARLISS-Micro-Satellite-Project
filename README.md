@@ -16,4 +16,4 @@ The satellite uses a raspberry pi zero connected a custom PCB board to operate v
 
 # Installing
 
-To compile, simply run the makefile located in Implementation/merge. To start, run the prog executable created from the makefile.
+To compile, simply run the makefile located in Implementation/merge. To run the debug version on any machine type make debug with the DEBUG flag set to 1 in main.h. To run on the actual satellite hardware type make prog with the DEBUG flag set to 0. 
