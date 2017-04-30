@@ -11,6 +11,10 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/objdetect/objdetect.hpp>
+
+using namespace std;
+using namespace cv;
 
 extern "C" {
 #include "deviceControl.h"
@@ -119,9 +123,15 @@ class Finish {
 	void touchPole ();
  private:
 	int findPole ();
+	int detectAndDisplay (Mat);
+	bool isOrange (Mat, Rect);
+	int selectQuintant (int, int);
+	
 	double fieldOfView;
 	double waitTime;
 
+	CascadeClassifier cone_cascade;
+	
 	MotorFuncs* myMotors;
 };
 
