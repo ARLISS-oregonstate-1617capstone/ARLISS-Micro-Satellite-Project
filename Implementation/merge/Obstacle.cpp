@@ -88,7 +88,16 @@ void Obstacle::checkObstacle()
 	Mat frame, blurred, thresimg, gray, canny, canny2;
 	//frame = imread("images/testBMP2.bmp", CV_LOAD_IMAGE_UNCHANGED);
 	//use threshval = 43
-	frame = imread("road.jpg", CV_LOAD_IMAGE_GRAYSCALE);	
+
+	if (!DEBUG) {
+		//Capture frame from camera
+		VideoCapture capture(0);
+		capture >> frame;
+	}
+	else {
+		//Use test image as frame
+		frame = imread("road.jpg", CV_LOAD_IMAGE_GRAYSCALE);	
+	}
 	
 	//imwrite("gray.jpg", frame);
 
