@@ -11,6 +11,7 @@ using namespace std;
 Navigation::Navigation (GPSFuncs* g, MotorFuncs* m) {
 	destLat = 40.753820;
 	destLong = -119.277000;
+	roverHeading = 0;
 	
 	myGPS = g;
 	myMotors = m;
@@ -64,21 +65,24 @@ void Navigation::startNavigation (){
 	
 	preLat = myGPS->getXCoord ();
 	preLong = myGPS->getYCoord ();
-	
-	myMotors->moveForward (100); // rover move forward 100 units
+
+	// rover move forward
+	myMotors->roverForward (); 
+	sleep (2);
+	myMotors->roverStop ();
 	
 	double currLat = myGPS->getXCoord ();
 	double currLong = myGPS->getYCoord ();
 	
 	std::cout << std::setprecision(11) << "(" << preLat << "," << preLong << ") --- ""(" << currLat << "," << currLong << ")\n";
 	
-	double roverInitialHeading = initHeading(double preLat, double currLat, double preLong, double currLong);
+	double roverInitialHeading = initHeading(preLat, currLat, preLong, currLong);
 	cout << "Rover Initial heading =  " << roverInitialHeading << endl;
 	
 	std::cout << std::setprecision(11) << "(" << currLat << "," << currLong << ") --- ""(" << destLat << "," << destLong << ")\n";
 
     double compassNormalized = calcBearing(currLat, currLong);
-	double roverHeading = compassNormalized - roverInitialHeading
+    roverHeading = compassNormalized - roverInitialHeading;
     cout << "Rover heading to destination =  " << roverHeading << endl;
 	
     double d = calcDist(currLat, currLong);
@@ -96,7 +100,7 @@ void Navigation::navigation(double currLat, double currLong)
    calcBearing(currLat, currLong);
    calcDist(currLat, currLong);
    myMotors->roverRotate(roverHeading);
-   myMotors->roverforward(d);
+   myMotors->roverForward();
    
  }
 }

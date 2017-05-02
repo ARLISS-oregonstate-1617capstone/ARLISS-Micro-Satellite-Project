@@ -78,9 +78,11 @@ class Navigation {
 	double radiantoDegree (double);
 	double calcBearing (double, double);
 	void navigation (double, double);
-
+	double initHeading (double, double, double, double);
+	
 	double destLat;     //Latitude of Finish
 	double destLong;    //Longitude of Finish
+	double roverHeading;
 	
 	GPSFuncs* myGPS;
 	MotorFuncs* myMotors;
