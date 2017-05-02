@@ -23,11 +23,13 @@ extern "C" {
 const int DEBUG = 1;
 
 class MotorFuncs;
+//class ServoFuncs;
 class GPSFuncs;
 class Parachute;
 class Navigation;
 class Obstacle;
 class Unstuck;
+//class LandOnSide;
 class Finish;
 
 // Class to hold all Motor functions
@@ -40,6 +42,15 @@ class MotorFuncs {
 	void deployParachute ();
 };
 
+// Class to hold all Servo functions
+/*
+class ServoFuncs {
+ public:
+	void servoRotate (double);
+	void servoMoveUp ();
+	void servoMoveDown ();
+};
+*/
 // Class to hold all GPS functions
 class GPSFuncs {
  public:
@@ -117,6 +128,23 @@ class Unstuck {
 	GPSFuncs* myGPS;
 	MotorFuncs* myMotors;
 };
+
+// Class to get rover stand up if it on its side 
+/*
+class LandOnSide {
+ public:
+	LandOnSide (GPSFuncs*, MotorFuncs*, ServoFuncs*);
+	void getUp ();
+ private:
+	bool checkOnSide (double, double);
+	double waitTime;    //Number of Seconds to Wait Between Checks
+	double errorMargin; //Distance rover can travel and still be stuck
+
+	GPSFuncs* myGPS;
+	MotorFuncs* myMotors;
+	ServoFuncs* myServos;
+};
+*/
 
 // Class to touch the finish pole
 class Finish {

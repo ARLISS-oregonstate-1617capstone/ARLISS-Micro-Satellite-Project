@@ -4,11 +4,13 @@ int main () {
 
 	GPSFuncs myGPS;
 	MotorFuncs myMotors;
+	//ServoFuncs myServos;
 	
 	Parachute ParachuteModule (&myGPS, &myMotors);
 	Navigation NavigationModule (&myGPS, &myMotors);
 	Obstacle ObstacleAvoidance (&myMotors);
 	Unstuck GetUnstuckModule (&myGPS, &myMotors);
+	//LandOnSide GetRoverUpModule (&myGPS, &myMotors, &myServos);
 	Finish FindFinishModule (&myMotors);
 
 	//Initialize GPS, Accelerometer, and Motors
@@ -29,9 +31,15 @@ int main () {
 	printf("\n\n------Obstacle------\n\n");
 	ObstacleAvoidance.checkObstacle ();
 	
-	//Get Unsuck from Obstacle
+	//Get Unstuck from Obstacle
 	printf("\n\n------Unstuck------\n\n");
 	GetUnstuckModule.getUnstuck ();
+	
+	/*
+	//Get Up from Sideways
+	printf("\n\n------GetRoverUp------\n\n");
+	GetRoverUpModule.getUp ();
+	*/
 
 	//Touch the finish pole
 	printf("\n\n------Finish------\n\n");
