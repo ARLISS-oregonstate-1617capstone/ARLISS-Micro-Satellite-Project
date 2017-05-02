@@ -12,7 +12,7 @@ int main () {
 	Finish FindFinishModule (&myMotors);
 
 	//Initialize GPS, Accelerometer, and Motors
-	//(Required fo GPSFuncs and MotorFuncs Classes)
+	//(Required for GPSFuncs and MotorFuncs Classes)
 	if (!DEBUG) {
 		deviceInit ();
 	}

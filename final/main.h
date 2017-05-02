@@ -72,10 +72,10 @@ class Navigation {
  public:
 	Navigation (GPSFuncs*, MotorFuncs*);
 	void startNavigation ();
+	double calcDist (double, double);
  private:
 	double degreetoRadian (double);
 	double radiantoDegree (double);
-	double calcDist (double, double);
 	double calcBearing (double, double);
 	void navigation (double, double);
 
