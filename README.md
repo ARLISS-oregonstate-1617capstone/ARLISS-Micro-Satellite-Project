@@ -24,4 +24,4 @@ The satellite uses a raspberry pi zero connected a custom PCB board to operate v
 
 # Installing
 
-To compile, simply run the makefile located in the final directory. To run the test version on any machine type make test with the DEBUG flag set to 1 in main.h. To run on the actual satellite hardware type make final with the DEBUG flag set to 0 (by default set to test version with DEBUG = 1). 
+To compile, simply run the makefile located in the final directory. To run the test version on any machine type make test with the DEBUG variable set to 1 in main.h. To run on the actual satellite hardware type make final with the DEBUG variable set to 0 (by default set to test version with DEBUG = 1). 
