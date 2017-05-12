@@ -141,7 +141,6 @@ void Obstacle::checkObstacle()
 }
 \end{lstlisting}
 \end{minipage}
-\vspace{.3cm}
 \par
 As for an explanation, the VideoCapture constructor opens the video capture device and records a single frame from the camera. This data gets stored in a Mat (i.e. matrix) object each time this function is called. The cvtColor() function converts the frame to its equivalent in grayscale, and this gets stored in a separate Mat object. The blur() function does exactly what it sounds like; it blurs the frame using a specified parameter which has been determined through testing. Next, the now blurred, grayscale frame is put through a morphological transformation. This specific transformation is referred to a morphological opening and is defined by the image erosion followed by an image dilation. The erosion effect removes pixels near the boundary of objects in the image so the thickness or size of the foreground object decreases.
 \begin{figure}[h]
