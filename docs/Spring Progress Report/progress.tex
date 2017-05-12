@@ -1,0 +1,260 @@
+\documentclass[10pt,letterpaper,onecolumn,draftclsnofoot,journal]{IEEEtran}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{tabu}
+\usepackage{enumitem}
+\usepackage{courier}
+\usepackage[hidelinks]{hyperref}
+\usepackage{pxfonts}
+
+\linespread{1.0}
+\setlength{\parindent}{0cm}
+\setcounter{secnumdepth}{2}
+\renewcommand\contentsname{\large \bfseries Table of Contents}
+
+\definecolor{OliveGreen}{rgb}{0,0.5,0}
+\definecolor{BackColor}{rgb}{0.95,0.95,0.92}
+\definecolor{LightGray}{rgb}{0.5,0.5,0.5}
+\lstset {
+	language=C,
+	basicstyle=\ttfamily \small,
+	backgroundcolor=\color{BackColor},
+	numberstyle=\footnotesize \color{LightGray},
+	keywordstyle=\color{blue}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	commentstyle=\color{OliveGreen}\ttfamily,
+	morecomment=[l][\color{magenta}]{\#}
+	showstringspaces=false,
+	showspaces=false,
+	frame=single,
+	captionpos=b,
+	breakatwhitespace=false,         
+    	breaklines=true,                                  
+    	keepspaces=true,                 
+    	numbers=left,                    
+    	numbersep=5pt,                                
+    	showstringspaces=false,
+    	showtabs=false,                  
+    	tabsize=2
+}
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+	\title{The ARLISS Project\\Progress Report\\Senior Capstone}
+	\author{Steven Silvers, Paul Minner, Zhaolong Wu, Zachary DeVita\\
+		Capstone Group 27\\2016-17 Academic Year}
+	\date{\today}
+	\maketitle
+	\vspace{4cm}
+	\begin{abstract}
+		\noindent This document details our progress while developing software for the ARLISS competition over the duration of the academic year. This includes the purpose of the software, goals, current progress, problems encountered, and plans for the future. 
+	\end{abstract}
+
+\end{titlepage}
+\begingroup
+  \flushbottom
+  \setlength{\parskip}{0pt plus 1fil}%
+  \tableofcontents
+  \newpage
+\endgroup
+%\clearpage
+
+\pagenumbering{arabic}
+\section{\textbf{ARLISS Project}}
+\subsection{\textbf{Description}}
+For our capstone project, our team of computer scientists have spent the course of three terms developing software to autonomously navigate a rover to a specified set of coordinates. This rover is intended to compete in the ARLISS competition held in September. ARLISS, standing for "A Rocket Launch for Student Satellites," is an international competition where teams of engineers from around the world will bring their rovers to compete. To compete in this competition the rover must be small enough to fit into a soda can and must have a weight of less than or equal to that of a soda.\vspace{.3cm}
+\par
+In this competition, our team's rover will be launched by a rocket into the air, and will be ejected from the rocket at approximately 12,000' AGL where it will use a parachute to fall safely to the surface of the Earth. Once the rover reaches the ground it must detach from the parachute and circumvent any potential restraint created by the canopy or suspension lines of the parachute. When the rover is free from the parachute and begins its expedition, the rover will rely on GPS to direct it to the coordinates while using the onboard camera to detect obstacles in its path. GPS is only accurate for approximately 7.8 meters so, when the rover is near the end of the expedition and GPS becomes no longer accurate, the rover will begin to search for the pole that marks the end of the trek. At the base of the pole is an orange traffic cone which is used for the image detection algorithm. When the cone has been detected the rover will drive towards it until contact has been made.\vspace{.3cm}
+\par
+As the computer science team, our job is strictly developing the software for the rover. There have been five primary components devised for the implementation of the software.\vspace{.3cm}
+\par 
+\hspace{.5cm} -\hspace{.3cm} Parachute Deployment\par
+\hspace{.5cm} -\hspace{.3cm} GPS Navigation\par
+\hspace{.5cm} -\hspace{.3cm} Obstacle Avoidance\par
+\hspace{.5cm} -\hspace{.3cm} Getting Unstuck from Obstacles\par
+\hspace{.5cm} -\hspace{.3cm} Locating and Coming in Contact with the Pole\vspace{.3cm}
+\par 
+\subsection{\textbf{Goals}}
+The primary objective for this project is to compete in the ARLISS competition, and to have our rover finish its autonomous expedition by bumping into the traffic cone at the base of the pole which marks the finish. No team in the ARLISS competition history has yet completed this objective in the specific competition we are attempting. What distinguishes this competition from the other ARLISS competitions is the soda can restriction on the size and weight of the rover. Because of this, and the fact that we must rely on the performance of two other engineering teams, we have an alternate metric of success. If the rover is able to safely land on the ground, escape from the parachute, and successfully traverse the terrain for some period of time while navigating around obstacles, then we would consider our goals met. Battery life not lasting for the duration of the rovers trek is beyond our control, as is mechanical drawbacks or limitations. As computer scientists, our measure of success is based solely on the success of the five components listed above.
+
+\section{\textbf{Current Project State}}
+
+
+
+\section{\textbf{Plans for the Future}}
+
+
+
+\section{\textbf{Problems Encountered}}
+
+
+
+\section{\textbf{Code Samples}}
+Computer vision provides an integral component in the success of the rover on its expedition. There are two separate and distinct functions which are performed using computer vision. While the rover is being directed by the GPS, computer vision will be used to detect obstacles in the path of the rover. This is accomplished by using a series of filters which are primarily intended to eliminate noise and to detect the edges of the obstacles. The other function of the computer vision is to identify the orange traffic cone. Our team has developed a complex system which utilizes machine learning and image processing to carry out this task.\vspace{.3cm}
+\par
+\subsection{\textbf{Obstacle Avoidance}}
+The obstacle detection algorithm our team has implemented requires that each frame recorded by the camera is run through a series of filters which are intended to eliminate noise in the image and to detect the edges of the obstacles in the rover’s path. Below is the algorithm which has been developed.\vspace{.3cm}
+\par
+\begin{minipage}{\textwidth}
+\begin{lstlisting}
+void Obstacle::checkObstacle()
+{
+	Mat frame, blurred, gray, canny;
+
+	if (!DEBUG) {
+		//Capture frame from camera
+		VideoCapture capture(0);
+		capture >> frame;
+	}
+	cvtColor(frame, gray, CV_BGR2GRAY);
+	blur(gray, blurred, Size(40, 4));
+
+	//	Morphological opening (remove small objects from the foreground)
+	erode(blurred, blurred, getStructuringElement(MORPH_RECT, Size(5, 5)));
+	dilate(blurred, blurred, getStructuringElement(MORPH_RECT, Size(5, 5)));
+	dilate(blurred, blurred, getStructuringElement(MORPH_RECT, Size(5, 5)));
+
+	Canny(blurred, canny, 50, 120, 3);
+
+	int Image_Array[Width][Height];
+	for(int i=0; i<canny.rows; i++)
+		{
+			for(int j=0; j<canny.cols; j++)
+				{
+					Vec3b color = canny.at<Vec3b>(Point(j,i));
+					if(color.val[0] >= 25 && color.val[1] >= 25 && color.val[2] >= 25) {
+						Image_Array[j][i] = 1;
+					}
+					else {
+						Image_Array[j][i] = 0;
+					}
+				}
+		}
+	//start of obstacle avoidance section
+	Analyze(Image_Array, Width, Height);
+}
+\end{lstlisting}
+\end{minipage}
+\vspace{.3cm}
+\par
+As for an explanation, the VideoCapture constructor opens the video capture device and records a single frame from the camera. This data gets stored in a Mat (i.e. matrix) object each time this function is called. The cvtColor() function converts the frame to its equivalent in grayscale, and this gets stored in a separate Mat object. The blur() function does exactly what it sounds like; it blurs the frame using a specified parameter which has been determined through testing. Next, the now blurred, grayscale frame is put through a morphological transformation. This specific transformation is referred to a morphological opening and is defined by the image erosion followed by an image dilation. The erosion effect removes pixels near the boundary of objects in the image so the thickness or size of the foreground object decreases.
+\begin{figure}[h]
+	\captionsetup{justification=raggedright, singlelinecheck=off}
+    	\includegraphics[width=0.13\textwidth]{j1}
+    	\caption{Image After Erosion}
+	\vspace{.5cm}
+\end{figure}
+\clearpage
+\begin{figure}[h]
+	Dilation does the opposite. Whereas erosion decreases the white region of the object by narrowing the boundary, dilation increases the white 		region in the image by increasing the boundary.
+	\vspace{.5cm}
+
+	\begin{center}
+	\captionsetup{justification=centering, margin=6.7cm, singlelinecheck=off}
+	%\hfill
+    	\includegraphics[width=0.13\textwidth]{j2}
+    	\caption{Image After Dilation}
+	\end{center}
+	\vspace{.5cm}
+
+	What the combination of the two effects does is it removes noise in the image with the erosion, then brings the remaining nodes from the image 	back to their original size. Nodes which are small get removed during the erosion state.\par
+	\vspace{.5cm}
+	\captionsetup{justification=raggedleft, margin=0cm, singlelinecheck=off}
+	\hfill
+    	\includegraphics[width=0.26\textwidth]{j3}
+    	\caption{After Morphological Opening}
+	\vspace{.5cm}
+
+	The final filter used is the Canny Edge detection algorithm. The Canny algorithm is an extremely complex algorithm that I could write a book 			explaining so I will explain what it does opposed to how it works. The Canny algorithm is used to filter out any noise left in the image. The 			algorithm finds all edges in the image and uses the smallest value between thresholds for edge linking. The largest values are used to find initial 		segments of strong edges.\vspace{.3cm}
+	\par
+	The set of nested loops is used to store the results from the Canny Edge detection algorithm into a double array containing 1s and 0s 			depending on if the individual pixel represents an edge of an object in the frame or not.
+\end{figure}
+\vspace{-.5cm}
+
+\subsection{\textbf{Traffic Cone Detection}}
+The algorithm implemented for detecting the traffic cone at the base of the pole is a complex system which utilizes machine learning, as well as, some image processing filters. For the machine learning, our team has trained a Haar Classifier which can be used to detect a traffic cone based on its features and geometry. Though effective at only detecting a traffic cone the majority of the time, machine learning classifiers are prone to returning false positives. The way we have avoided this is by verifying the results by confirming that the color of the result is orange.\vspace{.3cm}
+\par 
+The way the color is checked is that several points from the potential result, i.e. pixels, are converted to their HSV (Hue, Saturation \& Value) equivalent, and are then compared with values which would be typically observed on an orange traffic cone. If the HSV values cannot be confirmed, then the image is rejected. This results in a higher rate of false negatives, but it also ensures that the results are accurate. Below is the algorithm which has been developed.
+
+\clearpage
+\begin{minipage}{\textwidth}
+\begin{lstlisting}
+/** @function detectAndDisplay */
+int Finish::detectAndDisplay(Mat frame) {
+	std::vector<Rect> cones;
+	Mat gray;
+	int quintant = 0;
+
+	cvtColor(frame, gray, COLOR_BGR2GRAY);
+	equalizeHist(gray, gray);
+
+	//-- Detect cones
+	cone_cascade.detectMultiScale(gray, cones, 1.1, 2, 0 | CASCADE_SCALE_IMAGE, Size(30, 30));
+
+	if (cones.size() != 1)
+		return 0;
+
+	if (!isOrange(frame, cones[0])) {
+		return 0;
+	}
+
+	rectangle(frame, Point(cones[0].x, cones[0].y), Point(cones[0].x + cones[0].width, cones[0].y + cones[0].height), Scalar(255, 255, 255), 2, 8);
+	Point target(cones[0].x + cones[0].width / 2, cones[0].y + cones[0].height * 0.8);
+	circle(frame, target, 3, Scalar(101, 255, 0), -1, 8);
+
+	imshow("FRAME", frame);
+
+	return selectQuintant(frame.size().width, target.x);
+}
+\end{lstlisting}
+\end{minipage}
+\par
+As for an explanation, the above function takes a video frame from the camera sensor and converts it to grayscale. The grayscale frame has its histogram equalized which essentially means that the brightness of the image is normalized and the contrast of the image is increased. The image is then scanned using the machine learning algorithm for traffic cones. If traffic cones are found, two catty-corner points are stored as a rectangle object in a vector. Then the object is sent to the isOrange() function to confirm the color is orange. Lines 20-24 in the function are purely used for displaying the result. This is useful for testing and showing the algorithm, but these lines will not be implemented in the rover. The final line of code simply calls a function which determines which of the five segments the center of the cone is located in.
+\vspace{.3cm}
+\par
+\begin{minipage}{\textwidth}
+\begin{lstlisting}
+/** @function isOrange */
+bool Finish::isOrange(Mat original, Rect cone) {
+	Mat HSV;
+	int xVal = cone.x + cone.width / 2;
+	int yVal[3] = { 
+		cone.y + cone.height*0.8, 
+		cone.y + cone.height*0.2, 
+		cone.y + cone.height*0.5 
+	};
+	
+	for (int i = 0; i < sizeof(yVal)/sizeof(*yVal); ++i) {
+		Mat RGB = original(Rect(xVal, yVal[i], 1, 1));
+		cvtColor(RGB, HSV, CV_BGR2HSV);
+		Vec3b hsv = HSV.at<Vec3b>(0, 0);
+		int H = hsv.val[0];		//	Hue
+		int S = hsv.val[1];		//	Saturation
+		int V = hsv.val[2];		//	Value
+
+		if (H < 180 && S > 39 && V > 234)
+			return true;
+	}
+	return false;
+}
+\end{lstlisting}
+\end{minipage}
+\par
+The above algorithm takes three points from the potential traffic cone result in the image. The three points are taken from the horizontal center of the rectangle object, and with y-values from near the top, another near the bottom, and another from the center of the object. The HSV values are taken from each point, and, if any one of the points turns out to be orange, then the function returns true.
+
+\section{Conclusion}
+
+
+
+%\section{References}
+
+%\bibliographystyle{IEEEtran}
+%\bibliography{tech}
+
+\end{document}
