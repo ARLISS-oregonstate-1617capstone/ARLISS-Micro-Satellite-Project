@@ -3,12 +3,8 @@
 using namespace cv;
 using namespace std;
 
-void on_trackbar(int, void*);
-
 Obstacle::Obstacle (MotorFuncs* m) {
-
 	threshval = 150;
-
 	myMotors = m;
 }
 
@@ -76,19 +72,10 @@ void Obstacle::Analyze(int(Array)[][Height], int rows, int cols) {
 	return;
 }
 
-
-
-
 void Obstacle::checkObstacle()
 {
-
-	createTrackbars();
-	on_trackbar(0, 0);
-
-	Mat frame, blurred, thresimg, gray, canny, canny2;
-	//frame = imread("images/testBMP2.bmp", CV_LOAD_IMAGE_UNCHANGED);
-	//use threshval = 43
-
+	Mat frame, blurred, gray, canny;
+	
 	if (!DEBUG) {
 		//Capture frame from camera
 		VideoCapture capture(0);
@@ -98,38 +85,17 @@ void Obstacle::checkObstacle()
 		//Use test image as frame
 		frame = imread("road.jpg", CV_LOAD_IMAGE_GRAYSCALE);	
 	}
-	
-	//imwrite("gray.jpg", frame);
+	cvtColor(frame, gray, CV_BGR2GRAY);	//	Convert frame to grayscale
+	blur(gray, blurred, Size(40, 4));	//	Smooth grayscale image
 
-	//GaussianBlur(frame, blurred, Size(1011, 35), 1.5, 1.5);
-	blur(frame, blurred, Size(40, 4));
+	//	Morphological opening (remove small objects from the foreground)
+	erode(blurred, blurred, getStructuringElement(MORPH_RECT, Size(5, 5)));
+	dilate(blurred, blurred, getStructuringElement(MORPH_RECT, Size(5, 5)));
+	dilate(blurred, blurred, getStructuringElement(MORPH_RECT, Size(5, 5)));
 	
-	//imwrite("blurred.jpg", blurred);
-	
+	Canny(blurred, canny, 50, 120, 3);	//	Canny Edge detection algorithm
 
-	Canny(blurred, canny, 50, 120, 3);
-	
-	//imwrite("canny.jpg", canny);
-	//cvtColor(blurred, gray, CV_BGR2GRAY);
-	
-	
-	/* 0: Binary
-	   1: Binary Inverted
-	   2: Threshold Truncated
-	   3: Threshold to Zero
-	   4: Threshold to Zero Inverted
-	*/
-	threshold(blurred, thresimg, threshval, 255, CV_THRESH_BINARY_INV);
-	//imwrite("thresh.jpg", thresimg);
-		
-	//imshow("Canny", canny);
-	//imshow("Threshing", thresimg);
-		
-	//imshow("Blurred", blurred);
-	//imshow("Grayscale", frame);
-		
 	int Image_Array[Width][Height];
- 
 	for(int i=0; i<canny.rows; i++)
 		{
 			for(int j=0; j<canny.cols; j++)
@@ -144,24 +110,6 @@ void Obstacle::checkObstacle()
 				}
 		}
 	//start of obstacle avoidance section
-
 	Analyze(Image_Array, Width, Height);
 
-}
-
-void Obstacle::createTrackbars()
-{
-	namedWindow("Image", WINDOW_NORMAL);//create window trackbarwindow
-	createTrackbar("Threshme", "Image", &threshval, 255, on_trackbar);
-}
-void Obstacle::createTrackbars2()
-{
-	namedWindow("Image", WINDOW_NORMAL);//create window trackbarwindow
-	createTrackbar("Threshme", "Image", &threshval, 255, on_trackbar);
-}
-
-void on_trackbar(int, void*)
-{//This function gets called whenever a
- // trackbar position is changed
-	cout << "Changing theshval" << endl;
 }
