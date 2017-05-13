@@ -85,7 +85,6 @@ void Obstacle::checkObstacle()
 		//Use test image as frame
 		frame = imread("road.jpg", CV_LOAD_IMAGE_GRAYSCALE);	
 	}
-	cvtColor(frame, gray, CV_BGR2GRAY);	//	Convert frame to grayscale
 	blur(gray, blurred, Size(40, 4));	//	Smooth grayscale image
 
 	//	Morphological opening (remove small objects from the foreground)
