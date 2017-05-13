@@ -83,7 +83,57 @@ As the computer science team, our job is strictly developing the software for th
 \subsection{\textbf{Goals}}
 The primary objective for this project is to compete in the ARLISS competition, and to have our rover finish its autonomous expedition by bumping into the traffic cone at the base of the pole which marks the finish. No team in the ARLISS competition history has yet completed this objective in the specific competition we are attempting. What distinguishes this competition from the other ARLISS competitions is the soda can restriction on the size and weight of the rover. Because of this, and the fact that we must rely on the performance of two other engineering teams, we have an alternate metric of success. If the rover is able to safely land on the ground, escape from the parachute, and successfully traverse the terrain for some period of time while navigating around obstacles, then we would consider our goals met. Battery life not lasting for the duration of the rovers trek is beyond our control, as is mechanical drawbacks or limitations. As computer scientists, our measure of success is based solely on the success of the five components listed above.
 
-\section{\textbf{Current Project State}}
+\section{\textbf{Current Progress}}
+\subsection{\textbf{Zachary DeVita}}
+I spent most of my spring break working on the traffic cone detection software. After many failed attempts at producing a working and effective machine learning classifier, I decided to develop a backup program for detecting traffic cones. My backup algorithm for detecting traffic cones used a complex series of image filters and counting convex hulls, and was able to eliminate noise and locate a traffic cone based on both its geometric features and its orange color. The major flaw with this method is that each time the frame goes through a single filter, each pixel in the image must be iterated over at least once, and this algorithm required many filters.\vspace{.3cm}
+\par 
+At the same time, while I spent my break developing this algorithm and testing the parameters for each of the filters, I also continued to search for the optimal machine learning classifier. I eventually did develop an amazing classifier and the way I did this was simple. There are a couple of algorithms commonly used for developing a classifier. The Haar algorithm is the most effective, but it requires a period of days to weeks of running to develop a single classifier. The LBP (Local Binary Pattern) algorithm produces a classifier with considerably more false positives, but only requires a few hours of running to develop. Both of these algorithms require almost identical parameters. So, what I did is I found the most optimal classifier that I could produce using the LBP algorithm, and then I simply used the same set of parameters for training my Haar classifier.\vspace{.3cm}
+\par
+With the driver for the classifier, I was able to continue testing. I developed a simple system to determine what direction the rover needed to turn when the cone is located. This involved locating the center of the rectangle image object containing the traffic cone. The biggest problem I found with the initial implementation was that there were still some false positives being detected. From my research I found that this is impossible to avoid with any machine learning classifier, and further code would be necessary to verify the results.\vspace{.3cm}
+\par
+A Haar classifier is purely a feature-based classifier which uses geometry and shape patterns to recognize an object. The images used to train the classifier are all converted to grayscale before the training begins so the color of the object is not taken into consideration. This is where a feature from my backup traffic cone detection program came in handy. Since the bright orange color uniquely identifies a traffic cone, and the color of a traffic cone is an atypical color to be observed in nature, I decided it would be best to verify results by checking that the color of the object being detected is orange. I had used a method of converting pixels to their HSV (Hue, Saturation, \& Value) value equivalent to verify an object’s color in my backup program, so it was a natural solution to this problem. I added a verification to my algorithm to check three points, or pixels, from the result by converting only those three points to HSV, and then checking if they are in the appropriate range of values which would be observed on a traffic cone. This method seems to work pretty well!\vspace{.3cm}
+\par
+I continued to work and test both of my computer vision algorithms throughout the first half of the term, making little improvements. One step that I added to the obstacle avoidance algorithm was using a morphological opening conversion to reduce additional noise in the image. This specific transformation is referred to as a morphological opening and is defined by the image erosion followed by an image dilation. The erosion effect removes pixels near the boundary of objects in the image so the thickness or size of the foreground object decreases.
+\begin{figure}[h]
+	\captionsetup{justification=raggedright, singlelinecheck=off}
+    	\includegraphics[width=0.15\textwidth]{j1}
+    	\caption{Image with Erosion}
+	\vspace{-.5cm}
+\end{figure}
+\begin{figure}[h]
+	Dilation does the opposite. Whereas erosion decreases the white region of the object by narrowing the boundary, dilation increases the white region in the image by increasing the boundary.
+	\vspace{.5cm}
+
+	\begin{center}
+	\captionsetup{justification=centering, margin=6.7cm, singlelinecheck=off}
+	%\hfill
+    	\includegraphics[width=0.15\textwidth]{j2}
+    	\caption{Image with Dilation}
+	\end{center}
+	\vspace{.5cm}
+\end{figure}
+\begin{figure}[h]
+	What the combination of the two effects does is it removes noise in the image with the erosion, then brings the remaining nodes from the image 	back to their original size. Nodes which are small get removed during the erosion state.\par
+	\vspace{.5cm}
+	\captionsetup{justification=raggedleft, margin=0cm, singlelinecheck=off}
+	\hfill
+    	\includegraphics[width=0.3\textwidth]{j3}
+    	\caption{After Morphological Opening}
+\vspace{.5cm}
+\par
+The most recent improvement to the traffic cone detecting algorithm has been targeted at eliminating the remaining false positives. We seem to get an occasional false positive at points in an image where light is reflected directly into the camera. I increased the size, i.e. number of pixels, of the minimum accepted result in the algorithm. These false positives are so small that I cannot physically identify the shape of a cone in the image at the location or identify any orange coloration, so I believe that enlarging the minimum accepted result will completely eliminate this issue.
+\end{figure}
+
+\subsection{\textbf{Paul Minner}}
+
+
+\subsection{\textbf{Steven Silvers}}
+
+
+\subsection{\textbf{Zhalong Wu}}
+
+
+\section{\textbf{Plans for the Future}}
 
 
 
@@ -143,39 +193,7 @@ void Obstacle::checkObstacle()
 \end{lstlisting}
 \end{minipage}
 \par
-As for an explanation, the VideoCapture constructor opens the video capture device and records a single frame from the camera. This data gets stored in a Mat (i.e. matrix) object each time this function is called. The cvtColor() function converts the frame to its equivalent in grayscale, and this gets stored in a separate Mat object. The blur() function does exactly what it sounds like; it blurs the frame using a specified parameter which has been determined through testing. Next, the now blurred, grayscale frame is put through a morphological transformation. This specific transformation is referred to a morphological opening and is defined by the image erosion followed by an image dilation. The erosion effect removes pixels near the boundary of objects in the image so the thickness or size of the foreground object decreases.
-\begin{figure}[h]
-	\captionsetup{justification=raggedright, singlelinecheck=off}
-    	\includegraphics[width=0.13\textwidth]{j1}
-    	\caption{Image with Erosion}
-	\vspace{.5cm}
-\end{figure}
-\clearpage
-\begin{figure}[h]
-	Dilation does the opposite. Whereas erosion decreases the white region of the object by narrowing the boundary, dilation increases the white 		region in the image by increasing the boundary.
-	\vspace{.5cm}
-
-	\begin{center}
-	\captionsetup{justification=centering, margin=6.7cm, singlelinecheck=off}
-	%\hfill
-    	\includegraphics[width=0.13\textwidth]{j2}
-    	\caption{Image with Dilation}
-	\end{center}
-	\vspace{.5cm}
-
-	What the combination of the two effects does is it removes noise in the image with the erosion, then brings the remaining nodes from the image 	back to their original size. Nodes which are small get removed during the erosion state.\par
-	\vspace{.5cm}
-	\captionsetup{justification=raggedleft, margin=0cm, singlelinecheck=off}
-	\hfill
-    	\includegraphics[width=0.26\textwidth]{j3}
-    	\caption{After Morphological Opening}
-	\vspace{.5cm}
-
-	The final filter used is the Canny Edge detection algorithm. The Canny algorithm is an extremely complex algorithm that I could write a book 			explaining so I will explain what it does opposed to how it works. The Canny algorithm is used to filter out any noise left in the image. The 			algorithm finds all edges in the image and uses the smallest value between thresholds for edge linking. The largest values are used to find initial 		segments of strong edges.\vspace{.3cm}
-	\par
-	The set of nested loops is used to store the results from the Canny Edge detection algorithm into a double array containing 1s and 0s 			depending on if the individual pixel represents an edge of an object in the frame or not.
-\end{figure}
-\vspace{-.5cm}
+As for an explanation, the VideoCapture constructor opens the video capture device and records a single frame from the camera. This data gets stored in a Mat (i.e. matrix) object each time this function is called. The cvtColor() function converts the frame to its equivalent in grayscale, and this gets stored in a separate Mat object. The blur() function does exactly what it sounds like; it blurs the frame using a specified parameter which has been determined through testing. Next, the now blurred, grayscale frame is put through a morphological transformation. The set of nested loops is used to store the results from the Canny Edge detection algorithm into a double array containing 1s and 0s depending on if the individual pixel represents an edge of an object in the frame or not.
 
 \subsection{\textbf{Traffic Cone Detection}}
 The algorithm implemented for detecting the traffic cone at the base of the pole is a complex system which utilizes machine learning, as well as, some image processing filters. For the machine learning, our team has trained a Haar Classifier which can be used to detect a traffic cone based on its features and geometry. Though effective at only detecting a traffic cone the majority of the time, machine learning classifiers are prone to returning false positives. The way we have avoided this is by verifying the results by confirming that the color of the result is orange.\vspace{.3cm}
