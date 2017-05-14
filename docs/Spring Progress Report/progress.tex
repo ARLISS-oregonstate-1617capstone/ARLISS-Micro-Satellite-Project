@@ -128,7 +128,9 @@ The most recent improvement to the traffic cone detecting algorithm has been tar
 
 
 \subsection{\textbf{Steven Silvers}}
-
+Major progress was made this term on the control board module of our project. At the start of the term we had a prototype PCB that was developed by the ECE team, but ultimately was too large for the rover and would not work for the project. Designs for a smaller PCB were developed and sent off for manufacturing and the finished boards arrived during week five of the term. Connecting sensors and Raspberry PI to the PCB was completed during week six and will be installed in the rover before EXPO.\vspace{.3cm}
+\par 
+The obstacle avoidance module had some improvements done at the beginning of the term as detailed in the plan from our previous progress report. The use of a csv file to store a binary array was removed to reduce file I/O operations, which drastically improved the performance of the module on the Raspberry PI Zero. A few OpenCV filters were also removed from the module as they were not being used in the final product. The obstacle avoidance module now runs quickly enough for use in a moving rover, and is currently awaiting completion of the rover for final testing and tweaking of the algorithm.
 
 \subsection{\textbf{Zhalong Wu}}
 
@@ -142,7 +144,9 @@ The most recent improvement to the traffic cone detecting algorithm has been tar
 
 
 \section{\textbf{Problems Encountered}}
-
+The largest problem encountered by our group at this point is the missed deadlines by the ECE and ME teams on the project. The original time line of the project gave us a completed rover at the start of spring term, giving us seven weeks to test and implement our software system before engineering EXPO. With the setbacks that have happened it now looks like we will have approximately three to four days to implement and test our software system on a completed rover before engineering EXPO.\vspace{.3cm}
+\par 
+The first problem encountered was the ECE team attempting to test the motor control of their prototype PCB, but the motor housings of the rover were too tight to freely allow the motors to rotate, causing them to accidentally fry a motor. This led to the ME team having to build an entirely new rover frame and wheel housing, as the old motor could not be removed without destroying the old frame as well as order a replacement motor. When the ECE team finally got their final PCBs delivered, while installing sensors they fried a GPS sensor and a Rasperry PI. A new GPS sensor had to be ordered and they had to take the CS teams' Raspberry PI as it was the last one the group had without having to order a replacement.
 
 
 \section{\textbf{Code Samples}}
@@ -267,7 +271,7 @@ bool Finish::isOrange(Mat original, Rect cone) {
 The above algorithm takes three points from the potential traffic cone result in the image. The three points are taken from the horizontal center of the rectangle object, and with y-values from near the top, another near the bottom, and another from the center of the object. The HSV values are taken from each point, and, if any one of the points turns out to be orange, then the function returns true.
 
 \section{Conclusion}
-
+Software development of our project has gone well, but due to the hardware setbacks experienced this term we do not believe we will have a finished project by the engineering EXPO. We plan to continue development after EXPO so we can still deliver a finished product to our client
 
 
 %\section{References}
