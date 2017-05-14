@@ -125,7 +125,13 @@ The most recent improvement to the traffic cone detecting algorithm has been tar
 \end{figure}
 
 \subsection{\textbf{Paul Minner}}
-
+Over spring break, I worked on speeding up the obstacle avoidance system. Initially, the obstacle avoidance system worked, but took over 30 seconds to check single image on the pi. This wasn't good enough, because we needed to be able to take new pictures every few seconds in order to find obstacles before hitting them. I realized the algorithm was slow because the filtered image was being written to disk, then being read back in to actually check for obstacles. I just stored the image values in an array so we wouldn't have to read and write from disk, which sped up the algorithm about 10 times. Now, the algorithm can check a new image roughly every 3 seconds. If this is still too slow, we can also reduce the image quality, but 3 seconds should be fast enough.\vspace{.3cm}
+\par
+After spring break, I started working on integrating the ECE team's device controller code into our motor control code. Before, all our motor and servo functions just printed what they would do, but now they should actually move motors and servos. The ECE team made this relatively simple for me by providing documentation for each of their functions and providing me a single source code file and header. The only difficulty I had was that their code was written in C, while our code is written in C++. I had to compile their code using gcc instead of g++ and surround their header file code with an extern ``C'', and surround that extern with an \#ifdef which checks if the code is C++ or C because the header file needed to be read by C code and C++ code.\vspace{.3cm}
+\par
+In order to remain being able to test the code on our own machines, I created two separate compilation options, test and final. Final includes the device controller code, while test just prints output like before. To do this, I needed to modify the makefile, so I also streamlined the makefile to automatically compile each source file without separate options in the makefile. I was able to test that the device controller code worked by putting the code on the unfinished rover and running it. Unfortunately, not all the motors work on the rover, so I could only test whether the motors moved or not. I was unable to actually move the rover.\vspace{.3cm}
+\par
+For the code freeze, I also cleaned up the repo, as well as created a better Readme file with compilation instructions. I haven't worked more on the three modules I am responsible for, which are parachute deployment, getting unstuck from obstacles, the driving portion of finding the finish pole, because we still don't have a working rover to do testing on. Very likely, some of these modules will need to be adjusted once we have a working rover, but at the moment they do work with the simulated values I created to test them.\vspace{.3cm}
 
 \subsection{\textbf{Steven Silvers}}
 Major progress was made this term on the control board module of our project. At the start of the term we had a prototype PCB that was developed by the ECE team, but ultimately was too large for the rover and would not work for the project. Designs for a smaller PCB were developed and sent off for manufacturing and the finished boards arrived during week five of the term. Connecting sensors and Raspberry PI to the PCB was completed during week six and will be installed in the rover before EXPO.\vspace{.3cm}
@@ -136,11 +142,6 @@ The obstacle avoidance module had some improvements done at the beginning of the
 
 
 \section{\textbf{Plans for the Future}}
-
-
-
-\section{\textbf{Plans for the Future}}
-
 
 
 \section{\textbf{Problems Encountered}}
