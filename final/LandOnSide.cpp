@@ -27,15 +27,15 @@ void LandOnSide::getUp () {
 		oldXCoord = myGPS.getXCoord (oldXCoord);
 		oldYCoord = myGPS.getYCoord (oldYCoord);
 		
-		myMotors->roverForward ();
+		myServo->servoRotate(90); //servo rotates right 360 degrees
 		sleep (waitTime);
-		myMotors->roverStop ();
+		myMotors->roverForward ();
 
 		if (!checkOnSide (oldXCoord, oldYCoord)) {
 			isSideway = false;
 		}
 		else {
-		myServo->servoRotate(360); //servo rotates right 360 degrees
+		myServo->servoRotate(-90); //servo rotates right 360 degrees
 		sleep (waitTime);
 		}
 	}
