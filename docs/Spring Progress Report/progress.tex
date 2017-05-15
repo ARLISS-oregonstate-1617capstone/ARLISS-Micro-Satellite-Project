@@ -139,10 +139,38 @@ Major progress was made this term on the control board module of our project. At
 The obstacle avoidance module had some improvements done at the beginning of the term as detailed in the plan from our previous progress report. The use of a csv file to store a binary array was removed to reduce file I/O operations, which drastically improved the performance of the module on the Raspberry PI Zero. A few OpenCV filters were also removed from the module as they were not being used in the final product. The obstacle avoidance module now runs quickly enough for use in a moving rover, and is currently awaiting completion of the rover for final testing and tweaking of the algorithm.
 
 \subsection{\textbf{Zhalong Wu}}
+Over the first half of the Spring term, the major progress I made is updating the rover's navigation function. Before the Spring term I was told that we will have a compass installed on the rover so we won't have to deal with finding rover's heading, which suddenly the ECE team told us we will only have a GPS module and an accelerometer for navigating the rover around, this became a problem because we could not know the rover's initial heading when it first landed on the ground. This problem bothered me a while and eventually I came up with the idea that as soon as the rover landed, the rover's X,Y coordinates will be recorded, then the rover will be ordered to travel a certain amount of distance that is enough for the GPS module to detect the movement, then record rover's coordinates again and compare these two sets of coordinates to get rover's heading as an initial reference. After that use destination heading - current heading will return the rover's travel heading. This heading function will be ran in time intervals to ensure the heading accuracy. 
+\par
+\vspace{.3cm}
 
+Other than updating the navigation function, I also encountered another problem with servo. Initially in the landonside module, I was letting the servo to rotate 360 degrees when the rover lands on its side, so rotate 360 degrees will for sure rescue the rover, but somehow I found that the servo we have only has a 180 degrees travel, which I had to update my function to make decisions on which side the rover lands on, where I use the accelerometer data to determine and have some if/else to make the decision. This module has never been tested because we don't get the servo driver function from ECE team, even they said they already implemented it at the beginning of the term. I also had to write our own servo function to make every servo features we need on the rover.
+\par
 
 \section{\textbf{Plans for the Future}}
+At this point, each of our project code module is theoretically functioning correctly, and they should work together. The only concern for now is because of ECE and ME teams constantly misses the project deadlines, we don't get the physical rover to play with, which led we have zero chance to run the code on the rover to do further testing. By far we heard that the ME and ECE team will have the tentative rover completion date on May 15th, which will roughly give us 4 days to perform some fundamental tests on the rover, so our tentative testing plan is: \par
 
+\begin{table}[h!]
+	\centering
+	\caption{Tentative Plan for the Future term and beyond.}
+	\label{tab:table1}
+	\begin{tabular}{l l}
+	
+		\hline
+		1   &Test to make sure the navigation function works flawlessly with all features. \\
+		\hline
+		2   &Test the obstacle avoidance function on agileness and accuracy, the placement of camera    \\
+		\hline
+		3   &Test the cone recognition module with different backgrounds and terrains the narrow down the HSV value for the best detection.  \\
+		\hline
+		4   &Observe the rover's moving behaviors to make software compensation if necessary. \\
+		\hline
+		5   &Test to make sure every modules work together and get the rover ready for the competition. \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\par
+For the coming up engineering EXPO, we are planing to show off our project with its highlight features. First we are going to show that the rover is capable to move around, then we hope to show the obstacle avoidance and recognition feature, last and most importantly, the finishing pole detection feature where on the EXPO day we will bring a traffic cone on site to let the rover to find, and by hock up the rover to a monitor that we can show off this feature to people within the rover's perspective. 
 
 \section{\textbf{Problems Encountered}}
 The largest problem encountered by our group at this point is the missed deadlines by the ECE and ME teams on the project. The original time line of the project gave us a completed rover at the start of spring term, giving us seven weeks to test and implement our software system before engineering EXPO. With the setbacks that have happened it now looks like we will have approximately three to four days to implement and test our software system on a completed rover before engineering EXPO.\vspace{.3cm}
