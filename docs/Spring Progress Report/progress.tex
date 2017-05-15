@@ -113,7 +113,7 @@ I continued to work and test both of my computer vision algorithms throughout th
 	\vspace{.5cm}
 \end{figure}
 \begin{figure}[h]
-	What the combination of the two effects does is it removes noise in the image with the erosion, then brings the remaining nodes from the image 	back to their original size. Nodes which are small get removed during the erosion state.\par
+	What the combination of the two effects does is it removes noise in the image with the erosion, then brings the remaining nodes from the image 	back to their original size. Nodes which are small get removed during the erosion state \cite{opencv1}.\par
 	\vspace{.5cm}
 	\captionsetup{justification=raggedleft, margin=0cm, singlelinecheck=off}
 	\hfill
@@ -226,7 +226,7 @@ void Obstacle::checkObstacle()
 \end{lstlisting}
 \end{minipage}
 \par
-As for an explanation, the VideoCapture constructor opens the video capture device and records a single frame from the camera. This data gets stored in a Mat (i.e. matrix) object each time this function is called. The cvtColor() function converts the frame to its equivalent in grayscale, and this gets stored in a separate Mat object. The blur() function does exactly what it sounds like; it blurs the frame using a specified parameter which has been determined through testing. Next, the now blurred, grayscale frame is put through a morphological transformation. The set of nested loops is used to store the results from the Canny Edge detection algorithm into a double array containing 1s and 0s depending on if the individual pixel represents an edge of an object in the frame or not.
+As for an explanation, the VideoCapture constructor opens the video capture device and records a single frame from the camera. This data gets stored in a Mat (i.e. matrix) object each time this function is called. The cvtColor() function converts the frame to its equivalent in grayscale, and this gets stored in a separate Mat object. The blur() function does exactly what it sounds like; it blurs the frame using a specified parameter which has been determined through testing. Next, the now blurred, grayscale frame is put through a morphological transformation. The final filter used is the Canny Edge detection algorithm. The Canny algorithm is an extremely complex algorithm that I could write a book explaining so I will explain what it does opposed to how it works. The Canny algorithm is used to filter out any noise left in the image. The algorithm finds all edges in the image and uses the smallest value between thresholds for edge linking. The largest values are used to find initial segments of strong edges \cite{opencv2}. The set of nested loops is used to store the results from the Canny Edge detection algorithm into a double array containing 1s and 0s depending on if the individual pixel represents an edge of an object in the frame or not.
 
 \subsection{\textbf{Traffic Cone Detection}}
 The algorithm implemented for detecting the traffic cone at the base of the pole is a complex system which utilizes machine learning, as well as, some image processing filters. For the machine learning, our team has trained a Haar Classifier which can be used to detect a traffic cone based on its features and geometry. Though effective at only detecting a traffic cone the majority of the time, machine learning classifiers are prone to returning false positives. The way we have avoided this is by verifying the results by confirming that the color of the result is orange.\vspace{.3cm}
@@ -303,9 +303,9 @@ The above algorithm takes three points from the potential traffic cone result in
 Software development of our project has gone well, but due to the hardware setbacks experienced this term we do not believe we will have a finished project by the engineering EXPO. We plan to continue development after EXPO so we can still deliver a finished product to our client
 
 
-%\section{References}
+\section{References}
 
-%\bibliographystyle{IEEEtran}
-%\bibliography{tech}
+\bibliographystyle{IEEEtran}
+\bibliography{progress}
 
 \end{document}
