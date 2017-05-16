@@ -1,0 +1,14 @@
+purpose and goals
+current progress - need zachs
+problems
+plan
+elevator pitch
+mainfunc
+parachute
+land on side
+GPS func
+unstuck
+motor func
+navigation
+check obstacle
+analyze
