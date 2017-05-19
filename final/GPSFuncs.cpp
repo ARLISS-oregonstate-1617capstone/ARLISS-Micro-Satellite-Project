@@ -34,6 +34,11 @@ double GPSFuncs::getAltitude () {
 
 double GPSFuncs::getXCoord () {
 
+	int degree;
+	float minutes;
+	float decimalDegree;
+	float finalDegree;
+
 	if (DEBUG) {
 		//Either returns the same value as oldXCoord, or
 		//has a 1 in 5 chance of returning a different number.
@@ -50,11 +55,22 @@ double GPSFuncs::getXCoord () {
 	else {
 		while (!gpsReady ());
 		struct gps_data data = getGPS ();
-		return data.latitude;
+
+		degree = (int) data.latitude / 100;
+		minutes = data.latitude - (degree * 100);
+		decimalDegree = minutes / 60.;
+		finalDegree = degree + decimalDegree;
+			
+		return finalDegree;
 	}
 }
 
 double GPSFuncs::getYCoord () {
+
+	int degree;
+	float minutes;
+	float decimalDegree;
+	float finalDegree;
 
 	if (DEBUG) {
 		//Either returns the same value as oldYCoord, or
@@ -72,6 +88,12 @@ double GPSFuncs::getYCoord () {
 	else {
 		while (!gpsReady ());
 		struct gps_data data = getGPS ();
-		return data.latitude;
+
+		degree = (int) data.longitude / 100;
+		minutes = data.longitude - (degree * 100);
+		decimalDegree = minutes / 60.;
+		finalDegree = degree + decimalDegree;
+		
+		return finalDegree;
 	}
 }
