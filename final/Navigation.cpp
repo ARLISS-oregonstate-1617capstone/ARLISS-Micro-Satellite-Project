@@ -63,16 +63,16 @@ void Navigation::startNavigation (){
 	double preLat = 0.;   
 	double preLong = 0.;
 	
-	preLat = myGPS->getYCoord ();
-	preLong = myGPS->getXCoord ();
+	preLat = myGPS->getXCoord ();
+	preLong = myGPS->getYCoord ();
 
 	// rover move forward
 	myMotors->roverForward (); 
 	sleep (2);
 	myMotors->roverStop ();
 	
-	double currLat = myGPS->getYCoord ();
-	double currLong = myGPS->getXCoord ();
+	double currLat = myGPS->getXCoord ();
+	double currLong = myGPS->getYCoord ();
 	
 	std::cout << std::setprecision(11) << "(" << preLat << "," << preLong << ") --- ""(" << currLat << "," << currLong << ")\n";
 	
