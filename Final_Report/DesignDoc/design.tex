@@ -1,0 +1,310 @@
+%\documentclass[10pt,letterpaper,onecolumn,journal]{IEEEtran}
+%\usepackage[margin=0.75in]{geometry}
+%\usepackage{listings}
+%\usepackage{color}
+%\usepackage{longtable}
+%\usepackage{graphicx}
+%\usepackage{PSTricks}
+%\usepackage{float}
+%\usepackage{tabu}
+%\usepackage{enumitem}
+%\usepackage{courier}
+%\usepackage[hidelinks]{hyperref}
+%\usepackage{tikz}
+%\usetikzlibrary{shapes.geometric, arrows}
+
+%\floatstyle{boxed}
+%\restylefloat{figure}
+
+%\setlength{\parindent}{0cm}
+%\newcommand{\namesigdate}[2][6cm]{%
+%\begin{tabular}{@{}p{#1}@{}}
+%	#2 \\[3\normalbaselineskip] \hrule \\[0pt]
+%	{\small \textit{Signature}} 
+%	{\small \textit{Date}}
+%\end{tabular}
+%}
+%\begin{document}
+\pagenumbering{gobble}
+
+\begin{titlepage}
+	\title{The ARLISS Project\\Design Document\\CS 461}
+	\author{Steven Silvers, Paul Minner, Zhaolong Wu, Zachary DeVita\\
+		Capstone Group 27, Fall 2016}
+	\date{\today}
+	\maketitle
+	\vspace{4cm}
+	\begin{abstract}
+		\noindent This document defines the plan for how the various pieces of the ARLISS Project will be developed and implemented. Each piece that was discussed in the previous technology review will be gone through in detail in its own section.
+	\end{abstract}
+
+\end{titlepage}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section{Introduction}
+In this document we have divided our project into twelve components, and a framework for each one of these components has been designed by the corresponding member from the list below. Each section will detail how a component will operate, and how it will interact with other related components. This document is intended to provide a structure, and the architectural layout for the entire project. 
+
+\vspace{.3cm}
+\begin{description}[leftmargin=3em,style=nextline]
+	\item[Project Framework]
+		Zachary DeVita
+	\item[CMOS Image Sensing]
+		Zachary DeVita
+	\item[Ultrasonic Radar Sensor]
+		Zachary DeVita
+	\item[Obstacle Avoidance]
+		Steven Silvers
+	\item[Control Board]
+		Steven Silvers
+	\item[Motorized Tracks]
+		Steven Silvers
+	\item[Parachute Deployment]
+		Paul Minner
+	\item[Getting Unstuck from Obstacles]
+		Paul Minner
+	\item[Finding and Touching the Finish Pole]
+		Paul Minner
+	\item[Navigation System and Algorithm(s)]
+		Zhaolong Wu
+	\item[Getting Rover Unstuck When It on Its Side]
+		Zhaolong Wu
+	\item[Payload Fairing]
+		Zhaolong Wu
+	
+\end{description}
+\clearpage
+
+%
+%	Section 1
+%
+\section{Framework}
+For our overall project design and framework, our team has decided to utilize the C++ programming language. We will be writing our individual portions of code using a C compiler in order to reduce the overall overhead and energy cost of the program, but we will eventually combine the portions into a C++ framework where we will be able to utilize classes and access modifiers. The team feels strongly that utilizing classes and access modifiers for a project of this magnitude would be a huge benefit, and, since C is a subset of C++, we can get the best of both programming languages. Using C++ compilers and C++ specific tools will also reduce time spent debugging and testing ~\cite{codeproject}.\vspace{.3cm}
+\par 
+As far as the framework for the project, we will need a series of classes to pass control of the satellite between. This is due to the fact that our satellite's journey will be comprised of four primary stages where the controls for the satellite are vastly different from each other. All of these classes governing stages of control should have a ‘private’ modifier so they can't be accessed by other classes.\vspace{.3cm}
+\par 
+The first stage of the satellite's expedition will be when it is encapsulated in its “can-shaped” housing. This stage will take place during the period of time that the rocket is on the ground prior to launch, and it will last until some period of time after the satellite has landed safely to the ground via the parachute. Though the satellite will remain in a static state during this period, it must be turned on and ready to receive instructions.\vspace{.3cm}
+\par 
+There will be a class designated for the control of the satellite for this period of time. The satellite will simply be listening for interrupts from other classes.  There will be an interrupt that tells this class when to deploy its parachute. This interrupt will be provided by another class, and it will be based on some form of a timer. This event should occur shortly after the satellite has been ejected from the rocket. Another interrupt will tell the satellite to pass control to the class responsible for the next control stage of the expedition. Both of these classes with the interrupts should have a ‘protected modifier so they are only visible to the class which has control of the satellite. This event should occur shortly after the satellite has been ejected from the rocket. This event should occur shortly after the satellite has landed safely on Earth's surface.\vspace{.3cm}
+\par
+The second stage of the satellite's expedition will encompass the majority of the satellite's expedition, and there will be a class written specifically for the segment. This class will be responsible for the period of time that the rocket navigates from its landing zone until it has reached approximately 8-9 meters from the pole. The pole marks the final destination of the satellite, and the satellite must physically come in contact with the pole to finish the competition. The reason for the 8-9 meters is due to the fact that GPS is only accurate at 7.8 meters with a 95\% confidence interval ~\cite{gov2016}.\vspace{.3cm}
+\par
+During this period there will be many other classes interacting with the class retaining control of the satellite. There should be a class which tells this control class if there is obstacles in the way and what direction to move to avoid them. In the case that the object is a tire track, which would have the potential to divert the path of the satellite for miles, then the satellite will need to create a 90 degree angle, perpendicular to the track and attempt to traverse it. This class should be a ‘protected’ class as well, and should have a parent/child relationship with each class governing the sensors being used to identify obstacles.\vspace{.3cm}
+\par 
+There should also be a class which governs the GPS sensor. This class should help direct the satellite on a macro level, not taking into consideration any obstacles at the local level. This ‘protected’ class should have its navigation instructions be overridden in the case of an obstacle in its path. This class will also send an interrupt to the control class when the satellite has reached 8-9 meters of the pole which will tell the control class to pass off control to the final governing the satellite's navigation.\vspace{.3cm}
+\par
+The third stage of control will be reached only in the case where the satellite becomes stuck or on its side. The satellite design is being made specifically to preventing this type of situation from occurring, but there is still a chance of it happening. There will be a specific routine devised for this circumstance, and control of the satellite will be passed to this stage in this type of event. This class will have access to the CMOS sensor via inheriting access from the protected class. When the satellite has recovered from the event, and some routine to avert the obstacle has been completed, then the control will be returned to the previous control stage.\vspace{.3cm}
+\par
+The final stage of control will cover the period of time when the satellite reaches the 8-9 meter range from the pole, and it will last until contact with the pole has been made. The class responsible for the satellite's control over this period will no longer take input from the GPS. The CMOS camera sensor system used previously for the obstacle avoidance system will be used here for navigation. The CMOS imaging sensor will need to switch modes in this stage to look for a pole shaped object and direct the satellite towards it. A separate ‘protected’ class should be governing the sensor in this stage of navigation. Instead of looking for obstacles the sensor should be searching for an object which is similar to some stored image, while allowing for an appropriate level of error. 
+%
+%	Section 2
+%
+\section{CMOS Image Sensing}
+For the ARLISS project we are using a CMOS imaging sensor, i.e. camera, in order to detect and avoid obstacles. The path of the satellite, on a macro level, is determined by the GPS sensor, but modifications to the path will need to be set locally using this system.\vspace{.3cm}
+\par
+The idea behind the imaging sensor is that, when there is an abrupt change in color in an image, especially when referring to nature, it often shows that there is an abrupt change in the depth being viewed. For our purposes we want to use this observation to detect objects in the satellite's path, as well as, changes in terrain like a steep incline or a steep decline.\vspace{.3cm}
+\par  
+Manipulating raw camera frames can require a relatively large amount of space, as well as consume a large amount of energy. Energy is the most valuable resource for our project because we have a strict limit to the size and weight of the satellite so we have a very limited space for a battery to fit. There are several methods which we must use to minimize this cost, and there is one critical library in particular which we will use to help conserve this limited battery power.\vspace{.3cm}
+\par 
+As far as libraries go, we will be utilizing the library provided by OpenCV. This open-source library provides the capability of image and video I/O, image processing for individual video frames, as well as, built-in object recognition functionality ~\cite{agam2006}. All foreseeable video manipulating should be able to be done with this single library.\vspace{.3cm}
+\par 
+The plan for reducing energy consumption is simple; first we will take a frame of raw footage as input from the CMOS device, then we will convert it to grayscale, blur the image, and then run the image through a Canny photo filter to detect the edges. Blurring the image allows for small changes in color or depth to be lost during the edge detection. We are only interested in obstacles of a certain size so the greater the blurring of the image, the less noise from minor cracks in the ground or pebbles will show up in the final image. Canny edge detection is an effective, multi-stage algorithm which reduces noise in an image, and converts the pixels to black or white to show the contour of an object in the image. Using the OpenCv library we will be able to capture video and directly load each video frame from the sensor to an Mat object. OpenCv also has a built-in function imread() which can be used to convert each image to grayscale as it is read in from the camera. 
+\par 
+This functionality of importing the live video feed, converting it to frames, and applying functions to the data for the edge detection will need to exist in its own class. This class will be responsible for the flow of the input video data from the sensor, and outputting the data as a Mat image to a separate class. The output from this class will help determine what sequence of events needs to occur in order to safely navigate the terrain.
+%
+%	Section 3
+%
+\iffalse
+\section{Ultrasonic Radar Sensor}
+For the obstacle detection system, data will be created using a complex algorithm which combines data from the CMOS imaging sensor as well as at least one ultrasonic sensor. As mentioned previously, the path of the satellite will be determined based on the terrain encountered and any obstacles detected in its path. The system will switch from the satellite's GPS sensor to the obstacle avoidance system when an obstacle is sensed, and then will temporarily divert from the direct path in order to drive navigate around it. The GPS will be used to determine the path on a macro level, but it can be modified locally using this system.\vspace{.3cm}
+\par
+The reason for the combination of the CMOS sensor and the ultrasonic sensor is simple. Though a camera sensor, like the CMOS, is the absolute best at interpreting texture, shape, and is the natural choice for scene interpretation based on its accuracy, it has no way to tell the distance of an object ~\cite{santo2016}. Without a distance measuring sensor the satellite would not know the difference between an obstacle directly in front of it, and the horizon which is miles away.\vspace{.3cm}
+\par 
+The hardware being used will be a ping-response ultrasonic rangefinder. These sensors have two transducers, a speaker which sends out the burst of ultrasonic sound, and a microphone which listens for the sound as it is reflected off objects in its path. This hardware has two connections to the microcontroller, one for the echo pulse output and the other for the trigger pulse input which must be connected to digital I/O ports ~\cite{2016frc}.\vspace{.3cm}
+\par 
+There will be one primary library for setting up the class for the ultrasonic radar sensor. The library NewPing.h already has built-in functions to read in input from the sensor. This library will allow us to specify the input pins where the sensor will be connected to the microcontroller, as well as set up a maximum distance of interest using a ‘NewPing’ object. There is also a timer for the ping which allows us to set the frequency that each ping is sent out in milliseconds. For each ping that is sent out we must have a function which listens for the echo, and converts the time between the ping and echo into a distance ~\cite{grinberg2013}.\vspace{.3cm}
+\par 
+There will be many distances recorded for each ping so they must be stored in a two-dimensional array which will be used as a map of the terrain. When a second echo is recorded then the two can be compared for accuracy. If the object in question does not show up in subsequent readings then the algorithm is reset. If the object continues to show up in subsequent readings, than this map of the terrain will be output to another class which will combine the map created by the CMOS sensor, and will use the data to determine if the satellite needs to divert from its current path.\vspace{.3cm}
+\par 
+Ultrasonic sensors provide not only accurate distance measurements, but they can also utilize this functionality to provide a method of determining angles of objects, or, more importantly, the slope of the ground. This will prove to be important when calculating the slope of the ground that is in the satellite's path. The ground should always show up in the readings. If, for instance, the ground was not being detected, it would mean that the robot was positioned in front of a steep decline. There will need to be some sort of range of acceptable slopes, and these constraints will need to be determined through testing.
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Continuous Tracks}
+\par
+For the method of how we would travel along the ground, the team members of the ARLISS Project decided to go with the continuous track, or tank tread, method of traveling. The implementation of these tracks will be carried out by the Mechanical Engineering sub-team of the ARLISS Project.\vspace{.3cm}
+\par
+Continuous tracks are widely popular for their ability to traverse rough terrain much better than traditional wheels, however they sacrifice speed in doing so. Our continuous track system will require at least four separate motors, front left, front right, rear left and rear right. Four motors are required by this design because using only two motors leads to a couple different problems, mainly that either the satellite will not be able to turn or its tracks will be significantly underpowered.\vspace{.3cm}
+\par
+Tracks of various styles and sizes will be tested to see which one best suits our needs. We will do our best to simulate the texture of the Black Rock Desert in Nevada where the competition will be held to get the best and most useful test results possible. Tracks will be compared based on ease of traveling across flat ground, how the tracks handle changes in elevation and if there is any noticeable effect on power consumption between tracks. We will also look at various stress tests for the different tracks, such as how easy are they to break and how easy it is to get the track to fall off the satellite. These tests will help us ensure that the satellite will perform without fail at the competition.These tests will range from being as simple as trying to pry the tracks off of the satellite with our hands to advanced as setting up a course of very rough terrain that will try to either break or remove the track. determining the proper length of tread on the track is very important for the satellite. if the tread is too long it won't travel along the hard, flat desert ground as efficiently as it could be. Make the tread too short, and the satellite might not be able to climb out of tire ruts or other divots in its path. \vspace{.3cm}
+\par
+While the satellite is traveling on the rocket and during its journey back down to the ground, it will need to be packed away in a container the size of a standard soda can. In order to achieve this, the continuous track system will need to be able to compact itself in order to conserve space used inside of the of the soda can container. the way that this will be accomplished is by having small servo motors than can contract the Continuous track motor systems and tread into the confined space. Once the satellite has landed the servo motors will then expand the motors and the treads to their standard position for the expedition across the desert. This will be controlled by the software class that handles getting the satellite out of the soda can container, as described in the Framework section of this document.\vspace{.3cm}
+\par
+
+
+\section{Control Board}
+\par
+The control board acts as the physical central hub of our system, connecting together and managing the various I/O devices in our satellite system. The control board will be custom built by the Electrical and Computer Engineering sub-team of the ARLISS Project. Having a custom board built in house benefits us in a couple ways, it can make for the most efficient use of limited space and doesn't waste power or weight by not including I/O devices that we will not be using for our project, which would not be true if we used a pre-made third party board.\vspace{.3cm}
+\par
+The current requirements for this control board include being able to handle I/O for our CMOS imaging sensor, sending it messages for when it needs to capture an image and the be able to move that data back for processing. The control board also needs to be able to support motor control functionality, individually telling our motors how much power to use and whether to turn forward or backward. The control board will also need to be able to interface with our parachute module, telling it when to deploy and hearing back from the module if it deployed properly. Lastly the control board will need to be able to interface with our on board GPS sensor. This is essential because the GPS sensor will handle deploying the parachute module as well as be the chief tool of navigation while on the ground trying to reach the final goal.\vspace{.3cm}
+\par
+Our custom built control board will make use of the Atmel ATxmega128A4U chip. This chip is a low power eight bit AVR microcontroller featuring one hundred twenty eight kilobytes flash memory, with thirty four I/O pins and support for thirty four external interrupts\cite{ATxmega}. The selling point of this chip is it has low power consumption, has enough I/O pins to suite our needs while also not going overboard. Finally, this chip is part of a family of chips, the mega128 family, that many people in our ARLISS project team are already familiar with as a similar chip from this family was used in the Electrical Engineering course Computer Organization and Assembly Language.\vspace{.3cm}
+\par
+The detailed design and implementation is being handled by the Electrical Engineering team of the ARLISS Project. If designing and building our own board falls through and is no longer an option, the backup plan is to use the Raspberry PI Zero as our control board. The PI Zero will meet our basic needs for this project, but will still have some of the extra I/O devices and ports mentioned earlier that will not be needed for the ARLISS Project. 
+
+
+\section{Obstacle Avoidance}
+\par
+As detailed in the CMOS Image Sensing section, the data that we will be working with to detect and avoid obstacles will be a 2D array of binary values. A value of '1' will represent a change in the gray scale image, which will ultimately outline the terrain and give an easy to traverse dataset with which to avoid obstacles with. A value of '0' will represent no major change in shade of gray between neighboring pixels of the image, meaning that this will either be the interior of an object bounded by '1' values, or empty space in front of the camera.\vspace{.3cm}
+\par
+The biggest concern and challenge facing our satellite project is the conservation of power and limiting power usage. Due to the space constraints of the competition our batteries will be smaller than desired for this kind of journey so we must conserve where we can. One way that we are doing this within the obstacle avoidance system is by not continuously taking in video feed from the camera. The setting where our system will be tested is for the most part very flat, meaning we can realistically take a new image to analyze after a short time interval without having to worry too much about a new obstacle appearing before we can avoid it. The exact time interval is not yet known, as it will take physically testing the satellite system to determine the correct value to use.\vspace{.3cm}
+\par
+The way that the 2D array will be used to avoid obstacles is by examining the values by column from left to right to detect if an obstacle has appeared in our path. We expect there to almost always be a row of solid '1' values along the bottom of the 2D array that represents the horizon, where the ground meets the sky in the cameras eye. The algorithm for avoiding an object is quite simple, if a column or close to a column of '1' values appear towards the right side of the array, we stop forward motion, and rotate counterclockwise while periodically stopping to take a new picture to see if we have angled around the obstacle. once we have a picture showing no obstacles, we travel forward in this direction for approximately five seconds before going back to driving towards the target GPS coordinates. If the obstacle appears on the left side of the 2D array, we do the same thing except rotate clockwise.\vspace{.3cm}
+\par
+Once we have the satellite built and the CMOS imaging implemented with the gray scale to 2D array conversion working, we will be able to test our satellite in various conditions and with different obstacles to see what kinds of obstacles we can drive over and ignore, and what obstacles must be driven around. During this testing period we will also tweak the timing at which how often a new picture will be taken and analyzed. The target for this testing is to find the time cycle at which we can take the fewest pictures while still avoiding all of the obstacles that we need to, and thus saving battery usage by the camera.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Parachute Deployment}
+For the parachute deployment protocol, we have decided to use GPS to determine when to deploy the parachute. This method is perfect for us because we already need a GPS unit for other uses, and the GPS unit will be more accurate than just deploying the parachute based on a timer, and take less time in the air than deploying the parachute immediately.\vspace{.3cm}
+\par
+The parachute deployment system will be the first part of our software to run, so we will start the system once the satellite separates from the rocket. This will be accomplished by tripping a mechanical switch which sends a signal to the satellite. Once started, the system will take periodic altitude measurements every second until the altitude drops below 1,000 feet. Once below 1,000 feet for two measurements in a row, the software will send a signal to deploy the parachute. We chose 1,000 feet as the desired height because the average reserve parachute for a skydiver deploys in less than 400 feet ~\cite{scott}. Since our satellite only weights as much as a can of soda, 400 feet is a conservative estimate of the distance the parachute will take to deploy. This should ensure we don’t waste too much time in the air, but also gives us a large margin of error so we don’t accidentally hit the ground before our parachute deploys. The worst case accuracy for civilian GPS coordinates is 25 meters (75 feet) ~\cite{mehaffey}. This accuracy is much worse than the navigation specification because of the high speed the satellite is traveling. In addition, altitude error is actually about 1.5 times the amount of horizontal error, which can be a significant amount. In addition, if the GPS doesn’t have an unobstructed view of the sky, the data cannot be trusted at all ~\cite{mehaffey}. It is highly unlikely that our view will be obstructed, but it is possible a plane could fly overhead, or the rocket could briefly block our view of the sky. This is the reason we take two measurements before deploying the parachute. All of these factors effect the accuracy of our parachute deployment height, which is why we have been conservative. An extra 600 feet of distance to deploy the parachute is plenty of space, but still minimizes our time spent in the air. Once the software sends the signal to deploy the parachute, the parachute deployment system will end, and a new system will begin to check when the satellite is on the ground.\vspace{.3cm}
+\par
+The system will be implemented within it’s own class which is responsible for deploying the parachute. An interrupt will be sent to the first stage class once the satellite is ejected from the rocket. Then, the parachute deployment class will launch it’s own function, which will loop continuously, checking the altitude from the GPS until the value of the altitude is less than 1,000 feet. Once this happens, the loop will execute one more time to check if the altitude is still below 1,000 feet. If it is, end the loop, send a signal to the first stage class to deploy the parachute, and hand control back to the first stage class. If the altitude isn’t still below 1,000 feet, start the process over again. The first stage class will be responsible for actually deploying the parachute.\vspace{.3cm}
+\par
+\section{Getting Unstuck From Obstacles}
+The system for getting unstuck from obstacles has two components. First, determining when the satellite is stuck, and second, getting the satellite unstuck. To determine when the satellite is stuck, the satellite’s distance travelled will be monitored, and if the distance drops below a certain threshold for a specific amount of time, the system to get the satellite unstuck will be enabled ~\cite{herbach}. To get the satellite unstuck, the system will attempt to move the satellite in different directions until the satellite frees itself.\vspace{.3cm}
+\par
+The first component which checks if the satellite is stuck will be running constantly in the background while the satellite is navigating itself to it’s destination. It works by checking the coordinates from the GPS sensor every five seconds. After taking a new reading, the algorithm will determine the distance the satellite has moved in those five seconds. If the distance is below the minimum threshold of 1 meter, the satellite will switch from it’s normal navigation mode to getting unstuck mode ~\cite{herbach}. This mode will work by attempting to move the satellite a different direction every five seconds, then checking the GPS coordinates like before to see if the distance travelled is greater than the minimum threshold of 1 meter. If it is, then the satellite must have moved and the system can switch back to it’s normal navigation mode. The first direction the rover will try is directly backwards, and each time the rover fails to get unstuck, the algorithm will attempt to drive 45 degrees clockwise of the previous direction driven. If the algorithm travels 360 degrees, then it will drive 45 degrees counterclockwise. This cycle will continue until the satellite gets unstuck, or the satellite runs out of battery.\vspace{.3cm}
+\par
+This system will be implemented in two separate pieces. The first piece, which detects if the satellite is stuck, will be running concurrently with the navigation system. The algorithm will be a continuous loop, which checks the coordinates from the GPS, calculates the distance travelled from the current coordinate and the previous coordinates, checks if the distance is less than the minimum threshold, and sleeps for five seconds. If the distance is less than the minimum threshold, an interrupt will be sent, transferring control from the navigation system to the getting unstuck system. This piece will be located in the class which contains the second stage of control, which is navigation. This second piece will be located in the class which contains the third stage of control, which deals with the satellite becoming stuck, or on it’s side. The algorithm will be a continuous loop which increments the direction by 45 degrees, attempts to move for five seconds, and checks if the satellite has moved by calculating its distance travelled and comparing it to the minimum threshold. Once the satellite is determined to be unstuck, control will be transferred back to the navigation system.\vspace{.3cm}
+\par
+\section{Finding and Touching the Finish Pole}
+For the protocol to find and touch the finish pole, we have decided to use the existing CMOS imaging sensor to find the pole. Once the pole has been located, the satellite just needs to drive in the direction of the pole until it makes contact with it. The most complicated portion of this is the object detection algorithm. This algorithm will use the OpenCV library, due to it’s object recognition capabilities ~\cite{agam2006}. The object detection algorithm, however, will work differently than the obstacle avoidance algorithm.\vspace{.3cm}
+\par
+Control of the satellite will be switched to this system once the satellite is within the error range for the GPS coordinates of the finish. Once in this mode, this system must do two things, locate the pole, and move towards the pole. To locate the pole, the satellite will slowly rotate, scanning it’s surroundings with the CMOS imaging sensor. An image will be taken every second, and each image will be scanned for a specific shape. That shape is the shape of the finish pole, which would resemble a long, skinny rectangle on a 2D image. This shape scanning ability is achievable using the OpenCV library ~\cite{rosebrock}. Once the shape has been located, the algorithm will instruct the satellite to move forward. Images will still be taken every second, and the direction the satellite is driving will be adjusted based on how far the shape is from the center of the image. If the shape is on the right of the image, the satellite will direct itself more to the right, and if the shape is on the left, the satellite will direct itself more to the left. Once the satellite is very close to the target the shape may not be detectable, so the satellite will continue to move forward in the same direction. Once the satellite hits the pole, it may get deflected and drive in another direction, but we will have completed the competition, so that isn’t important. The system can turn itself off after a certain amount of time has passed.\vspace{.3cm}
+\par
+This system will be implemented as it’s own class. It is the final stage class, and is started once the satellite is within the error margin of the finish pole. There will be two functions in this class. The first will search for the pole, and the second will move towards the pole. The first function will be implemented as a continuous loop, which rotates the satellite ten degrees, gets an image from the CMOS sensor, and checks that image for the shape of the pole using OpenCV. Once the pole is located, the next function will be called. This function will also be implemented as a loop. Each iteration, it will move the satellite forward, get an image from the CMOS sensor, use OpenCV to find the location of the pole in the image, and determine how far to the left or right to navigate the satellite based on the location of the pole in the image. Eventually, the satellite should hit the finish pole, and we will have completed our mission.\vspace{.3cm}
+\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Next Person
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Navigation system design}
+Navigation system is the one of the most crucial parts of any autonomous vehicles. The team is planning to implementing the rover's navigating system with two major goals: to get the rover drive towards the target pole without getting stuck; Design or use some existing algorithms to let the rover remotely updates the best driving path, in order to achieve the optimized battery life. The team divided the navigation system implementation into hardware and software two pieces, in order to help us research more comprehensively.\vspace{.3cm}
+\par
+On the hardware side, by far we have designed two layers to ensure that the CanSat to meet the functional requirements. The team first collaborated with the electrical engineering team and made the agreement on that we will use the FGPMMOPA6C MTK3339 GPS chipset. The MTK3339 ultimate GPS module has an excellent high-sensitivity receiver and a built in antenna. It is capable to get up to -165 dBm sensitivity, track 22 satellites on 66 channels with a 10 Hz update rate, with its ultra low power usage, this GPS module is unbeatable considering its the under 30 dollars price and ultra compact size(16mm * 16mm *5 mm, 4 grams). A GPS module essentially generates a set of way-points(path) based on the given target pole coordinates, in order to make the CanSat to have more precision control and a better motion awareness, we decided to add a 3 axis accelerometer onto the system. At this time being, we have not yet finalized the selection on which specific accelerometer we are going to use on the CanSat. \vspace{.3cm}
+\par 
+Software design is the most important piece of the Navigation system, as mentioned above, the CanSat will navigate itself to the target pole based on the given pole coordinates. In order to enable the autonomous driving feature, we have made a basic design which is based on an existing function called distance and angle calculation method.\cite{Dhanasingaraja} With this method, the system essentially compares its current location with the target pole location, Calculate the shortest path between these two points, then travels through the shortest path. If the system senses any obstacles in the path, it will calculate the new path based on the new current location. This simple process is continued until the CanSat gets close to the target pole(roughly within 8 meters), the target pole mode will be turned on in this case. Lastly, if the CanSat has successfully touched the target pole, it gets stopped, and the whole system will be shut down, see \textbf{Fig. 1}. This distance and angle calculation method can be expressed in a set of mathematical equations, please see below:  \vspace{.3cm}
+\begin{center}
+$A = Long_{pole} - long_{current}$\\
+$B = Lat_{pole}  - lat_{current}$\\
+$\theta_{pole} = tan^-1(B/A)$\\
+$Angle(\theta) = Pole_{angle}  - Current_{angle}$\\
+\vspace{.3cm}
+Where, A is distance to be travelled in latitude and B is distance to be travelled in longitude\\
+\end{center}
+\newpage
+Furthermore, for details about the obstacle avoidance algorithms, as we discussed in the section No.VII, we are essentially using the CMOS image sensor to constantly generating pictures of the front of the path, convert those pictures into a 2D array of binary values, where 1 means object and 0 means open space. \cite{astarkfuture} This 2D array contains a set of binary values can be expressed as this imaginary figure below, the center of this array has a bunch of 1 values which represent an object, more specifically, is an obstacle. \vspace{.3cm}
+\begin{center}
+00000000000000000000000000000000\\
+00000000000001111100000000000000\\
+00000000001111111111000000000000\\
+00000000111111111111100000000000\\
+00000000001111111110000000000000\\
+00000000000111111100000000000000\\
+00000000000001111000000000000000\\
+00000000000000000000000000000000\\
+\end{center}
+\vspace{.3cm}
+
+\tikzstyle{block} = [rectangle, rounded corners, text width=8em, minimum width=3cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{decision} = [diamond, draw, text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{line} = [draw, -latex']
+\begin{figure}
+\caption{the flowchart above shows the details of how the navigation system works.}
+	\begin{center}
+		\vspace{.5cm}
+		\begin{tikzpicture}[node distance = 1.7cm, auto]
+		% Place nodes
+		\node [block] (init) {GPS calculates the path angle.};
+		\node [decision, below of=init, node distance=2.3cm] (dec1) {Obstacle detected?};
+		\node [block, right of=dec1, node distance=4cm] (act1) {Make a turn to avoid obstacle.};
+		\node [decision, below of=dec1, node distance=3.5cm] (dec2) {Target pole within 8 meters?};
+		\node [block, left of=dec2, node distance=4cm] (act3) {Keep searching};
+		\node [block, below of=dec2, node distance=2.8cm] (act2) {Switching to target pole mode.};
+		\node [block, below of=act2] (final) {Touch the pole, done!};
+		\path [line] (init) -- (dec1);
+		\path [line] (dec1) -- node {yes}(act1);
+		\path [line] (act1) |- (init);
+		\path [line] (dec1) -- node {no}(dec2);
+		\path [line] (dec2) -- node {no}(act3);
+		\path [line] (act3) |- (dec1);
+		\path [line] (dec2) -- node {yes}(act2);
+		\path [line] (act2) -- (final);
+		\end{tikzpicture}
+	\end{center}
+\end{figure}
+
+\section{Getting rover unstuck when it on its side}
+The main goal of this task is to get the rover recovered from falling sideways. We have designed a very efficient protocol that ensures the rover is able get unstuck under all kinds of scenarios. This protocol can be simply broken down to two layers. The first layer is to determine whether the rover has fell sideways, and the second layer is using a servo driven mechanical arm on the top of the rover to get it unstuck when it lands sideways. These two layers has to be executed in a sequence to ensure the protocol operates in a cost effective fashion.\vspace{.3cm}
+\par
+To determine whether the rover is operating under normal conditions or running into problems, we simply comparing its current moving speed and heading data from comparing the current waypoint with the last logged waypoint. If suddenly, the accelerometer captured an unexpected motion and the rover is constantly sitting on a same spot, or moving under a minimum threshold of 0.2m/s, if it is, the system will make the decision to confirm that the rover fell sideways. Then triggers the microprocessor to send an instruction to let the mechanical arm to get the rover up straight.\vspace{.3cm}
+\par
+There used to be three layers in this protocol, but with the mechanical arm placed on the rover, it is capable to get the rover unstuck in any kind of situations, so the self-rescue program layer is a script we ar \vspace{.3cm}
+\par
+The second layer is an add-on, though that the computer science team believed that the self-rescue program has enough power to recover the rover itself from land sideways. Mechanical engineering team has still made the decision on to place a servo driven mechanical arm on the rover in case the worst type of scenarios. This mechanical arm will be used in the fairing process as well as the second layer of the recovery protocol. A program will call the rescue function that lets the servo to move mechanical arm push the rover up when it's on its side. \vspace{.3cm}
+\par
+
+\section{Payload fairing}
+The main purpose of the research done into this subsystem was to help determine the ways the payload can stay safe during its descent and landing. Fairing is essentially the first task the CanSat has to pass when it landed on the ground. The major goal of the fairing protocol is get the rover out then move away from the fairing, and parachute quickly, safely, and without stuck, jam, or having any residues. \vspace{.3cm}
+\par  
+Per competition requirement, it is known that the fairing will be built out of a soda can and will probably contain cushioning on the inside to protect the payload. So this limits the options that can be used to separate the fairing. We have developed a solution that is inspired by the SpaceX Falcon Heavy and Falcon 9 payload fairing design, or two half-shells fairing design.\cite{SpaceX} We broke down this fairing protocol into two stages. First determine whether the CanSat is landed or not, if so then move onto the fairing separation stage so that the rover is able to move away as quick as possible. \vspace{.3cm}
+\par  
+To determine whether the CanSat is landed or not, we enable the GPS module to check the altitude constantly, then have the accelerometer to track its ground hitting motion. Speaking the motion, the impact from a CanSat hits ground is significant, any accelerometer in the market is capable to capture this motion. Soon as the accelerometer captured the CanSat's landing motion, a signal will be sent to the CanSat's microprocessor, which triggers the fairing protocol. The design of the fairing separation has been redesigned completely. The CanSat will be wrapped into a thick plastic sheet, we use tape to ensure that the CanSat will not move around during the launching stage. As mentioned above in section \textbf{XII}, there will be a servo powered mechanical arm placed on the top of rover to prevent the rover lands on its side, the mechanical arm is also used to help the rover breaks out of the plastic wrapped fairing.\vspace{.3cm}
+\par  
+Additionally, to ensure that the rover moves away from the parachute quickly is really important, previous years competition shown that several teams rover drove into the parachute, end up broken or stuck. To prevent this happens on the CanSat, we simply write a protocol that separates the parachute and the rover during the landing stage. We simply write a script that let the GPS and accelerometer to determine it's landing direction, and set the rover's initial heading the opposite direction of its descent heading. Many teams from previous years competition have stuck on this stage, specifically their CanSat were jammed by the parachute, made theirs rovers aren't able to go anywhere.\vspace{.3cm}
+\par
+\section{Amendments}
+\subsection{Control Board: 2/11/17}
+This amendment reflects a change in the design in the control board. We are no longer using a custom built control board built by the ECE subteam, but are instead using a Raspberry Pi Zero. This change was made by the ECE team as a way to have a compact board with high processing power. It was realized that the 8-bit processor would not be mentioned previously would not be powerful enough to process our image conversions in a timely manner.\vspace{.3cm}
+\par
+\subsection{Ultrasonic Radar Sensor: 2/08/17}
+This amendment reflects a change to the design of the obstacle recognition system. The object recognition system is no longer using an ultrasonic radar sensor in its implementation. We will instead solely be using a CMOS camera sensor for this process. The entire design section for the ultrasonic radar sensor has been commented off in, and thus will not appear in this document.\vspace{.3cm}
+\par
+
+\subsection{Getting Unstuck From Obstacles: 2/11/17}
+This amendment reflects a change to the design of the system to get unstuck from obstacles. The system now no longer calculates average speed, but instead keeps track of distance traveled because it takes less time to compute and will achieve the same purpose.\vspace{.3cm}
+\par
+
+\subsection{Getting Unstuck When It On Its Side: 2/12/17}
+This amendment reflects a change to the design of the system to get unstuck from it lands its side. We are no longer using the programmed self-rescue method, but instead a servo driven mechanical arm will be placed on top of the rover, when needed it will push the rover up.\vspace{.3cm}
+\par
+
+\subsection{Payload Fairing: 2/12/17}
+This amendment reflects a change to the design of the system on the payload fairing method. The original two half method is not cost effective in this case anymore, instead we will use the second choice plastic wrapped method, we believed that this method has the most cost-effective fashion and will get its job done.\vspace{.3cm}
+\par
+
+
+\clearpage
+\pagenumbering{gobble}
+\bibliographystyle{IEEEtran}
+\bibliography{design}
+
+\clearpage
+\vspace{1in}
+\noindent \namesigdate{\textbf{Steven Silvers}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zhaolong Wu}}
+\\
+\vspace{1in}
+\noindent \namesigdate{\textbf{Paul Minner}}
+\hfill
+\vspace{1in}
+\noindent \namesigdate{\textbf{Zachary DeVita}}
+\\
+\noindent \namesigdate{\textbf{Nancy Squires}}
+
+*\end{document}
