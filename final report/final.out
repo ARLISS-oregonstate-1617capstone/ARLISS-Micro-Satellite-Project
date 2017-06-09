@@ -1,0 +1,42 @@
+\BOOKMARK [1][-]{section.1}{The ARLISS Project}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Introduction}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Goals}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Requirements}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{Original Document}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Revision History}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Design Document}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Original Document}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Revision History}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Tech Review}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Original Document}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Revision History}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Weekly Blog Posts}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Fall Term}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Winter Term}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.3}{Spring Term}{section.5}% 16
+\BOOKMARK [1][-]{section.6}{Poster}{}% 17
+\BOOKMARK [1][-]{section.7}{Project Documentation}{}% 18
+\BOOKMARK [2][-]{subsection.7.1}{Structure}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.2}{Implementation}{section.7}% 20
+\BOOKMARK [3][-]{subsubsection.7.2.1}{\(}{subsection.7.2}% 21
+\BOOKMARK [3][-]{subsubsection.7.2.2}{\(}{subsection.7.2}% 22
+\BOOKMARK [3][-]{subsubsection.7.2.3}{\(}{subsection.7.2}% 23
+\BOOKMARK [3][-]{subsubsection.7.2.4}{\(}{subsection.7.2}% 24
+\BOOKMARK [3][-]{subsubsection.7.2.5}{\(}{subsection.7.2}% 25
+\BOOKMARK [3][-]{subsubsection.7.2.6}{\(}{subsection.7.2}% 26
+\BOOKMARK [2][-]{subsection.7.3}{Hardware Requirements}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.4}{Installation}{section.7}% 28
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Prerequisites}{subsection.7.4}% 29
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Compile and Run}{subsection.7.4}% 30
+\BOOKMARK [1][-]{section.8}{Resources}{}% 31
+\BOOKMARK [2][-]{subsection.8.1}{Machine Learning}{section.8}% 32
+\BOOKMARK [1][-]{section.9}{What We Learned}{}% 33
+\BOOKMARK [2][-]{subsection.9.1}{Zachary DeVita}{section.9}% 34
+\BOOKMARK [2][-]{subsection.9.2}{Paul Minner}{section.9}% 35
+\BOOKMARK [2][-]{subsection.9.3}{Steven Silvers}{section.9}% 36
+\BOOKMARK [2][-]{subsection.9.4}{Zhaolong Wu}{section.9}% 37
+\BOOKMARK [1][-]{section.10}{Appendix I: Essential Code}{}% 38
+\BOOKMARK [2][-]{subsection.10.1}{Obstacle Avoidance}{section.10}% 39
+\BOOKMARK [2][-]{subsection.10.2}{Traffic Cone Detection}{section.10}% 40
+\BOOKMARK [1][-]{section.11}{Appendix II: }{}% 41
+\BOOKMARK [1][-]{section.12}{References}{}% 42
