@@ -544,19 +544,47 @@ I guess so?\vspace{.3cm}
 Getting a fully functional rover finished before CS team get on, most ME people don't understand that an autonomous rover's most critical and time demanding component is the software.
 
 \section{\textbf{Project Documentation}}
-
-
-\subsection{\textbf{How Does it Work}}
-
-
-\subsection{\textbf{Installation}}
-
+\subsection{\textbf{Structure}}
+We structured our software by dividing it up into its main tasks, which were Parachute Deployment, GPS Navigation, Obstacle Avoidance, Getting Unstuck From Obstacles, and Hitting the Finish Pole. Additionally, we included placeholders for Motor Control Functions and GPS Location Functions, which were implemented by the ECE team. Each task was implemented as its own class, which would be given control over the rover's sensors and motors also implemented as classes. Therefore, we could merge functionality with the ECE team's motor and sensor control functions when they were finished. Each task would run when it was it's time to run specified in the main function.\vspace{.3cm}
 
 \subsection{\textbf{Implementation}}
+\subsubsection(\textbf{Parachute Deployment})
+Once the rover is dropped from the rocket, we had to determine at what point to deploy the parachute. We accomplished this by tracking the GPS coordinates height, and deploying the parachute once we dropped below a certain altitude. This way, the wind won’t carry us as far as if we deployed the parachute immediately.\vspace{.3cm}
 
+\subsubsection(\textbf{GPS Navigation})
+For the rover’s GPS Navigation functions, we are using an algorithm that determines the shortest path between two given GPS coordinates. We take the rover's current position and the finish coordinates, and make a vector. Then, we move forward and take our new coordinates so we have another vector between our old coordinates and current coordinates. From the two vectors, we compute the angle we need to turn to be on course towards the finish.\vspace{.3cm}
+
+\subsubsection(\textbf{Obstacle Avoidance})
+The obstacle avoidance system ensures that our rover is not impeded on its way to the destination. Taking in filtered images from the obstacle detection software, this system does edge detection on the image to find objects in the rovers path, and then decides how to best get around the object. This is done by treating the filtered black and white image as a matrix of pixels, and summing the number of edges to the left, right or in front of the rover and adjusting the direction of the rover to travel where the fewest edges are found.\vspace{.3cm}
+
+\subsubsection(\textbf{Getting Unstuck From Obstacles})
+This system runs if it has detected the rover is stuck. We determine the rover is stuck by checking it's GPS coordinates, so if it hasn't moved after moving for a certain amount of time, this system is run. It works by first attempting to back up the rover, and if the rover doesn’t move, back up in different directions until it does move. It detects if the rover has moved by checking the GPS coordinates.\vspace{.3cm}
+
+\subsubsection(\textbf{Find and Touch the Finish Pole})
+Once the rover get’s within the GPS’ error range of the finish coordinates, we have to search for the finish pole. This algorithm works by first searching for the finish pole by rotating in place and taking pictures. These pictures are used to detect a traffic cone by our imaging system. Once the cone is detected, the rover is oriented in the direction of the cone, and moves forward, making periodic course corrections along the way.\vspace{.3cm}
+
+\subsubsection(\textbf{Putting it all Together})
+Each task is executed at least once in the main program. Many tasks are executed multiple times. This diagram demonstrates the flow of our program.\vspace{.3cm}
+
+\begin{figure}[h]
+  \centering
+  \caption{A flow diagram of our program's main tasks.}
+  \begin{tabular}{c}
+    \includegraphics[page=1, scale=0.5]{flowchart.pdf}
+  \end{tabular}
+\end{figure}
+
+The first thing the program starts is the parachute deployment module. Once on the ground, the GPS Navigation Module starts, which begins moving the rover in the direction of the finish. Next, the Obstacle Avoidance Module runs to navigate around any obstacles. If the rover detects that it has gotten stuck, the Unstuck from Obstacles module will run next. Then, the GPS Navigation module will run again to correct course. These three modules will continue to run in a loop until the rover is within the GPS error range of the finish coordinates, the control will switch to the Find and Touch the Finish Pole module, which will complete the rover's task and end the program.\vspace{.3cm}
 
 \subsection{\textbf{Hardware Requirements}}
+This software is meant to run on a Raspberry Pi Zero running Linux fitted with a custom PCB board to house the GPS sensor and control the various motors and servos attached to it. The only hardware this software will run on correctly is the custom built Rover designed by the ECE and ME teams. A version of the software is available which doesn't include the software to control the motors and sensors, though, which can be run on any Linux system with a camera.\vspace{.3cm}
 
+\subsection{\textbf{Installation}}
+\subsubsection{\textbf{Prerequisites}}
+In order to install the testing version of this software, which doesn't include code to obtain data from the GPS or move the various motors and servos attached to the rover, a Linux system with OpenCV 2.4.9 is required. Additionally, to run on the actual hardware, wiringPi must be installed as well, which is a PIN based GPIO access library for the Raspberry Pi.\vspace{.3cm}
+
+\subsubsection{\textbf{Compile and Run}}
+To compile, simply run the makefile located in the final directory. To run the test version on any machine type make test with the DEBUG variable set to 1 in main.h. To run on the actual satellite hardware type make final with the DEBUG variable set to 0 (by default set to test version with DEBUG = 1). When run on the actual hardware, there will be no way to access the operating system to run the program, so use Crontab to run the program automatically after booting.
 
 
 \section{\textbf{Resources}}
