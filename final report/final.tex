@@ -554,22 +554,22 @@ Getting a fully functional rover finished before CS team get on, most ME people 
 We structured our software by dividing it up into its main tasks, which were Parachute Deployment, GPS Navigation, Obstacle Avoidance, Getting Unstuck From Obstacles, and Hitting the Finish Pole. Additionally, we included placeholders for Motor Control Functions and GPS Location Functions, which were implemented by the ECE team. Each task was implemented as its own class, which would be given control over the rover's sensors and motors also implemented as classes. Therefore, we could merge functionality with the ECE team's motor and sensor control functions when they were finished. Each task would run when it was it's time to run specified in the main function.\vspace{.3cm}
 
 \subsection{\textbf{Implementation}}
-\subsubsection(\textbf{Parachute Deployment})
+\subsubsection{\textbf{Parachute Deployment}}
 Once the rover is dropped from the rocket, we had to determine at what point to deploy the parachute. We accomplished this by tracking the GPS coordinates height, and deploying the parachute once we dropped below a certain altitude. This way, the wind won’t carry us as far as if we deployed the parachute immediately.\vspace{.3cm}
 
-\subsubsection(\textbf{GPS Navigation})
+\subsubsection{\textbf{GPS Navigation}}
 For the rover’s GPS Navigation functions, we are using an algorithm that determines the shortest path between two given GPS coordinates. We take the rover's current position and the finish coordinates, and make a vector. Then, we move forward and take our new coordinates so we have another vector between our old coordinates and current coordinates. From the two vectors, we compute the angle we need to turn to be on course towards the finish.\vspace{.3cm}
 
-\subsubsection(\textbf{Obstacle Avoidance})
+\subsubsection{\textbf{Obstacle Avoidance}}
 The obstacle avoidance system ensures that our rover is not impeded on its way to the destination. Taking in filtered images from the obstacle detection software, this system does edge detection on the image to find objects in the rovers path, and then decides how to best get around the object. This is done by treating the filtered black and white image as a matrix of pixels, and summing the number of edges to the left, right or in front of the rover and adjusting the direction of the rover to travel where the fewest edges are found.\vspace{.3cm}
 
-\subsubsection(\textbf{Getting Unstuck From Obstacles})
+\subsubsection{\textbf{Getting Unstuck From Obstacles}}
 This system runs if it has detected the rover is stuck. We determine the rover is stuck by checking it's GPS coordinates, so if it hasn't moved after moving for a certain amount of time, this system is run. It works by first attempting to back up the rover, and if the rover doesn’t move, back up in different directions until it does move. It detects if the rover has moved by checking the GPS coordinates.\vspace{.3cm}
 
-\subsubsection(\textbf{Find and Touch the Finish Pole})
+\subsubsection{\textbf{Find and Touch the Finish Pole}}
 Once the rover get’s within the GPS’ error range of the finish coordinates, we have to search for the finish pole. This algorithm works by first searching for the finish pole by rotating in place and taking pictures. These pictures are used to detect a traffic cone by our imaging system. Once the cone is detected, the rover is oriented in the direction of the cone, and moves forward, making periodic course corrections along the way.\vspace{.3cm}
 
-\subsubsection(\textbf{Putting it all Together})
+\subsubsection{\textbf{Putting it all Together}}
 Each task is executed at least once in the main program. Many tasks are executed multiple times. This diagram demonstrates the flow of our program.\vspace{.3cm}
 
 \begin{figure}[h]
@@ -622,6 +622,20 @@ https://www.youtube.com/watch?v=KFC6jxBKtBQ\vspace{.3cm}
 All computer vision software which I wrote uses the OpenCV library. OpenCV stands for Open Source Computer Vision. The OpenCV project has amazing documentation for everything you can do with their library. Below is the link to the OpenCV Cascade Classifier page which has the program which I used as my driver to test my Haar classifer. There are many resources here when working on computer vision.\vspace{.3cm}
 \par   
 http://docs.opencv.org/2.4/doc/tutorials/objdetect/cascade\_classifier/cascade\_classifier.html\#cascade-classifier
+
+\subsection{\textbf{Raspberry Pi Zero}}
+Since the rover software was to be run on a Raspberry Pi Zero, we had to familiarize ourselves with using it, and getting our software onto it. We ended up transferring files via ssh over the USB power cable, which we set up using this article.\vspace{.3cm}
+\par
+https://davidmaitland.me/2015/12/raspberry-pi-zero-headless-setup/\vspace{.3cm}
+\par
+We also had to install OpenCV on the Pi, which required installing certain dependencies in the correct order. This article was very helpful for getting OpenCV up and running, although our setup required OpenCV for C++ rather than Python.\vspace{.3cm}
+\par
+http://www.pyimagesearch.com/2015/12/14/installing-opencv-on-your-raspberry-pi-zero/\vspace{.3cm}
+\par
+Another minor challenge with the Pi was getting the camera working. The camera module must actually be enabled on the Pi in the configuration settings, and the camera itself must be mounted to the Pi correctly. This article was helpful, although it uses a different model of Raspberry Pi.\vspace{.3cm}
+\par
+https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera\vspace{.3cm}
+\par
 
 \section{\textbf{What We Learned}}
 
