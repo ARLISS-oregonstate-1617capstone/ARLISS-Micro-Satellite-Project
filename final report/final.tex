@@ -699,10 +699,29 @@ The main issue I would deal with differently is communication. Communication bet
 \subsection{\textbf{Steven Silvers}}
 
 \subsection{\textbf{Zhaolong Wu}}
+\subsubsection{\textbf{Technical Information}}
+Throughout the project, because I'm mainly in charge of GPS and Navigation module, I learned a lot of how to manipulating data that came from the GPS sensor and translate them into corresponding x and y coordinate. For instance the GPS module on our rover outputs NMEA format and requires conversion to decimal format in order for the Navigation Module work, I was able to do some research and figure out how to parse data. Another important part is because we don't have a compass installed on the rover, so we can't tell the initial heading of the rover with just the GPS, luckily I made an algorithm that let the rover travel certain distance randomly after its landing, and record the path of that travel to get a reference vector, then subtract it from the destination vector constantly to get the rover heading. I never had a chance to test it on the rover but the program is working on a computer.     
+\vspace{.3cm}
 
+\subsubsection{\textbf{Non-Technical Information}}
+Something I learned throughout this project are, how to collaborate with students from different disciplines, how to work with a project that involves with multiple deadlines, how to communicate with students that have different skill sets and proficiency.
+\vspace{.3cm}
 
+\subsubsection{\textbf{Project Work}}
+I always thought work a project in a group is fun, this project once again proved it! It's been my pleasure to work with some best computer science students in OSU. We as a computer science capstone team worked flawlessly and all shared equal amount of work, everyone is very proactive so made the project work extra easy and fun. Though at the end we realized due to the lack of other teams on making the completion and deadlines, we could not test or software on the rover and we probably won't even get to the competition, it was still a great project work and I'm ready to use what I learned from it into my future career development.
+\vspace{.3cm}
 
+\subsubsection{\textbf{Project Management}}
+Project Management is crucial, and it is probably the most important part of our project, in terms of completion. I remember when I took the engineering project management class, I made bunch of gantt chart, the most crucial part of the gantt chart I made is trying to make more overlapping concurrency for non-related parts and as little completion dependent parts as possible, so each part that relies on some previous completions are divided with some sort of buffers, which made sure that at the end the project will complete on time. In our case we definitely failed on that, I say the communication is also not so great between us and ECE team as well. I should definitely learn more project management skills in the future for the sake of my career development.
+\vspace{.3cm}
 
+\subsubsection{\textbf{Working with Teams}}
+Working with the team is fun, as I mentioned previously, again, communication is very critical for this multidisciplinary project, we didn't established a great communication protocol between us and ME, ECE team at the start of this project, we communicated through scattered e-mails and weekly meetings, they were definitely not enough, exchanging information between three teams once a week is not a great idea, we should have realized this a lot earlier to prevent that at the end we didn't have the chance to actually finish our project.  
+\vspace{.3cm}
+
+\subsubsection{\textbf{What I Would Do Differently}}
+If I have a chance to set the clock back to fall term, I will try to setup the essential communication protocols with ECE and ME team as soon as possible. I will try to make all necessary effort to have a functional rover around mid winter term, where will give us the computer science team more time to perform test, this will also ensure us have some time buffer on dealing with un-expecting errors and failures. Overall, things went a bit chaotic for us during the spring term in terms of this project and we honestly spent zero time on testing our code on the rover because we never had a functional one, even until now.   
+\vspace{.3cm}
 
 
 \section{\textbf{Appendix I: Essential Code}}
