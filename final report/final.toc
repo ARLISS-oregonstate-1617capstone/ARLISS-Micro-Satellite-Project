@@ -18,25 +18,44 @@
 \contentsline {section}{\numberline {VII}\textbf {Project Documentation}}{61}{section.7}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-A}}\textbf {Structure}}{61}{subsection.7.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}}\textbf {Implementation}}{61}{subsection.7.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}1}(}{61}{subsubsection.7.2.1}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}2}(}{61}{subsubsection.7.2.2}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}3}(}{61}{subsubsection.7.2.3}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}4}(}{61}{subsubsection.7.2.4}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}5}(}{61}{subsubsection.7.2.5}
-\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}6}(}{61}{subsubsection.7.2.6}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}1}\textbf {Parachute Deployment}}{61}{subsubsection.7.2.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}2}\textbf {GPS Navigation}}{61}{subsubsection.7.2.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}3}\textbf {Obstacle Avoidance}}{61}{subsubsection.7.2.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}4}\textbf {Getting Unstuck From Obstacles}}{61}{subsubsection.7.2.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}5}\textbf {Find and Touch the Finish Pole}}{61}{subsubsection.7.2.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-B}6}\textbf {Putting it all Together}}{61}{subsubsection.7.2.6}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-C}}\textbf {Hardware Requirements}}{62}{subsection.7.3}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}}\textbf {Installation}}{62}{subsection.7.4}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}1}\textbf {Prerequisites}}{62}{subsubsection.7.4.1}
 \contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {VII-D}2}\textbf {Compile and Run}}{62}{subsubsection.7.4.2}
 \contentsline {section}{\numberline {VIII}\textbf {Resources}}{62}{section.8}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-A}}\textbf {Machine Learning}}{62}{subsection.8.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {VIII-B}}\textbf {Raspberry Pi Zero}}{63}{subsection.8.2}
 \contentsline {section}{\numberline {IX}\textbf {What We Learned}}{63}{section.9}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-A}}\textbf {Zachary DeVita}}{63}{subsection.9.1}
 \contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}}\textbf {Paul Minner}}{63}{subsection.9.2}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}}\textbf {Steven Silvers}}{63}{subsection.9.3}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}}\textbf {Zhaolong Wu}}{63}{subsection.9.4}
-\contentsline {section}{\numberline {X}\textbf {Appendix I: Essential Code}}{63}{section.10}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-A}}\textbf {Obstacle Avoidance}}{63}{subsection.10.1}
-\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-B}}\textbf {Traffic Cone Detection}}{64}{subsection.10.2}
-\contentsline {section}{\numberline {XI}\textbf {Appendix II: }}{66}{section.11}
-\contentsline {section}{\numberline {XII}References}{66}{section.12}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}1}\textbf {Technical Information}}{63}{subsubsection.9.2.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}2}\textbf {Non-Technical Information}}{63}{subsubsection.9.2.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}3}\textbf {Project Work}}{63}{subsubsection.9.2.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}4}\textbf {Project Management}}{64}{subsubsection.9.2.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}5}\textbf {Working with Teams}}{64}{subsubsection.9.2.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-B}6}\textbf {What I Would Do Differently}}{64}{subsubsection.9.2.6}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}}\textbf {Steven Silvers}}{64}{subsection.9.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}1}\textbf {Technical Information}}{64}{subsubsection.9.3.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}2}\textbf {Non-Technical Information}}{64}{subsubsection.9.3.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}3}\textbf {Project Work}}{64}{subsubsection.9.3.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}4}\textbf {Project Management}}{64}{subsubsection.9.3.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}5}\textbf {Working with Teams}}{64}{subsubsection.9.3.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-C}6}\textbf {What I Would Do Differently}}{65}{subsubsection.9.3.6}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}}\textbf {Zhaolong Wu}}{65}{subsection.9.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}1}\textbf {Technical Information}}{65}{subsubsection.9.4.1}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}2}\textbf {Non-Technical Information}}{65}{subsubsection.9.4.2}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}3}\textbf {Project Work}}{65}{subsubsection.9.4.3}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}4}\textbf {Project Management}}{65}{subsubsection.9.4.4}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}5}\textbf {Working with Teams}}{65}{subsubsection.9.4.5}
+\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {IX-D}6}\textbf {What I Would Do Differently}}{65}{subsubsection.9.4.6}
+\contentsline {section}{\numberline {X}\textbf {Appendix I: Essential Code}}{66}{section.10}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-A}}\textbf {Obstacle Avoidance}}{66}{subsection.10.1}
+\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {X-B}}\textbf {Traffic Cone Detection}}{67}{subsection.10.2}
+\contentsline {section}{\numberline {XI}\textbf {Appendix II: }}{69}{section.11}
+\contentsline {section}{\numberline {XII}References}{69}{section.12}

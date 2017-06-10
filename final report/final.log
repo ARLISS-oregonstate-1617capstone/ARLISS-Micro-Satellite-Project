@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.28)  9 JUN 2017 11:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2016.11.28)  10 JUN 2017 15:49
 entering extended mode
 **./final.tex
 (final.tex
@@ -713,7 +713,12 @@ LaTeX Font Info:    Try loading font information for U+pxsyc on input line 2.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pxfonts\upxsyc.fd"
 File: upxsyc.fd 2000/12/14 v1.0
-))
+)pdfTeX warning (ext4): destination with the same identifier (name{page.}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.50 ...\textbf {Zhaolong Wu}}{65}{subsection.9.4}
+                                                   [1])
 \tf@toc=\write4
 \openout4 = `final.toc'.
 
@@ -722,7 +727,7 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.81   \newpage
-                [1] <requirements/srs.pdf, id=226, 614.295pt x 794.97pt>
+                [2] <requirements/srs.pdf, id=324, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf>
@@ -733,7 +738,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf used on input line 111.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<requirements/srs.pdf, id=229, page=1, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=327, page=1, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 1>
@@ -759,7 +764,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page1 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [2 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=252, page=2, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=350, page=2, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 2>
@@ -775,7 +780,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page2 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [3 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=257, page=3, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=355, page=3, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 3>
@@ -791,7 +796,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page3 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [4 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=262, page=4, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=361, page=4, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 4>
@@ -807,7 +812,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page4 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [5 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=268, page=5, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=366, page=5, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 5>
@@ -823,7 +828,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page5 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [6 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=278, page=6, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=376, page=6, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 6>
@@ -839,7 +844,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page6 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [7 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=283, page=7, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=381, page=7, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 7>
@@ -855,7 +860,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page7 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [8 <./requirements/srs.pdf>]
-<requirements/srs.pdf, id=288, page=8, 614.295pt x 794.97pt>
+<requirements/srs.pdf, id=386, page=8, 614.295pt x 794.97pt>
 File: requirements/srs.pdf Graphic file (type pdf)
 
 <use requirements/srs.pdf, page 8>
@@ -871,7 +876,7 @@ File: requirements/srs.pdf Graphic file (type pdf)
 Package pdftex.def Info: requirements/srs.pdf, page8 used on input line 111.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [9 <./requirements/srs.pdf>]
-<design/design_original.pdf, id=293, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=391, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf>
@@ -882,7 +887,7 @@ File: design/design_original.pdf Graphic file (type pdf)
 Package pdftex.def Info: design/design_original.pdf used on input line 120.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<design/design_original.pdf, id=296, page=1, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=394, page=1, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 1>
@@ -915,7 +920,7 @@ Package pdftex.def Info: design/design_original.pdf, page1 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [11 <./design/design_original.pdf>]
-<design/design_original.pdf, id=317, page=2, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=415, page=2, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 2>
@@ -935,7 +940,7 @@ Package pdftex.def Info: design/design_original.pdf, page2 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [12 <./design/design_original.pdf>]
-<design/design_original.pdf, id=322, page=3, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=420, page=3, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 3>
@@ -955,7 +960,7 @@ Package pdftex.def Info: design/design_original.pdf, page3 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [13 <./design/design_original.pdf>]
-<design/design_original.pdf, id=327, page=4, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=425, page=4, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 4>
@@ -975,7 +980,7 @@ Package pdftex.def Info: design/design_original.pdf, page4 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [14 <./design/design_original.pdf>]
-<design/design_original.pdf, id=332, page=5, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=430, page=5, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 5>
@@ -995,7 +1000,7 @@ Package pdftex.def Info: design/design_original.pdf, page5 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [15 <./design/design_original.pdf>]
-<design/design_original.pdf, id=337, page=6, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=435, page=6, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 6>
@@ -1015,7 +1020,7 @@ Package pdftex.def Info: design/design_original.pdf, page6 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [16 <./design/design_original.pdf>]
-<design/design_original.pdf, id=342, page=7, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=441, page=7, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 7>
@@ -1035,7 +1040,7 @@ Package pdftex.def Info: design/design_original.pdf, page7 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [17 <./design/design_original.pdf>]
-<design/design_original.pdf, id=348, page=8, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=446, page=8, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 8>
@@ -1055,7 +1060,7 @@ Package pdftex.def Info: design/design_original.pdf, page8 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [18 <./design/design_original.pdf>]
-<design/design_original.pdf, id=353, page=9, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=451, page=9, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 9>
@@ -1075,7 +1080,7 @@ Package pdftex.def Info: design/design_original.pdf, page9 used on input line 1
 20.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [19 <./design/design_original.pdf>]
-<design/design_original.pdf, id=383, page=10, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=481, page=10, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 10>
@@ -1095,7 +1100,7 @@ Package pdftex.def Info: design/design_original.pdf, page10 used on input line
 120.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [20 <./design/design_original.pdf>]
-<design/design_original.pdf, id=388, page=11, 614.295pt x 794.97pt>
+<design/design_original.pdf, id=486, page=11, 614.295pt x 794.97pt>
 File: design/design_original.pdf Graphic file (type pdf)
 
 <use design/design_original.pdf, page 11>
@@ -1115,384 +1120,384 @@ Package pdftex.def Info: design/design_original.pdf, page11 used on input line
 120.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [21 <./design/design_original.pdf>]
-<tech/tech_original.pdf, id=393, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=491, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf>
-Package pdftex.def Info: tech/tech_original.pdf used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf used on input line 146.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf>
-Package pdftex.def Info: tech/tech_original.pdf used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf used on input line 146.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 
-<tech/tech_original.pdf, id=396, page=1, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=494, page=1, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 1>
-Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 1>
-Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 
 [22]
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 1>
-Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 1>
-Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 1>
-Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page1 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [23 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=413, page=2, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=512, page=2, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 2>
-Package pdftex.def Info: tech/tech_original.pdf, page2 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page2 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 2>
-Package pdftex.def Info: tech/tech_original.pdf, page2 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page2 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 2>
-Package pdftex.def Info: tech/tech_original.pdf, page2 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page2 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [24 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=418, page=3, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=517, page=3, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 3>
-Package pdftex.def Info: tech/tech_original.pdf, page3 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page3 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 3>
-Package pdftex.def Info: tech/tech_original.pdf, page3 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page3 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 3>
-Package pdftex.def Info: tech/tech_original.pdf, page3 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page3 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [25 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=423, page=4, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=522, page=4, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 4>
-Package pdftex.def Info: tech/tech_original.pdf, page4 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page4 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 4>
-Package pdftex.def Info: tech/tech_original.pdf, page4 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page4 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 4>
-Package pdftex.def Info: tech/tech_original.pdf, page4 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page4 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [26 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=433, page=5, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=532, page=5, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 5>
-Package pdftex.def Info: tech/tech_original.pdf, page5 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page5 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 5>
-Package pdftex.def Info: tech/tech_original.pdf, page5 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page5 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 5>
-Package pdftex.def Info: tech/tech_original.pdf, page5 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page5 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [27 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=438, page=6, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=537, page=6, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 6>
-Package pdftex.def Info: tech/tech_original.pdf, page6 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page6 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 6>
-Package pdftex.def Info: tech/tech_original.pdf, page6 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page6 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 6>
-Package pdftex.def Info: tech/tech_original.pdf, page6 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page6 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [28 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=446, page=7, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=546, page=7, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 7>
-Package pdftex.def Info: tech/tech_original.pdf, page7 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page7 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 7>
-Package pdftex.def Info: tech/tech_original.pdf, page7 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page7 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 7>
-Package pdftex.def Info: tech/tech_original.pdf, page7 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page7 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [29 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=452, page=8, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=551, page=8, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 8>
-Package pdftex.def Info: tech/tech_original.pdf, page8 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page8 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 8>
-Package pdftex.def Info: tech/tech_original.pdf, page8 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page8 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 8>
-Package pdftex.def Info: tech/tech_original.pdf, page8 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page8 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [30 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=457, page=9, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=556, page=9, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 9>
-Package pdftex.def Info: tech/tech_original.pdf, page9 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page9 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 9>
-Package pdftex.def Info: tech/tech_original.pdf, page9 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page9 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 9>
-Package pdftex.def Info: tech/tech_original.pdf, page9 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page9 used on input line 146.
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [31 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=462, page=10, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=561, page=10, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 10>
-Package pdftex.def Info: tech/tech_original.pdf, page10 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page10 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 10>
-Package pdftex.def Info: tech/tech_original.pdf, page10 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page10 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 10>
-Package pdftex.def Info: tech/tech_original.pdf, page10 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page10 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [32 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=467, page=11, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=566, page=11, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 11>
-Package pdftex.def Info: tech/tech_original.pdf, page11 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page11 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 11>
-Package pdftex.def Info: tech/tech_original.pdf, page11 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page11 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 11>
-Package pdftex.def Info: tech/tech_original.pdf, page11 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page11 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [33 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=472, page=12, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=571, page=12, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 12>
-Package pdftex.def Info: tech/tech_original.pdf, page12 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page12 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 12>
-Package pdftex.def Info: tech/tech_original.pdf, page12 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page12 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 12>
-Package pdftex.def Info: tech/tech_original.pdf, page12 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page12 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [34 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=477, page=13, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=577, page=13, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 13>
-Package pdftex.def Info: tech/tech_original.pdf, page13 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page13 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 13>
-Package pdftex.def Info: tech/tech_original.pdf, page13 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page13 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 13>
-Package pdftex.def Info: tech/tech_original.pdf, page13 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page13 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [35 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=483, page=14, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=582, page=14, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 14>
-Package pdftex.def Info: tech/tech_original.pdf, page14 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page14 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 14>
-Package pdftex.def Info: tech/tech_original.pdf, page14 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page14 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 14>
-Package pdftex.def Info: tech/tech_original.pdf, page14 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page14 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [36 <./tech/tech_original.pdf>]
-<tech/tech_original.pdf, id=488, page=15, 614.295pt x 794.97pt>
+<tech/tech_original.pdf, id=587, page=15, 614.295pt x 794.97pt>
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 15>
-Package pdftex.def Info: tech/tech_original.pdf, page15 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page15 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
  <use tech/tech_original.pdf, page 15>
-Package pdftex.def Info: tech/tech_original.pdf, page15 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page15 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
 File: tech/tech_original.pdf Graphic file (type pdf)
 
 <use tech/tech_original.pdf, page 15>
-Package pdftex.def Info: tech/tech_original.pdf, page15 used on input line 129.
+Package pdftex.def Info: tech/tech_original.pdf, page15 used on input line 146.
 
 (pdftex.def)             Requested size: 552.86038pt x 715.4664pt.
  [37 <./tech/tech_original.pdf>]
-LaTeX Font Info:    Try loading font information for OT1+pxss on input line 140
+LaTeX Font Info:    Try loading font information for OT1+pxss on input line 176
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pxfonts\ot1pxss.fd"
 File: ot1pxss.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    Font shape `OT1/pxss/m/it' in size <9> not available
-(Font)              Font shape `OT1/pxss/m/sl' tried instead on input line 140.
+(Font)              Font shape `OT1/pxss/m/sl' tried instead on input line 176.
 
  [38] [39] [40]
-[41] [42] [43] [44] <blackrock.jpg, id=576, 903.375pt x 677.53125pt>
+[41] [42] [43] [44] <blackrock.jpg, id=676, 903.375pt x 677.53125pt>
 File: blackrock.jpg Graphic file (type jpg)
 
 <use blackrock.jpg>
-Package pdftex.def Info: blackrock.jpg used on input line 262.
+Package pdftex.def Info: blackrock.jpg used on input line 298.
 (pdftex.def)             Requested size: 341.43306pt x 256.07921pt.
- [45] <canny.jpg, id=585, 903.375pt x 677.53125pt>
+ [45] <canny.jpg, id=685, 903.375pt x 677.53125pt>
 File: canny.jpg Graphic file (type jpg)
 
 <use canny.jpg>
-Package pdftex.def Info: canny.jpg used on input line 264.
+Package pdftex.def Info: canny.jpg used on input line 300.
 (pdftex.def)             Requested size: 341.43306pt x 256.07921pt.
- <thresh.jpg, id=586, 903.375pt x 677.53125pt>
+ <thresh.jpg, id=686, 903.375pt x 677.53125pt>
 File: thresh.jpg Graphic file (type jpg)
  <use thresh.jpg>
-Package pdftex.def Info: thresh.jpg used on input line 266.
+Package pdftex.def Info: thresh.jpg used on input line 302.
 (pdftex.def)             Requested size: 341.43306pt x 256.07921pt.
 
-[46 <./blackrock.jpg> <./canny.jpg>] <road.jpg, id=591, 481.8pt x 361.35pt>
+[46 <./blackrock.jpg> <./canny.jpg>] <road.jpg, id=692, 481.8pt x 361.35pt>
 File: road.jpg Graphic file (type jpg)
 
 <use road.jpg>
-Package pdftex.def Info: road.jpg used on input line 270.
+Package pdftex.def Info: road.jpg used on input line 306.
 (pdftex.def)             Requested size: 341.43306pt x 256.0806pt.
- <road2.jpg, id=592, 481.8pt x 361.35pt>
+ <road2.jpg, id=693, 481.8pt x 361.35pt>
 File: road2.jpg Graphic file (type jpg)
  <use road2.jpg>
-Package pdftex.def Info: road2.jpg used on input line 272.
+Package pdftex.def Info: road2.jpg used on input line 308.
 (pdftex.def)             Requested size: 341.43306pt x 256.0806pt.
- [47 <./thresh.jpg> <./road.jpg>] <road3.jpg, id=598, 481.8pt x 361.35pt>
+ [47 <./thresh.jpg> <./road.jpg>] <road3.jpg, id=698, 481.8pt x 361.35pt>
 File: road3.jpg Graphic file (type jpg)
 
 <use road3.jpg>
-Package pdftex.def Info: road3.jpg used on input line 274.
+Package pdftex.def Info: road3.jpg used on input line 310.
 (pdftex.def)             Requested size: 341.43306pt x 256.0806pt.
  [48 <./road2.jpg> <./road3.jpg>] [49] [50] [51] [52] [53]
 [54] [55]
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+Underfull \hbox (badness 10000) in paragraph at lines 468--469
 
  []
 
 [56]
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+Underfull \hbox (badness 10000) in paragraph at lines 499--500
 
  []
 
 [57]
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
 
  []
 
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 521--522
+Underfull \hbox (badness 10000) in paragraph at lines 557--558
 
  []
 
-<Poster.pdf, id=718, 3468.96pt x 2601.72pt>
+<Poster.pdf, id=819, 3468.96pt x 2601.72pt>
 File: Poster.pdf Graphic file (type pdf)
  <use Poster.pdf>
-Package pdftex.def Info: Poster.pdf used on input line 550.
+Package pdftex.def Info: Poster.pdf used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
 File: Poster.pdf Graphic file (type pdf)
  <use Poster.pdf>
-Package pdftex.def Info: Poster.pdf used on input line 550.
+Package pdftex.def Info: Poster.pdf used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
 
-<Poster.pdf, id=721, page=1, 3468.96pt x 2601.72pt>
+<Poster.pdf, id=822, page=1, 3468.96pt x 2601.72pt>
 File: Poster.pdf Graphic file (type pdf)
  <use Poster.pdf, page 1>
-Package pdftex.def Info: Poster.pdf, page1 used on input line 550.
+Package pdftex.def Info: Poster.pdf, page1 used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
 File: Poster.pdf Graphic file (type pdf)
 
 <use Poster.pdf, page 1>
-Package pdftex.def Info: Poster.pdf, page1 used on input line 550.
+Package pdftex.def Info: Poster.pdf, page1 used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
  [59]
 File: Poster.pdf Graphic file (type pdf)
  <use Poster.pdf, page 1>
-Package pdftex.def Info: Poster.pdf, page1 used on input line 550.
+Package pdftex.def Info: Poster.pdf, page1 used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
 File: Poster.pdf Graphic file (type pdf)
 
 <use Poster.pdf, page 1>
-Package pdftex.def Info: Poster.pdf, page1 used on input line 550.
+Package pdftex.def Info: Poster.pdf, page1 used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
 File: Poster.pdf Graphic file (type pdf)
  <use Poster.pdf, page 1>
-Package pdftex.def Info: Poster.pdf, page1 used on input line 550.
+Package pdftex.def Info: Poster.pdf, page1 used on input line 586.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
  [60 <./Poster.pdf>]
 Missing character: There is no â in font pxr!
@@ -1511,45 +1516,45 @@ Missing character: There is no â in font pxr!
 Missing character: There is no € in font pxr!
 Missing character: There is no ™ in font pxr!
 
-<flowchart.pdf, id=775, page=1, 603.25375pt x 182.6825pt>
+<flowchart.pdf, id=875, page=1, 603.25375pt x 182.6825pt>
 File: flowchart.pdf Graphic file (type pdf)
 
 <use flowchart.pdf, page 1>
-Package pdftex.def Info: flowchart.pdf, page1 used on input line 579.
+Package pdftex.def Info: flowchart.pdf, page1 used on input line 615.
 (pdftex.def)             Requested size: 301.62613pt x 91.34102pt.
- [61 <./flowchart.pdf>] [62]
-LaTeX Font Info:    Try loading font information for OT1+pxtt on input line 648
+ [61 <./flowchart.pdf>] [62] [63] [64] [65]
+LaTeX Font Info:    Try loading font information for OT1+pxtt on input line 757
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\pxfonts\ot1pxtt.fd"
 File: ot1pxtt.fd 2000/12/14 v1.0
-) [63]
+)
 
-LaTeX Warning: Citation `opencv2' on page 64 undefined on input line 689.
+LaTeX Warning: Citation `opencv2' on page 66 undefined on input line 798.
 
-[64]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 770.
- [65
+[66] [67]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 879.
+ [68
 
-] [66]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 770.
+] [69]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 879.
  (final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 770.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 770.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 879.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 879.
 Package rerunfilecheck Info: File `final.out' has not changed.
-(rerunfilecheck)             Checksum: 26DBA099AAA9D663166DAE787FFE9745;2574.
+(rerunfilecheck)             Checksum: 73B3E065C8AEB11BD81207965E853F05;4226.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 770.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 879.
  ) 
 Here is how much of TeX's memory you used:
- 12509 strings out of 493333
- 190598 string characters out of 3139190
+ 12574 strings out of 493333
+ 191682 string characters out of 3139190
  500598 words of memory out of 3000000
- 15504 multiletter control sequences out of 15000+200000
- 66301 words of font info for 152 fonts, out of 3000000 for 9000
+ 15543 multiletter control sequences out of 15000+200000
+ 72256 words of font info for 172 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  43i,22n,52p,1775b,1089s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
@@ -1573,9 +1578,9 @@ fb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Program
  2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a
 .pfb>
-Output written on final.pdf (68 pages, 1644393 bytes).
+Output written on final.pdf (72 pages, 1672538 bytes).
 PDF statistics:
- 1017 PDF objects out of 1200 (max. 8388607)
- 329 named destinations out of 1000 (max. 500000)
- 607 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1133 PDF objects out of 1200 (max. 8388607)
+ 353 named destinations out of 1000 (max. 500000)
+ 759 words of extra memory for PDF output out of 10000 (max. 10000000)
 

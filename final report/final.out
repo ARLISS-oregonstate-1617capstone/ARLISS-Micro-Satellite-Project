@@ -18,25 +18,44 @@
 \BOOKMARK [1][-]{section.7}{Project Documentation}{}% 18
 \BOOKMARK [2][-]{subsection.7.1}{Structure}{section.7}% 19
 \BOOKMARK [2][-]{subsection.7.2}{Implementation}{section.7}% 20
-\BOOKMARK [3][-]{subsubsection.7.2.1}{\(}{subsection.7.2}% 21
-\BOOKMARK [3][-]{subsubsection.7.2.2}{\(}{subsection.7.2}% 22
-\BOOKMARK [3][-]{subsubsection.7.2.3}{\(}{subsection.7.2}% 23
-\BOOKMARK [3][-]{subsubsection.7.2.4}{\(}{subsection.7.2}% 24
-\BOOKMARK [3][-]{subsubsection.7.2.5}{\(}{subsection.7.2}% 25
-\BOOKMARK [3][-]{subsubsection.7.2.6}{\(}{subsection.7.2}% 26
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Parachute Deployment}{subsection.7.2}% 21
+\BOOKMARK [3][-]{subsubsection.7.2.2}{GPS Navigation}{subsection.7.2}% 22
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Obstacle Avoidance}{subsection.7.2}% 23
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Getting Unstuck From Obstacles}{subsection.7.2}% 24
+\BOOKMARK [3][-]{subsubsection.7.2.5}{Find and Touch the Finish Pole}{subsection.7.2}% 25
+\BOOKMARK [3][-]{subsubsection.7.2.6}{Putting it all Together}{subsection.7.2}% 26
 \BOOKMARK [2][-]{subsection.7.3}{Hardware Requirements}{section.7}% 27
 \BOOKMARK [2][-]{subsection.7.4}{Installation}{section.7}% 28
 \BOOKMARK [3][-]{subsubsection.7.4.1}{Prerequisites}{subsection.7.4}% 29
 \BOOKMARK [3][-]{subsubsection.7.4.2}{Compile and Run}{subsection.7.4}% 30
 \BOOKMARK [1][-]{section.8}{Resources}{}% 31
 \BOOKMARK [2][-]{subsection.8.1}{Machine Learning}{section.8}% 32
-\BOOKMARK [1][-]{section.9}{What We Learned}{}% 33
-\BOOKMARK [2][-]{subsection.9.1}{Zachary DeVita}{section.9}% 34
-\BOOKMARK [2][-]{subsection.9.2}{Paul Minner}{section.9}% 35
-\BOOKMARK [2][-]{subsection.9.3}{Steven Silvers}{section.9}% 36
-\BOOKMARK [2][-]{subsection.9.4}{Zhaolong Wu}{section.9}% 37
-\BOOKMARK [1][-]{section.10}{Appendix I: Essential Code}{}% 38
-\BOOKMARK [2][-]{subsection.10.1}{Obstacle Avoidance}{section.10}% 39
-\BOOKMARK [2][-]{subsection.10.2}{Traffic Cone Detection}{section.10}% 40
-\BOOKMARK [1][-]{section.11}{Appendix II: }{}% 41
-\BOOKMARK [1][-]{section.12}{References}{}% 42
+\BOOKMARK [2][-]{subsection.8.2}{Raspberry Pi Zero}{section.8}% 33
+\BOOKMARK [1][-]{section.9}{What We Learned}{}% 34
+\BOOKMARK [2][-]{subsection.9.1}{Zachary DeVita}{section.9}% 35
+\BOOKMARK [2][-]{subsection.9.2}{Paul Minner}{section.9}% 36
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Technical Information}{subsection.9.2}% 37
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Non-Technical Information}{subsection.9.2}% 38
+\BOOKMARK [3][-]{subsubsection.9.2.3}{Project Work}{subsection.9.2}% 39
+\BOOKMARK [3][-]{subsubsection.9.2.4}{Project Management}{subsection.9.2}% 40
+\BOOKMARK [3][-]{subsubsection.9.2.5}{Working with Teams}{subsection.9.2}% 41
+\BOOKMARK [3][-]{subsubsection.9.2.6}{What I Would Do Differently}{subsection.9.2}% 42
+\BOOKMARK [2][-]{subsection.9.3}{Steven Silvers}{section.9}% 43
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Technical Information}{subsection.9.3}% 44
+\BOOKMARK [3][-]{subsubsection.9.3.2}{Non-Technical Information}{subsection.9.3}% 45
+\BOOKMARK [3][-]{subsubsection.9.3.3}{Project Work}{subsection.9.3}% 46
+\BOOKMARK [3][-]{subsubsection.9.3.4}{Project Management}{subsection.9.3}% 47
+\BOOKMARK [3][-]{subsubsection.9.3.5}{Working with Teams}{subsection.9.3}% 48
+\BOOKMARK [3][-]{subsubsection.9.3.6}{What I Would Do Differently}{subsection.9.3}% 49
+\BOOKMARK [2][-]{subsection.9.4}{Zhaolong Wu}{section.9}% 50
+\BOOKMARK [3][-]{subsubsection.9.4.1}{Technical Information}{subsection.9.4}% 51
+\BOOKMARK [3][-]{subsubsection.9.4.2}{Non-Technical Information}{subsection.9.4}% 52
+\BOOKMARK [3][-]{subsubsection.9.4.3}{Project Work}{subsection.9.4}% 53
+\BOOKMARK [3][-]{subsubsection.9.4.4}{Project Management}{subsection.9.4}% 54
+\BOOKMARK [3][-]{subsubsection.9.4.5}{Working with Teams}{subsection.9.4}% 55
+\BOOKMARK [3][-]{subsubsection.9.4.6}{What I Would Do Differently}{subsection.9.4}% 56
+\BOOKMARK [1][-]{section.10}{Appendix I: Essential Code}{}% 57
+\BOOKMARK [2][-]{subsection.10.1}{Obstacle Avoidance}{section.10}% 58
+\BOOKMARK [2][-]{subsection.10.2}{Traffic Cone Detection}{section.10}% 59
+\BOOKMARK [1][-]{section.11}{Appendix II: }{}% 60
+\BOOKMARK [1][-]{section.12}{References}{}% 61
