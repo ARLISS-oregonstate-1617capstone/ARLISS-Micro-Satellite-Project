@@ -4,64 +4,65 @@
 \BOOKMARK [1][-]{section.2}{Requirements}{}% 4
 \BOOKMARK [2][-]{subsection.2.1}{Original Document}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.2}{Revision History}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Design Document}{}% 7
-\BOOKMARK [2][-]{subsection.3.1}{Original Document}{section.3}% 8
-\BOOKMARK [2][-]{subsection.3.2}{Revision History}{section.3}% 9
-\BOOKMARK [1][-]{section.4}{Tech Review}{}% 10
-\BOOKMARK [2][-]{subsection.4.1}{Original Document}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.2}{Revision History}{section.4}% 12
-\BOOKMARK [1][-]{section.5}{Weekly Blog Posts}{}% 13
-\BOOKMARK [2][-]{subsection.5.1}{Fall Term}{section.5}% 14
-\BOOKMARK [2][-]{subsection.5.2}{Winter Term}{section.5}% 15
-\BOOKMARK [2][-]{subsection.5.3}{Spring Term}{section.5}% 16
-\BOOKMARK [1][-]{section.6}{Poster}{}% 17
-\BOOKMARK [1][-]{section.7}{Project Documentation}{}% 18
-\BOOKMARK [2][-]{subsection.7.1}{Structure}{section.7}% 19
-\BOOKMARK [2][-]{subsection.7.2}{Implementation}{section.7}% 20
-\BOOKMARK [3][-]{subsubsection.7.2.1}{Parachute Deployment}{subsection.7.2}% 21
-\BOOKMARK [3][-]{subsubsection.7.2.2}{GPS Navigation}{subsection.7.2}% 22
-\BOOKMARK [3][-]{subsubsection.7.2.3}{Obstacle Avoidance}{subsection.7.2}% 23
-\BOOKMARK [3][-]{subsubsection.7.2.4}{Getting Unstuck From Obstacles}{subsection.7.2}% 24
-\BOOKMARK [3][-]{subsubsection.7.2.5}{Find and Touch the Finish Pole}{subsection.7.2}% 25
-\BOOKMARK [3][-]{subsubsection.7.2.6}{Putting it all Together}{subsection.7.2}% 26
-\BOOKMARK [2][-]{subsection.7.3}{Hardware Requirements}{section.7}% 27
-\BOOKMARK [2][-]{subsection.7.4}{Installation}{section.7}% 28
-\BOOKMARK [3][-]{subsubsection.7.4.1}{Prerequisites}{subsection.7.4}% 29
-\BOOKMARK [3][-]{subsubsection.7.4.2}{Compile and Run}{subsection.7.4}% 30
-\BOOKMARK [1][-]{section.8}{Resources}{}% 31
-\BOOKMARK [2][-]{subsection.8.1}{Machine Learning}{section.8}% 32
-\BOOKMARK [2][-]{subsection.8.2}{Raspberry Pi Zero}{section.8}% 33
-\BOOKMARK [1][-]{section.9}{What We Learned}{}% 34
-\BOOKMARK [2][-]{subsection.9.1}{Zachary DeVita}{section.9}% 35
-\BOOKMARK [3][-]{subsubsection.9.1.1}{Technical Information}{subsection.9.1}% 36
-\BOOKMARK [3][-]{subsubsection.9.1.2}{Non-Technical Information}{subsection.9.1}% 37
-\BOOKMARK [3][-]{subsubsection.9.1.3}{Project Work}{subsection.9.1}% 38
-\BOOKMARK [3][-]{subsubsection.9.1.4}{Project Management}{subsection.9.1}% 39
-\BOOKMARK [3][-]{subsubsection.9.1.5}{Working with Teams}{subsection.9.1}% 40
-\BOOKMARK [3][-]{subsubsection.9.1.6}{What I Would Do Differently}{subsection.9.1}% 41
-\BOOKMARK [2][-]{subsection.9.2}{Paul Minner}{section.9}% 42
-\BOOKMARK [3][-]{subsubsection.9.2.1}{Technical Information}{subsection.9.2}% 43
-\BOOKMARK [3][-]{subsubsection.9.2.2}{Non-Technical Information}{subsection.9.2}% 44
-\BOOKMARK [3][-]{subsubsection.9.2.3}{Project Work}{subsection.9.2}% 45
-\BOOKMARK [3][-]{subsubsection.9.2.4}{Project Management}{subsection.9.2}% 46
-\BOOKMARK [3][-]{subsubsection.9.2.5}{Working with Teams}{subsection.9.2}% 47
-\BOOKMARK [3][-]{subsubsection.9.2.6}{What I Would Do Differently}{subsection.9.2}% 48
-\BOOKMARK [2][-]{subsection.9.3}{Steven Silvers}{section.9}% 49
-\BOOKMARK [3][-]{subsubsection.9.3.1}{Technical Information}{subsection.9.3}% 50
-\BOOKMARK [3][-]{subsubsection.9.3.2}{Non-Technical Information}{subsection.9.3}% 51
-\BOOKMARK [3][-]{subsubsection.9.3.3}{Project Work}{subsection.9.3}% 52
-\BOOKMARK [3][-]{subsubsection.9.3.4}{Project Management}{subsection.9.3}% 53
-\BOOKMARK [3][-]{subsubsection.9.3.5}{Working with Teams}{subsection.9.3}% 54
-\BOOKMARK [3][-]{subsubsection.9.3.6}{What I Would Do Differently}{subsection.9.3}% 55
-\BOOKMARK [2][-]{subsection.9.4}{Zhaolong Wu}{section.9}% 56
-\BOOKMARK [3][-]{subsubsection.9.4.1}{Technical Information}{subsection.9.4}% 57
-\BOOKMARK [3][-]{subsubsection.9.4.2}{Non-Technical Information}{subsection.9.4}% 58
-\BOOKMARK [3][-]{subsubsection.9.4.3}{Project Work}{subsection.9.4}% 59
-\BOOKMARK [3][-]{subsubsection.9.4.4}{Project Management}{subsection.9.4}% 60
-\BOOKMARK [3][-]{subsubsection.9.4.5}{Working with Teams}{subsection.9.4}% 61
-\BOOKMARK [3][-]{subsubsection.9.4.6}{What I Would Do Differently}{subsection.9.4}% 62
-\BOOKMARK [1][-]{section.10}{Appendix I: Essential Code}{}% 63
-\BOOKMARK [2][-]{subsection.10.1}{Obstacle Avoidance}{section.10}% 64
-\BOOKMARK [2][-]{subsection.10.2}{Traffic Cone Detection}{section.10}% 65
-\BOOKMARK [1][-]{section.11}{Appendix II: }{}% 66
-\BOOKMARK [1][-]{section.12}{References}{}% 67
+\BOOKMARK [2][-]{subsection.2.3}{Updated Gantt Chart}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Design Document}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Original Document}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Revision History}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Tech Review}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Original Document}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Revision History}{section.4}% 13
+\BOOKMARK [1][-]{section.5}{Weekly Blog Posts}{}% 14
+\BOOKMARK [2][-]{subsection.5.1}{Fall Term}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.2}{Winter Term}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.3}{Spring Term}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{Poster}{}% 18
+\BOOKMARK [1][-]{section.7}{Project Documentation}{}% 19
+\BOOKMARK [2][-]{subsection.7.1}{Structure}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.2}{Implementation}{section.7}% 21
+\BOOKMARK [3][-]{subsubsection.7.2.1}{Parachute Deployment}{subsection.7.2}% 22
+\BOOKMARK [3][-]{subsubsection.7.2.2}{GPS Navigation}{subsection.7.2}% 23
+\BOOKMARK [3][-]{subsubsection.7.2.3}{Obstacle Avoidance}{subsection.7.2}% 24
+\BOOKMARK [3][-]{subsubsection.7.2.4}{Getting Unstuck From Obstacles}{subsection.7.2}% 25
+\BOOKMARK [3][-]{subsubsection.7.2.5}{Find and Touch the Finish Pole}{subsection.7.2}% 26
+\BOOKMARK [3][-]{subsubsection.7.2.6}{Putting it all Together}{subsection.7.2}% 27
+\BOOKMARK [2][-]{subsection.7.3}{Hardware Requirements}{section.7}% 28
+\BOOKMARK [2][-]{subsection.7.4}{Installation}{section.7}% 29
+\BOOKMARK [3][-]{subsubsection.7.4.1}{Prerequisites}{subsection.7.4}% 30
+\BOOKMARK [3][-]{subsubsection.7.4.2}{Compile and Run}{subsection.7.4}% 31
+\BOOKMARK [1][-]{section.8}{Resources}{}% 32
+\BOOKMARK [2][-]{subsection.8.1}{Machine Learning}{section.8}% 33
+\BOOKMARK [2][-]{subsection.8.2}{Raspberry Pi Zero}{section.8}% 34
+\BOOKMARK [1][-]{section.9}{What We Learned}{}% 35
+\BOOKMARK [2][-]{subsection.9.1}{Zachary DeVita}{section.9}% 36
+\BOOKMARK [3][-]{subsubsection.9.1.1}{Technical Information}{subsection.9.1}% 37
+\BOOKMARK [3][-]{subsubsection.9.1.2}{Non-Technical Information}{subsection.9.1}% 38
+\BOOKMARK [3][-]{subsubsection.9.1.3}{Project Work}{subsection.9.1}% 39
+\BOOKMARK [3][-]{subsubsection.9.1.4}{Project Management}{subsection.9.1}% 40
+\BOOKMARK [3][-]{subsubsection.9.1.5}{Working with Teams}{subsection.9.1}% 41
+\BOOKMARK [3][-]{subsubsection.9.1.6}{What I Would Do Differently}{subsection.9.1}% 42
+\BOOKMARK [2][-]{subsection.9.2}{Paul Minner}{section.9}% 43
+\BOOKMARK [3][-]{subsubsection.9.2.1}{Technical Information}{subsection.9.2}% 44
+\BOOKMARK [3][-]{subsubsection.9.2.2}{Non-Technical Information}{subsection.9.2}% 45
+\BOOKMARK [3][-]{subsubsection.9.2.3}{Project Work}{subsection.9.2}% 46
+\BOOKMARK [3][-]{subsubsection.9.2.4}{Project Management}{subsection.9.2}% 47
+\BOOKMARK [3][-]{subsubsection.9.2.5}{Working with Teams}{subsection.9.2}% 48
+\BOOKMARK [3][-]{subsubsection.9.2.6}{What I Would Do Differently}{subsection.9.2}% 49
+\BOOKMARK [2][-]{subsection.9.3}{Steven Silvers}{section.9}% 50
+\BOOKMARK [3][-]{subsubsection.9.3.1}{Technical Information}{subsection.9.3}% 51
+\BOOKMARK [3][-]{subsubsection.9.3.2}{Non-Technical Information}{subsection.9.3}% 52
+\BOOKMARK [3][-]{subsubsection.9.3.3}{Project Work}{subsection.9.3}% 53
+\BOOKMARK [3][-]{subsubsection.9.3.4}{Project Management}{subsection.9.3}% 54
+\BOOKMARK [3][-]{subsubsection.9.3.5}{Working with Teams}{subsection.9.3}% 55
+\BOOKMARK [3][-]{subsubsection.9.3.6}{What I Would Do Differently}{subsection.9.3}% 56
+\BOOKMARK [2][-]{subsection.9.4}{Zhaolong Wu}{section.9}% 57
+\BOOKMARK [3][-]{subsubsection.9.4.1}{Technical Information}{subsection.9.4}% 58
+\BOOKMARK [3][-]{subsubsection.9.4.2}{Non-Technical Information}{subsection.9.4}% 59
+\BOOKMARK [3][-]{subsubsection.9.4.3}{Project Work}{subsection.9.4}% 60
+\BOOKMARK [3][-]{subsubsection.9.4.4}{Project Management}{subsection.9.4}% 61
+\BOOKMARK [3][-]{subsubsection.9.4.5}{Working with Teams}{subsection.9.4}% 62
+\BOOKMARK [3][-]{subsubsection.9.4.6}{What I Would Do Differently}{subsection.9.4}% 63
+\BOOKMARK [1][-]{section.10}{Appendix I: Essential Code}{}% 64
+\BOOKMARK [2][-]{subsection.10.1}{Obstacle Avoidance}{section.10}% 65
+\BOOKMARK [2][-]{subsection.10.2}{Traffic Cone Detection}{section.10}% 66
+\BOOKMARK [1][-]{section.11}{Appendix II: }{}% 67
+\BOOKMARK [1][-]{section.12}{References}{}% 68

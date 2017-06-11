@@ -14,6 +14,7 @@
 \usepackage{courier}
 \usepackage[hidelinks]{hyperref}
 \usepackage{pxfonts}
+\usepackage{rotating}
 
 \linespread{1.0}
 \setlength{\parindent}{0cm}
@@ -114,11 +115,11 @@ The following document is the original version of our software requirements for 
 
 \subsection{\textbf{Revision History}}
 Our Requirements remained the same throughout the project, so we don't have any revisions to show.\vspace{.3cm}
-
 \subsection{\textbf{Updated Gantt Chart}}
+
 %\newgeometry{vmargin=1cm}
 \begin{sidewaysfigure}
-%\begin{landscape}
+	%\begin{landscape}
 	\thispagestyle{empty}\centering
 	\begin{ganttchart}[vgrid={draw=none,draw=none},%
 		y unit title=0.75cm,
@@ -145,21 +146,21 @@ Our Requirements remained the same throughout the project, so we don't have any 
 		\ganttbar{Obstacle Avoidance System}{11}{19} \\
 		\ganttbar{Computer Vision Systems}{11}{19} \\
 		\ganttbar{Navigation System}{13}{21} \\                
-                \ganttbar{Parachute Deployment}{14}{18} \ganttnewline
+		\ganttbar{Parachute Deployment}{14}{18} \ganttnewline
 		\ganttbar{Change to Drive Mode}{17}{25} \ganttnewline
 		\ganttbar{Progress report}{18}{20} \ganttnewline
 		%%%%%%%%%%%%%%%%%Spring2017
 		\ganttgroup{Spring 2017}{21}{30} \\
-                \ganttbar{BugFixing and Improvements}{21}{27} \ganttnewline
-                \ganttbar{Sensor and Motor Initialization}{23}{27} \ganttnewline
-                \ganttbar{Engineering Expo!}{27}{27} \ganttnewline
+		\ganttbar{BugFixing and Improvements}{21}{27} \ganttnewline
+		\ganttbar{Sensor and Motor Initialization}{23}{27} \ganttnewline
+		\ganttbar{Engineering Expo!}{27}{27} \ganttnewline
 		\ganttbar{Final Report}{28}{30} \ganttnewline
-
+		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\end{ganttchart}
-%\end{landscape}
+	%\end{landscape}
 \end{sidewaysfigure}
-
+\clearpage
 
 \section{\textbf{Design Document}}
 \subsection{\textbf{Original Document}}
