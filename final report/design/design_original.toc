@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {I}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {II}Framework}{2}{section.2}
+\contentsline {section}{\numberline {III}CMOS Image Sensing}{3}{section.3}
+\contentsline {section}{\numberline {IV}Ultrasonic Radar Sensor}{3}{section.4}
+\contentsline {section}{\numberline {V}Continuous Tracks}{4}{section.5}
+\contentsline {section}{\numberline {VI}Control Board}{4}{section.6}
+\contentsline {section}{\numberline {VII}Obstacle Avoidance}{5}{section.7}
+\contentsline {section}{\numberline {VIII}Parachute Deployment}{5}{section.8}
+\contentsline {section}{\numberline {IX}Getting Unstuck From Obstacles}{6}{section.9}
+\contentsline {section}{\numberline {X}Finding and Touching the Finish Pole}{6}{section.10}
+\contentsline {section}{\numberline {XI}Navigation system design}{7}{section.11}
+\contentsline {section}{\numberline {XII}Getting rover unstuck when it on its side}{8}{section.12}
+\contentsline {section}{\numberline {XIII}Payload fairing}{9}{section.13}
+\contentsline {section}{References}{}{section*.2}
