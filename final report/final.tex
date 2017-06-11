@@ -1,6 +1,8 @@
 \documentclass[10pt,letterpaper,onecolumn,draftclsnofoot,journal]{IEEEtran}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{pdfpages}
+\usepackage{pgfgantt}
+\usepackage{pdflscape}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{longtable}
@@ -111,8 +113,50 @@ The following document is the original version of our software requirements for 
 \includepdf[pages={1-},frame,scale=0.90]{requirements/srs.pdf}
 
 \subsection{\textbf{Revision History}}
+Our Requirements remained the same throughout the project, so we don't have any revisions to show.\vspace{.3cm}
 
+\subsection{\textbf{Updated Gantt Chart}}
+%\newgeometry{vmargin=1cm}
+\begin{landscape}
+	\thispagestyle{empty}\centering
+	\begin{ganttchart}[vgrid={draw=none,draw=none},%
+		y unit title=0.75cm,
+		y unit chart=0.6cm,
+		bar/.style={fill=black!50},
+		incomplete/.style={fill=white},
+		progress label text=  {\quad\pgfmathprintnumber[precision=0,verbatim]{#1}\%}%
+		]{1}{30}
+		\gantttitle{Fall 2016}{10}
+		\gantttitle{Winter2017}{10}
+		\gantttitle{Spring2017}{10}\\
+		\gantttitle{Week}{30}\\
+		\gantttitlelist{1,...,30}{1}\\
+		\ganttgroup{Total Duration}{1}{30} \\
+		%%%%%%%%%%%%%%%%%Fall2016
+		\ganttgroup{Fall 2016}{1}{10} \\
+		\ganttbar{Project Preference \& Client intereaction}{1}{2} \\
+		\ganttbar{Problem statement}{3}{4} \ganttnewline
+		\ganttbar{Requirement Document \& Modeling}{5}{6} \ganttnewline
+		\ganttbar{Research}{6}{10} \ganttnewline
+		\ganttbar{Progress Report}{9}{10} \ganttnewline
+		%%%%%%%%%%%%%%%%%Winter2017
+		\ganttgroup{Winter 2017}{11}{20} \\
+		\ganttbar{Obstacle Avoidance System}{11}{19} \\
+		\ganttbar{Computer Vision Systems}{11}{19} \\
+		\ganttbar{Navigation System}{13}{21} \\                
+                \ganttbar{Parachute Deployment}{14}{18} \ganttnewline
+		\ganttbar{Change to Drive Mode}{17}{25} \ganttnewline
+		\ganttbar{Progress report}{18}{20} \ganttnewline
+		%%%%%%%%%%%%%%%%%Spring2017
+		\ganttgroup{Spring 2017}{21}{30} \\
+                \ganttbar{BugFixing and Improvements}{21}{27} \ganttnewline
+                \ganttbar{Sensor and Motor Initialization}{23}{27} \ganttnewline
+                \ganttbar{Engineering Expo!}{27}{27} \ganttnewline
+		\ganttbar{Final Report}{28}{30} \ganttnewline
 
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\end{ganttchart}
+\end{landscape}
 
 \section{\textbf{Design Document}}
 \subsection{\textbf{Original Document}}
